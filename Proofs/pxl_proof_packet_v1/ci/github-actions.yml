@@ -1,0 +1,12 @@
+name: proofkit-ci
+on: [push, pull_request]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Lean (container suggested) and Coq
+        run: echo "Install Lean & Coq in your CI as needed"
+      - name: Smoke
+        run: |
+          ./scripts/check_all.sh

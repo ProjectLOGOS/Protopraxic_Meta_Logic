@@ -1,0 +1,55 @@
+DIGEST 23f635c9562b2a9bbb630df1a6a8693f
+FPXLv3.test_K
+ax 64:66 <> Box
+R74:77 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R105:107 PXLv3.test_K <> Box defax
+not 93:93 <> :::'□'_x
+ax 134:137 <> ax_K
+binder 148:148 <> p:3
+binder 150:150 <> q:4
+R170:174 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R189:189 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R158:162 PXLv3.test_K <> :::'□'_x not
+R169:169 PXLv3.test_K <> :::'□'_x not
+R164:167 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R163:163 PXLv3.test_K <> p:3 var
+R168:168 PXLv3.test_K <> q:4 var
+R180:183 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R175:178 PXLv3.test_K <> :::'□'_x not
+R179:179 PXLv3.test_K <> p:3 var
+R184:187 PXLv3.test_K <> :::'□'_x not
+R188:188 PXLv3.test_K <> q:4 var
+prf 199:205 <> K_sound
+binder 208:208 <> p:7
+binder 210:210 <> q:8
+R220:220 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R233:238 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R253:253 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R221:225 PXLv3.test_K <> :::'□'_x not
+R232:232 PXLv3.test_K <> :::'□'_x not
+R227:230 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R226:226 PXLv3.test_K <> p:7 var
+R231:231 PXLv3.test_K <> q:8 var
+R244:247 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R239:242 PXLv3.test_K <> :::'□'_x not
+R243:243 PXLv3.test_K <> p:7 var
+R248:251 PXLv3.test_K <> :::'□'_x not
+R252:252 PXLv3.test_K <> q:8 var
+R279:283 PXLv3.test_K <> :::'□'_x not
+R290:290 PXLv3.test_K <> :::'□'_x not
+R285:288 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+binder 277:277 <> H:9
+R297:300 PXLv3.test_K <> :::'□'_x not
+binder 294:295 <> Hp:10
+R307:310 PXLv3.test_K <> ax_K prfax
+R328:329 PXLv3.test_K <> Hp:10 var
+R326:326 PXLv3.test_K <> H:9 var
+R279:283 PXLv3.test_K <> :::'□'_x not
+R290:290 PXLv3.test_K <> :::'□'_x not
+R285:288 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+binder 277:277 <> H:11
+R297:300 PXLv3.test_K <> :::'□'_x not
+binder 294:295 <> Hp:12
+R307:310 PXLv3.test_K <> ax_K prfax
+R328:329 PXLv3.test_K <> Hp:12 var
+R326:326 PXLv3.test_K <> H:11 var

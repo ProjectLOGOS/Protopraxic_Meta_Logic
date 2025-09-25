@@ -1,0 +1,206 @@
+DIGEST 91562c28ab260069f3e409b8cad6ec37
+FPXLv3.PXLv3_head
+ax 157:159 <> Obj
+ax 218:222 <> Ident
+R229:232 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R226:228 PXLv3.PXLv3_head <> Obj defax
+R236:239 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R233:235 PXLv3.PXLv3_head <> Obj defax
+ax 270:277 <> NonEquiv
+R284:287 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R281:283 PXLv3.PXLv3_head <> Obj defax
+R291:294 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R288:290 PXLv3.PXLv3_head <> Obj defax
+ax 322:326 <> Inter
+R333:336 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R330:332 PXLv3.PXLv3_head <> Obj defax
+R340:343 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R337:339 PXLv3.PXLv3_head <> Obj defax
+ax 375:378 <> PImp
+R386:389 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R394:397 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+ax 427:432 <> MEquiv
+R440:443 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R448:451 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+ax 502:504 <> Box
+R512:515 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+ax 544:546 <> Dia
+R554:557 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R620:624 PXLv3.PXLv3_head <> Ident defax
+not 609:609 <> :::x_'⧟'_x
+R658:665 PXLv3.PXLv3_head <> NonEquiv defax
+not 647:647 <> :::x_'⇎'_x
+R699:703 PXLv3.PXLv3_head <> Inter defax
+not 688:688 <> :::x_'⇌'_x
+R738:741 PXLv3.PXLv3_head <> PImp defax
+not 727:727 <> :::x_'⟹'_x
+R796:801 PXLv3.PXLv3_head <> MEquiv defax
+not 785:785 <> :::x_'⩪'_x
+R840:842 PXLv3.PXLv3_head <> Box defax
+not 828:828 <> :::'□'_x
+R883:885 PXLv3.PXLv3_head <> Dia defax
+not 871:871 <> :::'◇'_x
+ax 945:948 <> ax_K
+binder 960:960 <> p:17
+binder 962:962 <> q:18
+R982:986 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1001:1001 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R970:974 PXLv3.PXLv3_head <> :::'□'_x not
+R981:981 PXLv3.PXLv3_head <> :::'□'_x not
+R976:979 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R975:975 PXLv3.PXLv3_head <> p:17 var
+R980:980 PXLv3.PXLv3_head <> q:18 var
+R992:995 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R987:990 PXLv3.PXLv3_head <> :::'□'_x not
+R991:991 PXLv3.PXLv3_head <> p:17 var
+R996:999 PXLv3.PXLv3_head <> :::'□'_x not
+R1000:1000 PXLv3.PXLv3_head <> q:18 var
+ax 1010:1013 <> ax_T
+binder 1025:1025 <> p:21
+R1038:1041 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1033:1036 PXLv3.PXLv3_head <> :::'□'_x not
+R1037:1037 PXLv3.PXLv3_head <> p:21 var
+R1042:1042 PXLv3.PXLv3_head <> p:21 var
+ax 1051:1054 <> ax_4
+binder 1066:1066 <> p:24
+R1079:1082 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1074:1077 PXLv3.PXLv3_head <> :::'□'_x not
+R1078:1078 PXLv3.PXLv3_head <> p:24 var
+R1083:1086 PXLv3.PXLv3_head <> :::'□'_x not
+R1087:1090 PXLv3.PXLv3_head <> :::'□'_x not
+R1091:1091 PXLv3.PXLv3_head <> p:24 var
+ax 1100:1103 <> ax_5
+binder 1115:1115 <> p:27
+R1128:1131 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1123:1126 PXLv3.PXLv3_head <> :::'◇'_x not
+R1127:1127 PXLv3.PXLv3_head <> p:27 var
+R1132:1135 PXLv3.PXLv3_head <> :::'□'_x not
+R1136:1139 PXLv3.PXLv3_head <> :::'◇'_x not
+R1140:1140 PXLv3.PXLv3_head <> p:27 var
+ax 1180:1185 <> ax_Nec
+binder 1196:1196 <> p:30
+R1205:1208 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1204:1204 PXLv3.PXLv3_head <> p:30 var
+R1209:1212 PXLv3.PXLv3_head <> :::'□'_x not
+R1213:1213 PXLv3.PXLv3_head <> p:30 var
+ax 1295:1307 <> ax_ident_refl
+R1321:1323 PXLv3.PXLv3_head <> Obj defax
+binder 1319:1319 <> x:33
+R1327:1331 PXLv3.PXLv3_head <> :::x_'⧟'_x not
+R1326:1326 PXLv3.PXLv3_head <> x:33 var
+R1332:1332 PXLv3.PXLv3_head <> x:33 var
+ax 1341:1353 <> ax_ident_symm
+R1369:1371 PXLv3.PXLv3_head <> Obj defax
+binder 1365:1365 <> x:36
+binder 1367:1367 <> y:37
+R1381:1384 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1375:1379 PXLv3.PXLv3_head <> :::x_'⧟'_x not
+R1374:1374 PXLv3.PXLv3_head <> x:36 var
+R1380:1380 PXLv3.PXLv3_head <> y:37 var
+R1386:1390 PXLv3.PXLv3_head <> :::x_'⧟'_x not
+R1385:1385 PXLv3.PXLv3_head <> y:37 var
+R1391:1391 PXLv3.PXLv3_head <> x:36 var
+ax 1400:1413 <> ax_ident_trans
+R1430:1432 PXLv3.PXLv3_head <> Obj defax
+binder 1424:1424 <> x:40
+binder 1426:1426 <> y:41
+binder 1428:1428 <> z:42
+R1442:1445 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1436:1440 PXLv3.PXLv3_head <> :::x_'⧟'_x not
+R1435:1435 PXLv3.PXLv3_head <> x:40 var
+R1441:1441 PXLv3.PXLv3_head <> y:41 var
+R1453:1456 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1447:1451 PXLv3.PXLv3_head <> :::x_'⧟'_x not
+R1446:1446 PXLv3.PXLv3_head <> y:41 var
+R1452:1452 PXLv3.PXLv3_head <> z:42 var
+R1458:1462 PXLv3.PXLv3_head <> :::x_'⧟'_x not
+R1457:1457 PXLv3.PXLv3_head <> x:40 var
+R1463:1463 PXLv3.PXLv3_head <> z:42 var
+ax 1473:1490 <> ax_nonequiv_irrefl
+R1503:1505 PXLv3.PXLv3_head <> Obj defax
+binder 1501:1501 <> x:45
+R1508:1510 Coq.Init.Logic <> ::type_scope:'~'_x not
+R1518:1518 Coq.Init.Logic <> ::type_scope:'~'_x not
+R1512:1516 PXLv3.PXLv3_head <> :::x_'⇎'_x not
+R1511:1511 PXLv3.PXLv3_head <> x:45 var
+R1517:1517 PXLv3.PXLv3_head <> x:45 var
+ax 1527:1539 <> ax_inter_comm
+R1559:1561 PXLv3.PXLv3_head <> Obj defax
+binder 1555:1555 <> x:48
+binder 1557:1557 <> y:49
+R1571:1575 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
+R1565:1569 PXLv3.PXLv3_head <> :::x_'⇌'_x not
+R1564:1564 PXLv3.PXLv3_head <> x:48 var
+R1570:1570 PXLv3.PXLv3_head <> y:49 var
+R1577:1581 PXLv3.PXLv3_head <> :::x_'⇌'_x not
+R1576:1576 PXLv3.PXLv3_head <> y:49 var
+R1582:1582 PXLv3.PXLv3_head <> x:48 var
+ax 1657:1668 <> ax_imp_intro
+binder 1679:1679 <> p:52
+binder 1681:1681 <> q:53
+R1689:1689 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1696:1701 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1709:1709 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1691:1694 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1690:1690 PXLv3.PXLv3_head <> p:52 var
+R1695:1695 PXLv3.PXLv3_head <> q:53 var
+R1703:1707 PXLv3.PXLv3_head <> :::x_'⟹'_x not
+R1702:1702 PXLv3.PXLv3_head <> p:52 var
+R1708:1708 PXLv3.PXLv3_head <> q:53 var
+ax 1718:1728 <> ax_imp_elim
+binder 1740:1740 <> p:56
+binder 1742:1742 <> q:57
+R1750:1750 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1758:1763 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1770:1770 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1752:1756 PXLv3.PXLv3_head <> :::x_'⟹'_x not
+R1751:1751 PXLv3.PXLv3_head <> p:56 var
+R1757:1757 PXLv3.PXLv3_head <> q:57 var
+R1765:1768 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1764:1764 PXLv3.PXLv3_head <> p:56 var
+R1769:1769 PXLv3.PXLv3_head <> q:57 var
+ax 1780:1794 <> ax_mequiv_intro
+binder 1805:1805 <> p:60
+binder 1807:1807 <> q:61
+R1815:1815 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1823:1828 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1836:1836 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1817:1821 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
+R1816:1816 PXLv3.PXLv3_head <> p:60 var
+R1822:1822 PXLv3.PXLv3_head <> q:61 var
+R1830:1834 PXLv3.PXLv3_head <> :::x_'⩪'_x not
+R1829:1829 PXLv3.PXLv3_head <> p:60 var
+R1835:1835 PXLv3.PXLv3_head <> q:61 var
+ax 1845:1858 <> ax_mequiv_elim
+binder 1870:1870 <> p:64
+binder 1872:1872 <> q:65
+R1880:1880 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1888:1893 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1901:1901 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1882:1886 PXLv3.PXLv3_head <> :::x_'⩪'_x not
+R1881:1881 PXLv3.PXLv3_head <> p:64 var
+R1887:1887 PXLv3.PXLv3_head <> q:65 var
+R1895:1899 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
+R1894:1894 PXLv3.PXLv3_head <> p:64 var
+R1900:1900 PXLv3.PXLv3_head <> q:65 var
+prf 1951:1968 <> imp_respects_truth
+binder 1971:1971 <> p:68
+binder 1973:1973 <> q:69
+R1983:1983 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1991:1996 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R2003:2003 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1985:1989 PXLv3.PXLv3_head <> :::x_'⟹'_x not
+R1984:1984 PXLv3.PXLv3_head <> p:68 var
+R1990:1990 PXLv3.PXLv3_head <> q:69 var
+R1998:2001 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1997:1997 PXLv3.PXLv3_head <> p:68 var
+R2002:2002 PXLv3.PXLv3_head <> q:69 var
+R2029:2039 PXLv3.PXLv3_head <> ax_imp_elim prfax
+R2029:2039 PXLv3.PXLv3_head <> ax_imp_elim prfax
+prf 2071:2086 <> mequiv_reflexive
+binder 2089:2089 <> p:70
+R2100:2104 PXLv3.PXLv3_head <> :::x_'⩪'_x not
+R2099:2099 PXLv3.PXLv3_head <> p:70 var
+R2105:2105 PXLv3.PXLv3_head <> p:70 var
+R2121:2135 PXLv3.PXLv3_head <> ax_mequiv_intro prfax
+R2121:2135 PXLv3.PXLv3_head <> ax_mequiv_intro prfax
