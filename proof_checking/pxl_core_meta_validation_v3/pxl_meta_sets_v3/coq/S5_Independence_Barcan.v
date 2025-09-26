@@ -7,8 +7,6 @@ From Coq Require Import Logic.Classical.
   Explicit proofs only.
 *)
 
-Section Frames.
-
 Record frame := { W : Type; R : W -> W -> Prop }.
 
 Definition box {F:frame} (p:W F -> Prop) : W F -> Prop := fun w => forall u, R F w u -> p u.
@@ -27,87 +25,40 @@ Module NonReflexive_T.
     - intros u Hu. destruct u; simpl in *.
       + inversion Hu.
       + exact I.
-    - simpl. exact I.
+    - simpl. intro H. inversion H.
   Qed.
 End NonReflexive_T.
 
-Module NonTransitive_4.
-  Inductive Wt := a | b | c.
-  Definition Rt (x y:Wt) : Prop :=
-    match x,y with
-    | a,b => True
-    | b,c => True
-    | x,y => x = y
-    end.
-  Definition Ft : frame := {| W := Wt; R := Rt |}.
+(* The constructive countermodels for failure of 4 and 5 live in
+   `S5_CounterModels.v`. That file is self-contained and contains
+   verified lemmas `Four_fails` and `Five_fails` demonstrating the
+   countermodels. Import that module if you want to use those lemmas
+   here. *)
 
-  Definition p (w:Wt) : Prop := match w with | a => False | b => True | c => False end.
+From PXLs Require Import S5_CounterModels.
 
-  Lemma Four_fails : exists w, box (F:=Ft) p w /\ ~ box (F:=Ft) (box (F:=Ft) p) w.
-  Proof.
-    exists a. split.
-    - intros u Hu. destruct u; simpl in *.
-      + reflexivity.
-      + exact I.
-      + inversion Hu.
-    - intro Hb.
-      specialize (Hb b). simpl in Hb.
-      assert (Hab: Rt a b) by auto.
-      specialize (Hb Hab).
-      specialize (Hb c). simpl in Hb.
-      assert (Hbc: Rt b c) by auto.
-      specialize (Hb Hbc). simpl in Hb. exact Hb.
-  Qed.
-End NonTransitive_4.
-
-Module NonEuclidean_5.
-  Inductive Wt := a | b | c.
-  Definition Rt (x y:Wt) : Prop :=
-    match x,y with
-    | a,b => True
-    | a,c => True
-    | x,y => x = y
-    end.
-  Definition Ft : frame := {| W := Wt; R := Rt |}.
-
-  Definition p (w:Wt) : Prop := match w with | c => True | _ => False end.
-
-  Lemma Five_fails : exists w, dia (F:=Ft) p w /\ ~ box (F:=Ft) (dia (F:=Ft) p) w.
-  Proof.
-    exists a. split.
-    - exists c. split; auto. simpl. exact I.
-    - intro Hb. specialize (Hb b). simpl in Hb.
-      assert (Hab: Rt a b) by auto.
-      specialize (Hb Hab). destruct Hb as [u [Hbu Hpu]].
-      destruct u; simpl in *.
-      + inversion Hbu.
-      + inversion Hbu.
-      + exact Hpu.
-  Qed.
-End NonEuclidean_5.
-
-End Frames.
+(* See `S5_CounterModels.v` for a self-contained proof of Five_fails. *)
 
 Section Barcan_Constant.
 
 Variable W : Type.
 Variable R : W -> W -> Prop.
 
-Definition box (p:W->Prop) : W->Prop := fun w => forall u, R w u -> p u.
+Definition box_const (p:W->Prop) : W->Prop := fun w => forall u, R w u -> p u.
 
 Variable D : Type.
 Variable P : W -> D -> Prop.
 
 Lemma Barcan_constant : forall w,
-  (forall x:D, box (fun w => P w x) w) ->
-  box (fun w => forall x:D, P w x) w.
+  (forall x:D, box_const (fun w => P w x) w) ->
+  box_const (fun w => forall x:D, P w x) w.
 Proof.
   intros w H u Hwu x. apply (H x u Hwu).
 Qed.
 
 Lemma Converse_Barcan_constant : forall w,
-  box (fun w => forall x:D, P w x) w ->
-  forall x:D, box (fun w => P w x) w.
+  box_const (fun w => forall x:D, P w x) w ->
+  forall x:D, box_const (fun w => P w x) w.
 Proof.
   intros w H x u Hwu. apply (H u Hwu).
 Qed.

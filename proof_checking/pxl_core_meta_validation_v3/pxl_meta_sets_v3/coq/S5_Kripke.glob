@@ -1,0 +1,304 @@
+DIGEST 7ff50cca4e9e557a097f0b421bb68aee
+FPXLs.S5_Kripke
+R24:38 Coq.Logic.Classical <> <> lib
+sec 327:338 <> S5_Semantics
+var 351:351 S5_Semantics W
+var 370:370 S5_Semantics R
+R375:378 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R374:374 PXLs.S5_Kripke <> S5_Semantics.W var
+R380:383 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R379:379 PXLs.S5_Kripke <> S5_Semantics.W var
+var 402:407 S5_Semantics R_refl
+binder 419:419 <> w:5
+R422:422 PXLs.S5_Kripke <> S5_Semantics.R var
+R424:424 PXLs.S5_Kripke <> w:5 var
+R426:426 PXLs.S5_Kripke <> w:5 var
+var 440:445 S5_Semantics R_symm
+binder 457:457 <> w:8
+binder 459:459 <> u:9
+R467:470 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R462:462 PXLs.S5_Kripke <> S5_Semantics.R var
+R464:464 PXLs.S5_Kripke <> w:8 var
+R466:466 PXLs.S5_Kripke <> u:9 var
+R471:471 PXLs.S5_Kripke <> S5_Semantics.R var
+R473:473 PXLs.S5_Kripke <> u:9 var
+R475:475 PXLs.S5_Kripke <> w:8 var
+var 489:495 S5_Semantics R_trans
+binder 506:506 <> w:12
+binder 508:508 <> u:13
+binder 510:510 <> v:14
+R518:521 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R513:513 PXLs.S5_Kripke <> S5_Semantics.R var
+R515:515 PXLs.S5_Kripke <> w:12 var
+R517:517 PXLs.S5_Kripke <> u:13 var
+R527:530 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R522:522 PXLs.S5_Kripke <> S5_Semantics.R var
+R524:524 PXLs.S5_Kripke <> u:13 var
+R526:526 PXLs.S5_Kripke <> v:14 var
+R531:531 PXLs.S5_Kripke <> S5_Semantics.R var
+R533:533 PXLs.S5_Kripke <> w:12 var
+R535:535 PXLs.S5_Kripke <> v:14 var
+def 550:552 <> box
+R558:559 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R557:557 PXLs.S5_Kripke <> S5_Semantics.W var
+binder 555:555 <> p:17
+R569:570 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R568:568 PXLs.S5_Kripke <> S5_Semantics.W var
+binder 583:583 <> w:18
+binder 595:595 <> u:19
+R603:606 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R598:598 PXLs.S5_Kripke <> S5_Semantics.R var
+R600:600 PXLs.S5_Kripke <> w:18 var
+R602:602 PXLs.S5_Kripke <> u:19 var
+R607:607 PXLs.S5_Kripke <> p:17 var
+R609:609 PXLs.S5_Kripke <> u:19 var
+def 623:625 <> dia
+R631:632 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R630:630 PXLs.S5_Kripke <> S5_Semantics.W var
+binder 628:628 <> p:20
+R642:643 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R641:641 PXLs.S5_Kripke <> S5_Semantics.W var
+binder 656:656 <> w:21
+R661:667 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R669:670 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+binder 668:668 <> u:22
+R676:679 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R671:671 PXLs.S5_Kripke <> S5_Semantics.R var
+R673:673 PXLs.S5_Kripke <> w:21 var
+R675:675 PXLs.S5_Kripke <> u:22 var
+R680:680 PXLs.S5_Kripke <> p:20 var
+R682:682 PXLs.S5_Kripke <> u:22 var
+prf 692:696 <> K_sem
+binder 707:707 <> p:23
+binder 709:709 <> q:24
+binder 720:720 <> w:25
+R750:754 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R773:773 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R723:725 PXLs.S5_Kripke <> box def
+binder 732:732 <> x:26
+R740:743 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R737:737 PXLs.S5_Kripke <> p:23 var
+R739:739 PXLs.S5_Kripke <> x:26 var
+R744:744 PXLs.S5_Kripke <> q:24 var
+R746:746 PXLs.S5_Kripke <> x:26 var
+R749:749 PXLs.S5_Kripke <> w:25 var
+R762:765 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R755:757 PXLs.S5_Kripke <> box def
+R759:759 PXLs.S5_Kripke <> p:23 var
+R761:761 PXLs.S5_Kripke <> w:25 var
+R766:768 PXLs.S5_Kripke <> box def
+R770:770 PXLs.S5_Kripke <> q:24 var
+R772:772 PXLs.S5_Kripke <> w:25 var
+prf 870:874 <> T_sem
+binder 885:885 <> p:27
+binder 895:895 <> w:28
+R905:908 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R898:900 PXLs.S5_Kripke <> box def
+R902:902 PXLs.S5_Kripke <> p:27 var
+R904:904 PXLs.S5_Kripke <> w:28 var
+R909:909 PXLs.S5_Kripke <> p:27 var
+R911:911 PXLs.S5_Kripke <> w:28 var
+R954:959 PXLs.S5_Kripke <> S5_Semantics.R_refl var
+R954:959 PXLs.S5_Kripke <> S5_Semantics.R_refl var
+prf 974:981 <> Four_sem
+binder 992:992 <> p:29
+binder 1002:1002 <> w:30
+R1012:1015 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1005:1007 PXLs.S5_Kripke <> box def
+R1009:1009 PXLs.S5_Kripke <> p:29 var
+R1011:1011 PXLs.S5_Kripke <> w:30 var
+R1016:1018 PXLs.S5_Kripke <> box def
+R1021:1023 PXLs.S5_Kripke <> box def
+R1025:1025 PXLs.S5_Kripke <> p:29 var
+R1028:1028 PXLs.S5_Kripke <> w:30 var
+R1086:1092 PXLs.S5_Kripke <> S5_Semantics.R_trans var
+R1086:1092 PXLs.S5_Kripke <> S5_Semantics.R_trans var
+prf 1114:1121 <> Five_sem
+binder 1132:1132 <> p:31
+binder 1142:1142 <> w:32
+R1152:1155 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1145:1147 PXLs.S5_Kripke <> dia def
+R1149:1149 PXLs.S5_Kripke <> p:31 var
+R1151:1151 PXLs.S5_Kripke <> w:32 var
+R1156:1158 PXLs.S5_Kripke <> box def
+R1161:1163 PXLs.S5_Kripke <> dia def
+R1165:1165 PXLs.S5_Kripke <> p:31 var
+R1168:1168 PXLs.S5_Kripke <> w:32 var
+R1350:1356 PXLs.S5_Kripke <> S5_Semantics.R_trans var
+R1350:1356 PXLs.S5_Kripke <> S5_Semantics.R_trans var
+R1381:1386 PXLs.S5_Kripke <> S5_Semantics.R_symm var
+R1381:1386 PXLs.S5_Kripke <> S5_Semantics.R_symm var
+prf 1427:1438 <> dual_box_dia
+binder 1449:1449 <> p:33
+binder 1451:1451 <> w:34
+R1461:1465 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
+R1454:1456 PXLs.S5_Kripke <> box def
+R1458:1458 PXLs.S5_Kripke <> p:33 var
+R1460:1460 PXLs.S5_Kripke <> w:34 var
+R1466:1467 Coq.Init.Logic <> ::type_scope:'~'_x not
+R1468:1470 PXLs.S5_Kripke <> dia def
+binder 1477:1477 <> x:35
+R1482:1483 Coq.Init.Logic <> ::type_scope:'~'_x not
+R1484:1484 PXLs.S5_Kripke <> p:33 var
+R1486:1486 PXLs.S5_Kripke <> x:35 var
+R1489:1489 PXLs.S5_Kripke <> w:34 var
+R1615:1621 Coq.Logic.Classical_Prop <> classic prfax
+R1615:1621 Coq.Logic.Classical_Prop <> classic prfax
+prf 1738:1749 <> dual_dia_box
+binder 1760:1760 <> p:36
+binder 1762:1762 <> w:37
+R1772:1776 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
+R1765:1767 PXLs.S5_Kripke <> dia def
+R1769:1769 PXLs.S5_Kripke <> p:36 var
+R1771:1771 PXLs.S5_Kripke <> w:37 var
+R1777:1778 Coq.Init.Logic <> ::type_scope:'~'_x not
+R1779:1781 PXLs.S5_Kripke <> box def
+binder 1788:1788 <> x:38
+R1793:1794 Coq.Init.Logic <> ::type_scope:'~'_x not
+R1795:1795 PXLs.S5_Kripke <> p:36 var
+R1797:1797 PXLs.S5_Kripke <> x:38 var
+R1800:1800 PXLs.S5_Kripke <> w:37 var
+R1916:1922 Coq.Logic.Classical_Prop <> classic prfax
+R1925:1931 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R1933:1934 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+binder 1932:1932 <> u:39
+R1940:1943 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R1935:1935 PXLs.S5_Kripke <> S5_Semantics.R var
+R1939:1939 PXLs.S5_Kripke <> u:39 var
+R1946:1946 PXLs.S5_Kripke <> u:39 var
+R1916:1922 Coq.Logic.Classical_Prop <> classic prfax
+R1925:1931 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R1933:1934 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+binder 1932:1932 <> u:40
+R1940:1943 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R1935:1935 PXLs.S5_Kripke <> S5_Semantics.R var
+R1939:1939 PXLs.S5_Kripke <> u:40 var
+R1946:1946 PXLs.S5_Kripke <> u:40 var
+prf 2095:2102 <> mono_box
+binder 2113:2113 <> p:41
+binder 2115:2115 <> q:42
+binder 2117:2117 <> w:43
+R2120:2120 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R2141:2145 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+binder 2128:2128 <> x:44
+R2134:2137 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R2131:2131 PXLs.S5_Kripke <> p:41 var
+R2133:2133 PXLs.S5_Kripke <> x:44 var
+R2138:2138 PXLs.S5_Kripke <> q:42 var
+R2140:2140 PXLs.S5_Kripke <> x:44 var
+R2153:2156 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R2146:2148 PXLs.S5_Kripke <> box def
+R2150:2150 PXLs.S5_Kripke <> p:41 var
+R2152:2152 PXLs.S5_Kripke <> w:43 var
+R2157:2159 PXLs.S5_Kripke <> box def
+R2161:2161 PXLs.S5_Kripke <> q:42 var
+R2163:2163 PXLs.S5_Kripke <> w:43 var
+prf 2243:2250 <> mono_dia
+binder 2261:2261 <> p:45
+binder 2263:2263 <> q:46
+binder 2265:2265 <> w:47
+R2268:2268 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R2289:2293 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+binder 2276:2276 <> x:48
+R2282:2285 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R2279:2279 PXLs.S5_Kripke <> p:45 var
+R2281:2281 PXLs.S5_Kripke <> x:48 var
+R2286:2286 PXLs.S5_Kripke <> q:46 var
+R2288:2288 PXLs.S5_Kripke <> x:48 var
+R2301:2304 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R2294:2296 PXLs.S5_Kripke <> dia def
+R2298:2298 PXLs.S5_Kripke <> p:45 var
+R2300:2300 PXLs.S5_Kripke <> w:47 var
+R2305:2307 PXLs.S5_Kripke <> dia def
+R2309:2309 PXLs.S5_Kripke <> q:46 var
+R2311:2311 PXLs.S5_Kripke <> w:47 var
+prf 2423:2434 <> dist_box_and
+binder 2445:2445 <> p:49
+binder 2447:2447 <> q:50
+binder 2449:2449 <> w:51
+R2479:2484 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
+R2503:2503 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
+R2452:2454 PXLs.S5_Kripke <> box def
+binder 2461:2461 <> x:52
+R2469:2472 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R2466:2466 PXLs.S5_Kripke <> p:49 var
+R2468:2468 PXLs.S5_Kripke <> x:52 var
+R2473:2473 PXLs.S5_Kripke <> q:50 var
+R2475:2475 PXLs.S5_Kripke <> x:52 var
+R2478:2478 PXLs.S5_Kripke <> w:51 var
+R2492:2495 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R2485:2487 PXLs.S5_Kripke <> box def
+R2489:2489 PXLs.S5_Kripke <> p:49 var
+R2491:2491 PXLs.S5_Kripke <> w:51 var
+R2496:2498 PXLs.S5_Kripke <> box def
+R2500:2500 PXLs.S5_Kripke <> q:50 var
+R2502:2502 PXLs.S5_Kripke <> w:51 var
+prf 2748:2758 <> dist_dia_or
+binder 2769:2769 <> p:53
+binder 2771:2771 <> q:54
+binder 2773:2773 <> w:55
+R2803:2808 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
+R2827:2827 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
+R2776:2778 PXLs.S5_Kripke <> dia def
+binder 2785:2785 <> x:56
+R2793:2796 Coq.Init.Logic <> ::type_scope:x_'\/'_x not
+R2790:2790 PXLs.S5_Kripke <> p:53 var
+R2792:2792 PXLs.S5_Kripke <> x:56 var
+R2797:2797 PXLs.S5_Kripke <> q:54 var
+R2799:2799 PXLs.S5_Kripke <> x:56 var
+R2802:2802 PXLs.S5_Kripke <> w:55 var
+R2816:2819 Coq.Init.Logic <> ::type_scope:x_'\/'_x not
+R2809:2811 PXLs.S5_Kripke <> dia def
+R2813:2813 PXLs.S5_Kripke <> p:53 var
+R2815:2815 PXLs.S5_Kripke <> w:55 var
+R2820:2822 PXLs.S5_Kripke <> dia def
+R2824:2824 PXLs.S5_Kripke <> q:54 var
+R2826:2826 PXLs.S5_Kripke <> w:55 var
+prf 3134:3145 <> collapse_box
+binder 3156:3156 <> p:57
+binder 3158:3158 <> w:58
+R3168:3172 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
+R3161:3163 PXLs.S5_Kripke <> box def
+R3165:3165 PXLs.S5_Kripke <> p:57 var
+R3167:3167 PXLs.S5_Kripke <> w:58 var
+R3173:3175 PXLs.S5_Kripke <> box def
+R3178:3180 PXLs.S5_Kripke <> box def
+R3182:3182 PXLs.S5_Kripke <> p:57 var
+R3185:3185 PXLs.S5_Kripke <> w:58 var
+R3260:3266 PXLs.S5_Kripke <> S5_Semantics.R_trans var
+R3260:3266 PXLs.S5_Kripke <> S5_Semantics.R_trans var
+R3313:3318 PXLs.S5_Kripke <> S5_Semantics.R_refl var
+R3313:3318 PXLs.S5_Kripke <> S5_Semantics.R_refl var
+prf 3333:3348 <> collapse_dia_box
+binder 3359:3359 <> p:59
+binder 3361:3361 <> w:60
+R3371:3375 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
+R3364:3366 PXLs.S5_Kripke <> dia def
+R3368:3368 PXLs.S5_Kripke <> p:59 var
+R3370:3370 PXLs.S5_Kripke <> w:60 var
+R3376:3378 PXLs.S5_Kripke <> box def
+R3381:3383 PXLs.S5_Kripke <> dia def
+R3385:3385 PXLs.S5_Kripke <> p:59 var
+R3388:3388 PXLs.S5_Kripke <> w:60 var
+R3429:3436 PXLs.S5_Kripke <> Five_sem thm
+R3429:3436 PXLs.S5_Kripke <> Five_sem thm
+R3472:3477 PXLs.S5_Kripke <> S5_Semantics.R_refl var
+R3472:3477 PXLs.S5_Kripke <> S5_Semantics.R_refl var
+prf 3546:3561 <> collapse_box_dia
+binder 3572:3572 <> p:61
+binder 3574:3574 <> w:62
+R3584:3588 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
+R3577:3579 PXLs.S5_Kripke <> box def
+R3581:3581 PXLs.S5_Kripke <> p:61 var
+R3583:3583 PXLs.S5_Kripke <> w:62 var
+R3589:3591 PXLs.S5_Kripke <> dia def
+R3594:3596 PXLs.S5_Kripke <> box def
+R3598:3598 PXLs.S5_Kripke <> p:61 var
+R3601:3601 PXLs.S5_Kripke <> w:62 var
+R3671:3676 PXLs.S5_Kripke <> S5_Semantics.R_refl var
+R3671:3676 PXLs.S5_Kripke <> S5_Semantics.R_refl var
+R3869:3874 PXLs.S5_Kripke <> S5_Semantics.R_symm var
+R3869:3874 PXLs.S5_Kripke <> S5_Semantics.R_symm var
+R3909:3915 PXLs.S5_Kripke <> S5_Semantics.R_trans var
+R3909:3915 PXLs.S5_Kripke <> S5_Semantics.R_trans var
+R3976:3987 PXLs.S5_Kripke S5_Semantics <> sec

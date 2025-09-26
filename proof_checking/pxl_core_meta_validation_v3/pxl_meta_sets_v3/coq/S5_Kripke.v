@@ -24,6 +24,7 @@ Definition dia (p:W->Prop) : W->Prop := fun w => exists u, R w u /\ p u.
 Lemma K_sem : forall p q, (forall w, box (fun x => p x -> q x) w -> (box p w -> box q w)).
 Proof.
   intros p q w Himp Hbp u Hwu.
+  apply (Himp u Hwu).
   apply (Hbp u Hwu).
 Qed.
 
@@ -80,7 +81,9 @@ Qed.
 Lemma dist_box_and : forall p q w, box (fun x => p x /\ q x) w <-> (box p w /\ box q w).
 Proof.
   intros p q w. split.
-  - intros Hb. split; intros u Hwu; [apply (Hb u Hwu).1 | apply (Hb u Hwu).2].
+  - intros Hb. split; intros u Hwu.
+    + destruct (Hb u Hwu) as [H1 H2]. apply H1.
+    + destruct (Hb u Hwu) as [H1 H2]. apply H2.
   - intros [Hp Hq] u Hwu. split; [apply Hp | apply Hq]; assumption.
 Qed.
 
@@ -88,7 +91,9 @@ Lemma dist_dia_or : forall p q w, dia (fun x => p x \/ q x) w <-> (dia p w \/ di
 Proof.
   intros p q w. split.
   - intros [u [Hwu [Hp|Hq]]]; [left; exists u; split; assumption | right; exists u; split; assumption].
-  - intros [ [u [Hwu Hp]] | [u [Hwu Hq]] ]; exists u; split; [assumption| now (left + right)].
+  - intros [[u [Hwu Hp]] | [u [Hwu Hq]]];
+    [ exists u; split; [assumption | left; assumption ]
+    | exists u; split; [assumption | right; assumption ] ].
 Qed.
 
 Lemma collapse_box : forall p w, box p w <-> box (box p) w.
@@ -110,7 +115,11 @@ Lemma collapse_box_dia : forall p w, box p w <-> dia (box p) w.
 Proof.
   intros p w. split.
   - intros Hb. exists w. split; [apply R_refl|]. intros u Hwu. apply Hb. exact Hwu.
-  - intros [u [Hwu Hbp]]. apply Hbp. exact Hwu.
+  - intros [u [Hwu Hbp]] v Hwv.
+    (* From R w u and R w v derive R u v using symmetry on Hwu then transitivity, then apply Hbp at u *)
+    pose proof (R_symm _ _ Hwu) as Huw.
+    pose proof (R_trans _ _ _ Huw Hwv) as Huv.
+    apply Hbp. exact Huv.
 Qed.
 
 End S5_Semantics.

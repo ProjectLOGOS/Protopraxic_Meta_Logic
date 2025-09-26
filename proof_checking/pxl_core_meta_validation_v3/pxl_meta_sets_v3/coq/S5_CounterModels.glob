@@ -1,0 +1,235 @@
+DIGEST 4418b42a5c160e286f8c4552fe9c3ea9
+FPXLs.S5_CounterModels
+R24:38 Coq.Logic.Classical <> <> lib
+ind 289:292 <> form
+constr 297:300 <> atom
+constr 313:315 <> box
+constr 330:332 <> dia
+R306:308 Coq.Init.Datatypes <> nat ind
+binder 303:303 <> n:3
+R322:325 PXLs.S5_CounterModels <> form:1 ind
+binder 318:319 <> φ:4
+R339:342 PXLs.S5_CounterModels <> form:1 ind
+binder 335:336 <> φ:5
+scheme 289:292 <> form_rect
+scheme 289:292 <> form_ind
+scheme 289:292 <> form_rec
+scheme 289:292 <> form_sind
+rec 354:358 <> model
+proj 367:371 <> world
+proj 383:383 <> R
+proj 413:413 <> D
+proj 464:464 <> V
+R392:395 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R387:391 PXLs.S5_CounterModels <> world:7 meth
+R401:404 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R396:400 PXLs.S5_CounterModels <> world:7 meth
+R422:425 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R417:421 PXLs.S5_CounterModels <> world:7 meth
+R473:476 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R468:472 PXLs.S5_CounterModels <> world:7 meth
+R480:483 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R477:479 Coq.Init.Datatypes <> nat ind
+def 502:510 <> satisfies
+R516:520 PXLs.S5_CounterModels <> model rec
+binder 513:513 <> M:11
+R527:531 PXLs.S5_CounterModels <> world proj
+R533:533 PXLs.S5_CounterModels <> M:11 var
+binder 524:524 <> w:12
+R541:544 PXLs.S5_CounterModels <> form ind
+binder 537:538 <> φ:13
+R565:566 PXLs.S5_CounterModels <> φ:13 var
+R577:580 PXLs.S5_CounterModels <> atom constr
+R587:587 PXLs.S5_CounterModels <> V proj
+R589:589 PXLs.S5_CounterModels <> M:11 var
+R591:591 PXLs.S5_CounterModels <> w:12 var
+R599:601 PXLs.S5_CounterModels <> box constr
+binder 616:616 <> u:16
+R626:629 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R619:619 PXLs.S5_CounterModels <> R proj
+R621:621 PXLs.S5_CounterModels <> M:11 var
+R623:623 PXLs.S5_CounterModels <> w:12 var
+R625:625 PXLs.S5_CounterModels <> u:16 var
+R630:638 PXLs.S5_CounterModels <> satisfies:14 def
+R642:642 PXLs.S5_CounterModels <> u:16 var
+R640:640 PXLs.S5_CounterModels <> M:11 var
+R651:653 PXLs.S5_CounterModels <> dia constr
+R661:667 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R669:670 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+binder 668:668 <> u:17
+R678:681 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R671:671 PXLs.S5_CounterModels <> R proj
+R673:673 PXLs.S5_CounterModels <> M:11 var
+R675:675 PXLs.S5_CounterModels <> w:12 var
+R677:677 PXLs.S5_CounterModels <> u:17 var
+R682:690 PXLs.S5_CounterModels <> satisfies:14 def
+R694:694 PXLs.S5_CounterModels <> u:17 var
+R692:692 PXLs.S5_CounterModels <> M:11 var
+sec 715:727 <> CounterModels
+ind 787:787 <> W
+constr 792:793 <> w0
+constr 797:798 <> w1
+constr 802:803 <> w2
+scheme 787:787 <> W_rect
+scheme 787:787 <> W_ind
+scheme 787:787 <> W_rec
+scheme 787:787 <> W_sind
+def 863:864 <> R4
+R872:872 PXLs.S5_CounterModels <> W ind
+binder 867:867 <> x:20
+binder 869:869 <> y:21
+R896:896 PXLs.S5_CounterModels <> y:21 var
+R893:893 PXLs.S5_CounterModels <> x:20 var
+R907:908 PXLs.S5_CounterModels <> w0 constr
+R911:912 PXLs.S5_CounterModels <> w1 constr
+R917:920 Coq.Init.Logic <> True ind
+R926:927 PXLs.S5_CounterModels <> w1 constr
+R930:931 PXLs.S5_CounterModels <> w2 constr
+R936:939 Coq.Init.Logic <> True ind
+R955:959 Coq.Init.Logic <> False ind
+def 980:985 <> Dconst
+R990:990 PXLs.S5_CounterModels <> W ind
+binder 988:988 <> w:24
+R1003:1006 Coq.Init.Datatypes <> unit ind
+def 1067:1068 <> V4
+R1074:1074 PXLs.S5_CounterModels <> W ind
+binder 1071:1071 <> w:25
+R1081:1083 Coq.Init.Datatypes <> nat ind
+binder 1078:1078 <> n:26
+R1107:1107 PXLs.S5_CounterModels <> w:25 var
+R1104:1104 PXLs.S5_CounterModels <> n:26 var
+R1121:1122 PXLs.S5_CounterModels <> w1 constr
+R1127:1130 Coq.Init.Logic <> True ind
+R1139:1140 PXLs.S5_CounterModels <> w2 constr
+R1145:1149 Coq.Init.Logic <> False ind
+R1158:1159 PXLs.S5_CounterModels <> w0 constr
+R1164:1167 Coq.Init.Logic <> True ind
+R1181:1185 Coq.Init.Logic <> False ind
+def 1206:1207 <> M4
+R1211:1215 PXLs.S5_CounterModels <> model rec
+R1223:1227 PXLs.S5_CounterModels <> world proj
+R1223:1227 PXLs.S5_CounterModels <> world proj
+R1223:1227 PXLs.S5_CounterModels <> world proj
+R1235:1235 PXLs.S5_CounterModels <> R proj
+R1235:1235 PXLs.S5_CounterModels <> R proj
+R1244:1244 PXLs.S5_CounterModels <> D proj
+R1244:1244 PXLs.S5_CounterModels <> D proj
+R1257:1257 PXLs.S5_CounterModels <> V proj
+R1257:1257 PXLs.S5_CounterModels <> V proj
+R1232:1232 PXLs.S5_CounterModels <> W ind
+R1240:1241 PXLs.S5_CounterModels <> R4 def
+R1249:1254 PXLs.S5_CounterModels <> Dconst def
+R1262:1263 PXLs.S5_CounterModels <> V4 def
+prf 1276:1285 <> Four_fails
+R1289:1295 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R1300:1301 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R1299:1299 PXLs.S5_CounterModels <> W ind
+binder 1296:1296 <> w:29
+R1331:1334 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R1302:1310 PXLs.S5_CounterModels <> satisfies def
+R1312:1313 PXLs.S5_CounterModels <> M4 def
+R1315:1315 PXLs.S5_CounterModels <> w:29 var
+R1318:1320 PXLs.S5_CounterModels <> box constr
+R1323:1326 PXLs.S5_CounterModels <> atom constr
+R1335:1336 Coq.Init.Logic <> ::type_scope:'~'_x not
+R1337:1345 PXLs.S5_CounterModels <> satisfies def
+R1347:1348 PXLs.S5_CounterModels <> M4 def
+R1350:1350 PXLs.S5_CounterModels <> w:29 var
+R1353:1355 PXLs.S5_CounterModels <> box constr
+R1358:1360 PXLs.S5_CounterModels <> box constr
+R1363:1366 PXLs.S5_CounterModels <> atom constr
+R1390:1391 PXLs.S5_CounterModels <> w0 constr
+R1390:1391 PXLs.S5_CounterModels <> w0 constr
+R1412:1420 PXLs.S5_CounterModels <> satisfies def
+R1506:1508 Coq.Init.Logic <> not def
+R1537:1538 PXLs.S5_CounterModels <> R4 def
+R1540:1541 PXLs.S5_CounterModels <> w0 constr
+R1543:1544 PXLs.S5_CounterModels <> w1 constr
+R1537:1538 PXLs.S5_CounterModels <> R4 def
+R1540:1541 PXLs.S5_CounterModels <> w0 constr
+R1543:1544 PXLs.S5_CounterModels <> w1 constr
+R1583:1584 PXLs.S5_CounterModels <> w1 constr
+R1583:1584 PXLs.S5_CounterModels <> w1 constr
+R1609:1610 PXLs.S5_CounterModels <> R4 def
+R1612:1613 PXLs.S5_CounterModels <> w1 constr
+R1615:1616 PXLs.S5_CounterModels <> w2 constr
+R1609:1610 PXLs.S5_CounterModels <> R4 def
+R1612:1613 PXLs.S5_CounterModels <> w1 constr
+R1615:1616 PXLs.S5_CounterModels <> w2 constr
+R1655:1656 PXLs.S5_CounterModels <> w2 constr
+R1655:1656 PXLs.S5_CounterModels <> w2 constr
+def 1747:1748 <> R5
+R1756:1756 PXLs.S5_CounterModels <> W ind
+binder 1751:1751 <> x:30
+binder 1753:1753 <> y:31
+R1780:1780 PXLs.S5_CounterModels <> y:31 var
+R1777:1777 PXLs.S5_CounterModels <> x:30 var
+R1791:1792 PXLs.S5_CounterModels <> w0 constr
+R1795:1796 PXLs.S5_CounterModels <> w1 constr
+R1801:1804 Coq.Init.Logic <> True ind
+R1810:1811 PXLs.S5_CounterModels <> w0 constr
+R1814:1815 PXLs.S5_CounterModels <> w2 constr
+R1820:1823 Coq.Init.Logic <> True ind
+R1839:1843 Coq.Init.Logic <> False ind
+def 1864:1865 <> V5
+R1871:1871 PXLs.S5_CounterModels <> W ind
+binder 1868:1868 <> w:34
+R1878:1880 Coq.Init.Datatypes <> nat ind
+binder 1875:1875 <> n:35
+R1904:1904 PXLs.S5_CounterModels <> w:34 var
+R1901:1901 PXLs.S5_CounterModels <> n:35 var
+R1918:1919 PXLs.S5_CounterModels <> w1 constr
+R1924:1927 Coq.Init.Logic <> True ind
+R1936:1937 PXLs.S5_CounterModels <> w2 constr
+R1942:1946 Coq.Init.Logic <> False ind
+R1955:1956 PXLs.S5_CounterModels <> w0 constr
+R1961:1965 Coq.Init.Logic <> False ind
+R1979:1983 Coq.Init.Logic <> False ind
+def 2004:2005 <> M5
+R2009:2013 PXLs.S5_CounterModels <> model rec
+R2021:2025 PXLs.S5_CounterModels <> world proj
+R2021:2025 PXLs.S5_CounterModels <> world proj
+R2021:2025 PXLs.S5_CounterModels <> world proj
+R2033:2033 PXLs.S5_CounterModels <> R proj
+R2033:2033 PXLs.S5_CounterModels <> R proj
+R2042:2042 PXLs.S5_CounterModels <> D proj
+R2042:2042 PXLs.S5_CounterModels <> D proj
+R2055:2055 PXLs.S5_CounterModels <> V proj
+R2055:2055 PXLs.S5_CounterModels <> V proj
+R2030:2030 PXLs.S5_CounterModels <> W ind
+R2038:2039 PXLs.S5_CounterModels <> R5 def
+R2047:2052 PXLs.S5_CounterModels <> Dconst def
+R2060:2061 PXLs.S5_CounterModels <> V5 def
+prf 2074:2083 <> Five_fails
+R2087:2093 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R2097:2098 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R2096:2096 PXLs.S5_CounterModels <> W ind
+binder 2094:2094 <> w:38
+R2128:2131 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R2099:2107 PXLs.S5_CounterModels <> satisfies def
+R2109:2110 PXLs.S5_CounterModels <> M5 def
+R2112:2112 PXLs.S5_CounterModels <> w:38 var
+R2115:2117 PXLs.S5_CounterModels <> dia constr
+R2120:2123 PXLs.S5_CounterModels <> atom constr
+R2132:2133 Coq.Init.Logic <> ::type_scope:'~'_x not
+R2134:2142 PXLs.S5_CounterModels <> satisfies def
+R2144:2145 PXLs.S5_CounterModels <> M5 def
+R2147:2147 PXLs.S5_CounterModels <> w:38 var
+R2150:2152 PXLs.S5_CounterModels <> box constr
+R2155:2157 PXLs.S5_CounterModels <> dia constr
+R2160:2163 PXLs.S5_CounterModels <> atom constr
+R2187:2188 PXLs.S5_CounterModels <> w0 constr
+R2187:2188 PXLs.S5_CounterModels <> w0 constr
+R2209:2217 PXLs.S5_CounterModels <> satisfies def
+R2227:2228 PXLs.S5_CounterModels <> w1 constr
+R2227:2228 PXLs.S5_CounterModels <> w1 constr
+R2278:2280 Coq.Init.Logic <> not def
+R2309:2310 PXLs.S5_CounterModels <> R5 def
+R2312:2313 PXLs.S5_CounterModels <> w0 constr
+R2315:2316 PXLs.S5_CounterModels <> w2 constr
+R2309:2310 PXLs.S5_CounterModels <> R5 def
+R2312:2313 PXLs.S5_CounterModels <> w0 constr
+R2315:2316 PXLs.S5_CounterModels <> w2 constr
+R2355:2356 PXLs.S5_CounterModels <> w2 constr
+R2355:2356 PXLs.S5_CounterModels <> w2 constr
+R2461:2473 PXLs.S5_CounterModels CounterModels <> sec
