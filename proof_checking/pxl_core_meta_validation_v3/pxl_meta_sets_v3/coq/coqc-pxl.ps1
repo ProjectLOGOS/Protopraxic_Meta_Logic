@@ -22,8 +22,23 @@ if (-not (Test-Path $File)) {
 
 Write-Host "Using -Q '$abs' PXLs to compile $File"
 
-# Run coqc with the absolute mapping
-coqc -Q "$abs" PXLs $File
+# Try to locate coqc.exe in a few likely places, then fallback to searching the user's ROOT
+$coqc = @(
+    "$PSScriptRoot\..\..\..\..\Coq-Platform~8.20~2025.01\bin\coqc.exe",
+    "C:\\Program Files\\Coq Platform\\bin\\coqc.exe",
+    "C:\\Program Files\\Coq\\bin\\coqc.exe"
+) | Where-Object { Test-Path $_ } | Select-Object -First 1
+if (-not $coqc) {
+    $root = "C:\\Users\\proje\\OneDrive\\Desktop\\LOGOS SYSTEM\\ROOT"
+    try {
+        $coqc = Get-ChildItem -Recurse -Filter coqc.exe -Path $root -EA SilentlyContinue |
+                        Select-Object -Expand FullName -First 1
+    } catch {}
+}
+if (-not $coqc) { Write-Error "coqc.exe not found; please set PATH or adjust the script."; exit 1 }
+
+Write-Host "Invoking coqc at: $coqc"
+& $coqc -Q "$abs" PXLs $File
 
 if ($LASTEXITCODE -ne 0) { Write-Error "coqc failed with exit code $LASTEXITCODE"; exit $LASTEXITCODE }
 else { Write-Host "coqc finished successfully" }

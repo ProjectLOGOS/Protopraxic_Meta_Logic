@@ -1,0 +1,21 @@
+  intros Γ Hcons.
+  (* Poset: P = { Δ | Γ ⊆ Δ ∧ consistent Δ } ordered by ⊆ *)
+  set (P := fun Δ => superset_of Γ Δ /\ consistent Δ).
+  assert (HPorder: forall X Y, P X -> P Y -> subset X Y \/ subset Y X -> True) by firstorder.
+  (* Zorn condition: every chain has an upper bound in P *)
+  assert (Hzorn :
+            forall C, is_chain C ->
+              (forall X, C X -> P X) ->
+              exists U, P U /\ (forall X, C X -> subset X U)).
+  { intros C Hchain HC.
+    destruct (chain_upper_bound Γ C Hchain (fun X CX => HC X CX)) as [U [HUchain HGU HcU]].
+    exists U. split; [split; [exact HGU| exact HcU] |].
+    intros X CX p Xp. apply (proj2 (HUchain p)). now exists X.
+  }
+Lemma lindenbaum :
+  forall Γ, consistent Γ -> exists Δ, extends Γ Δ /\ maximal Δ.
+Proof. Admitted.
+
+(* Short corollary used for canonical successors *)
+Lemma exists_R_succ_with_neg :
+  forall (w v:can_world) (q:form),

@@ -1,0 +1,17 @@
+﻿coqc.exe : File ".\PXL_Completeness_Sketch.v", line 72, 
+characters 93-97:
+At line:1 char:1
++ & $coqc '-Q' '.' 'PXLc' 'PXL_Completeness_Sketch.v' 2>&1 | 
+Out-File c ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (File ".\PXL_Com... 
+   aracters 93-97::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Error:
+In environment
+c : can_world
+The term "True" has type "Prop" while it is expected to have 
+type
+ "can_R c c".
+

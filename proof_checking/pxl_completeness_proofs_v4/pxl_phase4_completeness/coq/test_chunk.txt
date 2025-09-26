@@ -1,0 +1,17 @@
+﻿  forall (Î”:set) (Ïˆ:form), maximal Î” -> ~ In_set Î” (Box Ïˆ) -> exists Sigma : set, True.
+
+
+(* Forces are independent of the chosen maximal witness for the same underlying set. *)
+Lemma forces_indep_witness :
+  forall Î” (H H':maximal Î”) Ï†,
+    forces (exist _ Î” H) Ï† <-> forces (exist _ Î” H') Ï†.
+Proof.
+  intros Î” H H' Ï†; induction Ï†; simpl; try split; intros Hf.
+  - contradiction.
+  - assumption.
+  - (* Impl *)
+    intros u Hu; apply Hf; apply (proj1 (can_R_set_R_equiv _ _ H H')) in Hu; exact Hu.
+  - (* And *)
+    destruct Hf as [H1 H2]; split; [apply (proj1 (IHÏ†1 _ _)); exact H1| apply (proj1 (IHÏ†2 _ _)); exact H2].
+  - (* Or *)
+    destruct Hf as [H1|H2]; [left; apply (proj1 (IHÏ†1 _ _)); exact H1| right; apply (proj1 (IHÏ†2 _ _)); exact H2].
