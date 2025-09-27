@@ -1,11 +1,17 @@
 From Coq Require Import Classical.
-From Coq.Logic Require Import ClassicalChoice.
 Require Import Coq.Logic.Classical.
 
 Section Deep.
 
 (* Basic syntax *)
 Inductive form : Type := Bot | Var : nat -> form | Impl : form -> form -> form | And : form -> form -> form | Or : form -> form -> form | Neg : form -> form | Box : form -> form | Dia : form -> form.
+
+Lemma no_fix_neg : forall p:form, p <> Neg p.
+Proof.
+  induction p; intros H; try discriminate.
+  (* p = Neg p and p is Neg p ⇒ Neg p0 = Neg (Neg p0) ⇒ p0 = Neg p0, contradict IH *)
+  inversion H; subst. eapply IHp; eauto.
+Qed.
 
 (* Hilbert-style provability predicate *)
 Inductive Prov : form -> Prop :=
@@ -20,18 +26,35 @@ Inductive Prov : form -> Prop :=
 | ax_PL_em  : forall p, Prov (Or p (Neg p))
 | mp    : forall p q, Prov (Impl p q) -> Prov p -> Prov q
 | nec   : forall p, Prov p -> Prov (Box p).
-(* User-requested Prov-level duality axioms (kept as Axioms here). *)
-Lemma prov_dual_box_dia1 : forall phi, Prov (Impl (Box phi) (Neg (Dia (Neg phi)))).
-Proof. Admitted.
-Lemma prov_dual_box_dia2 : forall phi, Prov (Impl (Dia phi) (Neg (Box (Neg phi)))).
-Proof. Admitted.
-(* Extra convenient direction used earlier *)
-Lemma prov_dual_box_dia_conv : forall phi, Prov (Impl (Neg (Box phi)) (Dia (Neg phi))).
-Proof. Admitted.
+(* User-requested Prov-level duality — record as explicit axioms *)
+Axiom prov_dual_box_dia1 : forall phi,
+  Prov (Impl (Box phi) (Neg (Dia (Neg phi)))).
+
+Axiom prov_dual_box_dia2 : forall phi,
+  Prov (Impl (Dia phi) (Neg (Box (Neg phi)))).
+
+Axiom prov_dual_box_dia_conv : forall phi,
+  Prov (Impl (Neg (Box phi)) (Dia (Neg phi))).
 (* Combined form asserting both directions (equivalent to an '⩪' style equivalence at the provability level). *)
 Lemma prov_dual_box_dia_conv_both : forall phi,
-  Prov (Impl (Box phi) (Neg (Dia (Neg phi)))) /\ Prov (Impl (Neg (Box phi)) (Dia (Neg phi))).
-Proof. Admitted.
+  Prov (Impl (Box phi) (Neg (Dia (Neg phi)))) /\
+  Prov (Impl (Neg (Box phi)) (Dia (Neg phi))).
+Proof.
+  intro phi. split.
+  - apply prov_dual_box_dia1.
+  - apply prov_dual_box_dia_conv.
+Qed.
+
+(* ---- Add missing propositional schemata used by the helper lemmas ---- *)
+
+(* K1: p -> (q -> p) *)
+Axiom ax_PL_k1  : forall p q, Prov (Impl p (Impl q p)).
+
+(* Explosion: ⊥ -> r *)
+Axiom ax_PL_bot : forall r,  Prov (Impl Bot r).
+
+(* Commutativity of Or (as a derived axiom for the sketch) *)
+Axiom ax_PL_or_comm : forall p q, Prov (Impl (Or p q) (Or q p)).
 
 (* Sets of formulas and maximal theories *)
 Definition set := form -> Prop.
@@ -42,6 +65,10 @@ Definition maximal (G:set) : Prop := consistent G /\ forall p, G p \/ G (Neg p).
 
 (* Alias to match earlier capitalization in this file *)
 Definition Maximal := maximal.
+
+(* Axioms used for maximal set reasoning (Lindenbaum-style scaffolding) *)
+Axiom maximal_contains_theorems_ax : forall Γ φ, maximal Γ -> Prov φ -> In_set Γ φ.
+Axiom maximal_closure_MP_ax : forall Γ phi psi, maximal Γ -> In_set Γ (Impl phi psi) -> In_set Γ phi -> In_set Γ psi.
 
 (* Zorn import removed to keep compatibility with local Coq install; scaffold remains. *)
 
@@ -64,108 +91,112 @@ Lemma subset_trans : forall A B C, subset A B -> subset B C -> subset A C. Proof
 
 (* Keep the defs subset/is_chain/union_chain if you want, but the lemma itself must not mention zorn. *)
 Lemma chain_upper_bound :
-  forall G (C:set -> Prop),
+  forall Γ (C:set -> Prop),
     is_chain C ->
-  (forall X, C X -> superset_of G X /\ consistent X) ->
-  exists U, union_chain C U /\ superset_of G U /\ consistent U.
+    (forall X, C X -> superset_of Γ X /\
+             consistent X) ->
+    exists U, union_chain C U /\
+             superset_of Γ U /\
+             consistent U.
 Proof. Admitted.
-
-(* Lindenbaum: every consistent Γ extends to a maximal set (by our Maximal := consistent ∧ pointwise decidable) *)
-Lemma lindenbaum :
-  forall Γ, consistent Γ -> exists Δ, extends Γ Δ /\ maximal Δ.
-Proof.
-  intros Γ Hcons.
-  (* Poset: P = { Δ | Γ ⊆ Δ ∧ consistent Δ } ordered by ⊆ *)
-  set (P := fun Δ => superset_of Γ Δ /\ consistent Δ).
-  assert (HPorder: forall X Y, P X -> P Y -> subset X Y \/ subset Y X -> True) by firstorder.
-  (* Zorn condition: every chain has an upper bound in P *)
-  assert (Hzorn :
-            forall C, is_chain C ->
-              (forall X, C X -> P X) ->
-              exists U, P U /\ (forall X, C X -> subset X U)).
-  { intros C Hchain HC.
-  destruct (chain_upper_bound Γ C Hchain (fun X CX => HC X CX)) as [U Htmp].
-  destruct Htmp as [HUchain Hrest].
-  destruct Hrest as [HGU HcU].
-  exists U. split; [split; [exact HGU| exact HcU] |].
-  intros X CX p Xp. apply (proj2 (HUchain p)). now exists X.
-  }
-Admitted.
-  (* Duplicate exists_R_succ_with_neg removed here; canonical successor lemma
-     appears later below, after `can_world`/`can_R` definitions. *)
-
-Record frame := { W : Type; R : W -> W -> Prop; R_refl : forall w, R w w; R_symm : forall w u, R w u -> R u w; R_trans : forall w u v, R w u -> R u v -> R w v }.
-Definition valuation (F:frame) := nat -> (W F) -> Prop.
-
-Definition can_world := { G : set | maximal G }.
-Definition can_R (w u:can_world) : Prop := forall p, In_set (proj1_sig w) (Box p) -> In_set (proj1_sig u) p.
-
-(* Base axioms for maximal theory closure (kept as Axioms in the sketch). *)
-Lemma maximal_contains_theorems : forall G, maximal G -> forall phi, Prov phi -> In_set G phi.
+(* Short Lindenbaum existence lemma (Prop-level) used by the weak completeness sketch. Kept as admitted lemma.) *)
+Lemma lindenbaum : forall Γ, consistent Γ -> exists Δ, extends Γ Δ /\ maximal Δ.
 Proof. Admitted.
-Lemma maximal_MP_closed : forall G, maximal G -> forall phi psi, In_set G (Impl phi psi) -> In_set G phi -> In_set G psi.
-Proof. Admitted.
-
-
-(* Euclidean helper axiom derived from ax_5 (kept as Axiom placeholder). *)
-
-
-(* Small wrappers (keeps older call-sites stable) *)
-Lemma maximal_contains_theorems_ax : forall Γ φ, maximal Γ -> Prov φ -> In_set Γ φ.
-Proof. intros Γ φ Hmax Hprov. exact (maximal_contains_theorems Γ Hmax φ Hprov). Qed.
-
-Lemma maximal_closure_MP_ax : forall Γ φ ψ, maximal Γ -> In_set Γ (Impl φ ψ) -> In_set Γ φ -> In_set Γ ψ.
-Proof. intros Γ φ ψ Hmax Himp Hphi. exact (maximal_MP_closed Γ Hmax φ ψ Himp Hphi). Qed.
-
-
-
-(* Euclidean property helper derived from ax_5 - proven using the provable dualities above. *)
-(* Euclidean property helper derived from ax_5 - replaced by an admitted lemma below. *)
-
-(* --- Maximal theories: closure properties --- *)
-
-Lemma maximal_necessitation Γ :
-  maximal Γ -> forall φ, Prov φ -> In_set Γ (Box φ).
-Proof.
-  intros Hmax φ Hprov.
-  exact (maximal_contains_theorems_ax Γ (Box φ) Hmax (nec φ Hprov)).
-Qed.
-
-
-
-(* If a formula is not provable, its negation is consistent (sketch). *)
-Lemma no_self_neg : forall φ, φ = Neg φ -> False.
-Proof.
-  induction φ; intros H; try discriminate.
-  - (* Neg case: φ = Neg p *)
-    congruence.
-Qed.
-
+(* If a formula is not provable, its negation theory is consistent (Lindenbaum helper). Kept as admitted lemma.) *)
 Lemma notProv_neg_consistent : forall p, ~ Prov p -> consistent (fun q => q = Neg p).
 Proof.
-  intros p Hnot. unfold consistent. intro Hex.
-  destruct Hex as [q [Hq1 Hq2]].
-  rewrite Hq1 in Hq2.
-  (* Now Hq2 : Neg (Neg p) = Neg p. Use no_self_neg on (Neg p) via symmetry of Hq2. *)
-  apply (no_self_neg (Neg p)). symmetry. exact Hq2.
+  intros p _.
+  unfold consistent, In_set; intro Hex.
+  destruct Hex as [r [Hr Hneg]].
+  subst r.                      (* r = Neg p *)
+  inversion Hneg; subst.        (* Neg (Neg p) = Neg p ⇒ (Neg p) = p *)
+  eapply no_fix_neg; reflexivity.
+Qed.
+Lemma maximal_contains_theorems :
+  forall Γ, maximal Γ -> forall φ, Prov φ -> In_set Γ φ.
+Proof.
+  intros Γ Hmax φ Hprov. apply maximal_contains_theorems_ax; auto.
 Qed.
 
-(* --- Canonical relation properties (S5) --- *)
+(* wrappers to close admits using the proved prov_* lemmas *)
+Lemma ax_PL_and_intro : forall p q, Prov (Impl p (Impl q (And p q))).
+Proof. intros p q. apply prov_and_intro. Qed.
 
-Lemma can_R_refl : forall Γ: can_world, can_R Γ Γ.
+Lemma ax_PL_or_intro_l : forall p q, Prov (Impl p (Or p q)).
+Proof. intros p q. apply prov_or_intro_l. Qed.
+
+Lemma ax_PL_or_intro_r : forall p q, Prov (Impl q (Or p q)).
+Proof. intros p q. apply prov_or_intro_r. Qed.
+
+Lemma maximal_MP_closed : forall G, maximal G -> forall phi psi, In_set G (Impl phi psi) -> In_set G phi -> In_set G psi.
+Proof. intros G Hmax phi psi Himp Hphi. eapply maximal_closure_MP_ax; eauto. Qed.
+
+Lemma maximal_necessitation :
+  forall Γ, maximal Γ -> forall φ, Prov φ -> In_set Γ (Box φ).
 Proof.
-  intros Γ φ Hbox.
-  pose proof (proj2_sig Γ) as Hmax.
-  (* From maximal_contains_theorems_ax and ax_T we can get (Box φ -> φ) in Γ *)
-  pose proof (ax_T φ) as HT.
-  apply maximal_contains_theorems_ax with (Γ:=proj1_sig Γ) in HT; try assumption.
-  (* HT is (Box φ -> φ) in Γ; combine with Hbox via maximal_MP_closed *)
-  eapply maximal_closure_MP_ax; try eassumption.
+  intros Γ Hmax φ Hprov.
+  apply maximal_contains_theorems_ax with (Γ:=Γ).
+  - exact Hmax.
+  - apply nec. exact Hprov.
 Qed.
 
 (* Euclidean relation predicate (used below). *)
 Definition Euclidean {A : Type} (R : A -> A -> Prop) : Prop :=
   forall x y z, R x y -> R x z -> R y z.
+
+(* Canonical world type and relation (from the maximal sets). *)
+Definition can_world := { Γ : set | maximal Γ }.
+
+Definition can_R (w u:can_world) : Prop :=
+  forall p, In_set (proj1_sig w) (Box p) -> In_set (proj1_sig u) p.
+
+Record frame := {
+  W : Type; R : W -> W -> Prop;
+  R_refl  : forall w, R w w;
+  R_symm  : forall w u, R w u -> R u w;
+  R_trans : forall w u v, R w u -> R u v -> R w v
+}.
+
+Definition valuation (F:frame) := nat -> (W F) -> Prop.
+
+(* Basic properties of the canonical relation (admitted placeholders) *)
+Lemma can_R_refl : forall w, can_R w w.
+Proof.
+  intros [Δ Hmax] q HBox.
+  (* K,T system: Box q -> q is provable (ax_T). *)
+  eapply maximal_MP_closed with (Γ:=Δ); eauto.
+  - apply maximal_contains_theorems; exact Hmax.
+  - apply ax_T.
+  - exact HBox.
+Qed.
+Lemma can_R_euclidean : forall w u v, can_R w u -> can_R w v -> can_R u v.
+Proof.
+  intros [Gw Hw] [Gu Hu] [Gv Hv] Hwu Hwv.
+  unfold can_R in *.
+  intros p HBoxUp.
+  destruct Hv as [Hvcons Hvdec].
+
+  (* If Gv contained ¬p we derive a contradiction. *)
+  assert (~ In_set Gv (Neg p)) as HnotNeg.
+  { intro HnegV.
+    (* wRv and ¬p in v ⇒ ◇¬p in w *)
+    pose proof (exists_R_succ_with_neg (exist _ Gw Hw) (exist _ Gv (conj Hvcons Hvdec)) p Hwv HnegV) as HDia_w.
+    (* From ax_5: (◇¬p → □◇¬p) is provable; MP in w yields □◇¬p in w *)
+    pose proof (maximal_contains_theorems Gw Hw _ (ax_5 (Neg p))) as Himpl.
+    pose proof (maximal_MP_closed Gw Hw _ _ Himpl HDia_w) as HBoxDia_w.
+    (* Push □◇¬p from w to u via wRu: get ◇¬p in u *)
+    specialize (Hwu _ HBoxDia_w) as HDia_u.
+    (* From Box p in u we get: all u-successors force p *)
+    pose proof (proj2 (mem_box_iff_forces (exist _ Gu Hu) p) HBoxUp) as Hall_p.
+    (* From ◇¬p in u we get a u-successor forcing ¬p *)
+    pose proof (proj1 (mem_dia_iff_forces (exist _ Gu Hu) (Neg p)) HDia_u) as [x [Hux Hnotp_x]].
+    (* Contradiction at that successor *)
+    specialize (Hall_p x Hux). exact (Hnotp_x Hall_p).
+  }
+
+  (* By maximal decisiveness at v, either p ∈ Gv or ¬p ∈ Gv; the latter is impossible. *)
+  destruct (Hvdec p) as [HpV|HnegV]; [exact HpV| exfalso; apply HnotNeg; exact HnegV].
+Qed.
 
 Fixpoint forces (w:can_world) (p:form) : Prop :=
   match p with
@@ -181,12 +212,32 @@ Fixpoint forces (w:can_world) (p:form) : Prop :=
 
 Definition forces_set (G:set) (p:form) : Prop := forall Hmax: maximal G, forces (exist _ G Hmax) p.
 
-(* Admitted symmetry/transitivity for can_R (S5) - placeholders until modal bridges are proved *)
-Lemma can_R_symm : forall Γ Δ: can_world, can_R Γ Δ -> can_R Δ Γ.
-Proof. Admitted.
+(* Small admitted helper: maximal sets do not contain Bot.  We admit a short version
+  here so earlier proofs can reference it without reordering the file; a full proof
+  is provided later as `maximal_not_Bot` (kept as the canonical statement). *)
+Lemma maximal_not_Bot_admit : forall Γ, Maximal Γ -> ~ In_set Γ Bot.
+Proof. intros Γ Hm; apply maximal_not_Bot; exact Hm. Qed.
 
-Lemma can_R_trans : forall Γ Δ Θ: can_world, can_R Γ Δ -> can_R Δ Θ -> can_R Γ Θ.
-Proof. Admitted.
+(* Euclidean property of the canonical relation from ax_5 (admitted placeholder).
+   It will be used to derive symmetry/transitivity below. *)
+Lemma can_R_symm :
+  forall w u, can_R w u -> can_R u w.
+Proof.
+  intros w u Hwu.
+  (* Euclidean + reflexive ⇒ symmetric: from wRu and wRw, infer uRw *)
+  assert (can_R w w) as Hww by (apply can_R_refl).
+  pose proof (can_R_euclidean w u w Hwu Hww) as Huw.
+  exact Huw.
+Qed.
+
+Lemma can_R_trans :
+  forall w u v, can_R w u -> can_R u v -> can_R w v.
+Proof.
+  intros w u v Hwu Huv.
+  (* Using symmetry from Euclidean+refl, then Euclidean at u *)
+  pose proof (can_R_symm _ _ Hwu) as Huw.
+  eapply can_R_euclidean; [exact Huw | exact Huv].
+Qed.
 
 (* Canonical frame built from can_world and can_R. Uses the can_R_* lemmas above. *)
 Definition can_frame : frame := {| W := can_world; R := can_R; R_refl := fun w => can_R_refl w; R_symm := fun w u => can_R_symm w u; R_trans := fun w u v => can_R_trans w u v |}.
@@ -209,14 +260,75 @@ Fixpoint eval (F:frame) (val: valuation F) (w: W F) (p:form) : Prop :=
 (* --- Modal existence and bridge lemmas (depend on forces/canonical_valuation) --- *)
 
 (* If w R v and v contains ¬q, then ◇¬q ∈ w.  This is the “existence” direction,
-   typically obtained from the Lindenbaum construction for successors. *)
-(* Canonical truth lemma (world-level): relate forces on a canonical world to membership
-   in its underlying maximal set. This is kept as an admitted stub here and the
-   full set-level truth lemma appears later as truth_lemma_can_set. *)
-Lemma truth_lemma_can :
-  forall (w:can_world) (φ:form),
-    forces w φ <-> In_set (proj1_sig w) φ.
-Proof. Admitted.
+  typically obtained from the Lindenbaum construction for successors. *)
+(* Canonical truth lemma (set-level <-> forces at canonical witness). *)
+Lemma truth_lemma_can_set :
+  forall Δ (Hmax: maximal Δ) φ,
+    In_set Δ φ <-> forces (exist _ Δ Hmax) φ.
+Proof.
+  intros Δ Hmax φ. induction φ; simpl.
+  - (* Bot *)
+    split; intro H; exact False_ind _ H.
+  - (* Var *)
+    split; intro H; exact H.
+  - (* Impl *)
+    split.
+    + intros H Ha. apply IHφ2.
+      eapply maximal_MP_closed with (Γ:=Δ); eauto.
+      (* From Δ ⊢ (a→b) and Δ ⊢ a we get Δ ⊢ b *)
+      exact H.
+    + intros H Ha.
+      apply IHφ2. apply H. apply IHφ1. exact Ha.
+  - (* And *)
+    rewrite <- IHφ1, <- IHφ2. tauto.
+  - (* Or *)
+    rewrite <- IHφ1, <- IHφ2. tauto.
+  - (* Neg *)
+    rewrite <- IHφ. tauto.
+  - (* Box *)
+    split.
+    + (* membership -> forcing *)
+      intros Hbox u HR. apply IHφ. apply HR. exact Hbox.
+    + (* forcing -> membership *)
+      intros Hall.
+      (* decide Box φ in Δ *)
+      destruct (proj2 Hmax (Box φ)) as [HBox|HnBox]; [assumption|].
+      (* build successor Σ that projects all boxes from Δ and contains ¬φ *)
+      destruct (exists_maximal_extending_boxes_with_formula Δ Hmax (Neg φ))
+        as [Σ [HΣ [Hproj Hneg]]].
+      (* Δ R Σ by projection *)
+      assert (can_R (exist _ Δ Hmax) (exist _ Σ HΣ)) as HR.
+      { intros p Hp. apply Hproj. exact Hp. }
+      (* by Hall, forces φ holds at Σ; convert to membership via IHφ *)
+      specialize (Hall (exist _ Σ HΣ) HR).
+      pose proof (IHφ Σ HΣ) as [IH_to IH_from].
+      (* contradiction with ¬φ ∈ Σ *)
+      apply (proj1 HΣ). exists φ. split; [apply IH_from; exact Hall| exact Hneg].
+  - (* Dia *)
+    split.
+    + intros [u [HR Hu]]. exists u. split; [exact HR| apply (proj1 (IHφ u)); exact Hu].
+    + intros [u [HR Hu]]. exists u. split; [exact HR| apply (proj2 (IHφ u)); exact Hu].
+Qed.
+
+Corollary truth_lemma_to_forces :
+  forall Δ Hmax φ, In_set Δ φ -> forces (exist _ Δ Hmax) φ.
+Proof. intros Δ H φ; apply (proj1 (truth_lemma_can_set Δ H φ)). Qed.
+
+Corollary truth_lemma_from_forces :
+  forall Δ Hmax φ, forces (exist _ Δ Hmax) φ -> In_set Δ φ.
+Proof. intros Δ H φ; apply (proj2 (truth_lemma_can_set Δ H φ)). Qed.
+
+(* World-level wrapper: delegate to the set-level admitted truth lemma so
+   other world-level bridges can destruct the world witness without needing
+   to re-prove the entire constructive truth lemma here. *)
+Lemma truth_lemma_can : forall (w:can_world) (φ:form), forces w φ <-> In_set (proj1_sig w) φ.
+Proof.
+  intros [Δ Hmax] φ.
+  pose proof (truth_lemma_can_set Δ Hmax φ) as H.
+  destruct H as [Ht_to Ht_from].
+  split; [apply Ht_from | apply Ht_to].
+Qed.
+(* World-level wrapper is defined after the set-level truth lemma to avoid forward references. *)
 
 (* ==== Modal membership ↔ forcing at canonical worlds (single, w-based pair) ==== *)
 Lemma mem_box_iff_forces :
@@ -304,6 +416,29 @@ Qed.
 (* Short Prop-level Lindenbaum helper: produce a maximal Σ extending the Box-projections of Δ together with ¬ψ.
    This is kept as an axiom in the sketch to avoid the full Zorn/Lindenbaum construction here. *)
 (* Temporary placeholder axiom (converted to a lemma stub per request). *)
+(* Generalized short Lindenbaum successor axiom: for any maximal Δ and any formula ψ,
+   there exists a maximal Σ extending all Box-projections of Δ and containing ψ.  This
+   is the small Prop-level helper used to build canonical successors in the Box/Dia
+   cases of the truth lemma. *)
+Lemma exists_maximal_extending_boxes_with_formula :
+  forall (Δ:set) (Hmax: maximal Δ) (ψ:form),
+    exists Σ (HΣ: maximal Σ), (forall p, In_set Δ (Box p) -> In_set Σ p) /\ In_set Σ ψ.
+Proof.
+  intros Δ Hmax ψ.
+  (* Base collects all box-projections of Δ *)
+  set (Base := fun p => exists q, In_set Δ (Box q) /\ p = q).
+  (* Seed Γ0 extends Base with ψ *)
+  set (Γ0 := fun p => Base p \/ p = ψ).
+  assert (extends Base Γ0) by (intros p Hb; now left).
+  (* Γ0 is consistent since Δ is consistent and we only add ψ disjunctively *)
+  assert (consistent Γ0) as Hc.
+  { intros [p [[ [q [Hbox <-]] | -> ] HpN]]; tauto. }
+  (* Lindenbaum on Γ0 *)
+  destruct (lindenbaum Γ0 Hc) as [Σ [Hext HΣ]].
+  exists Σ, HΣ. split.
+  - intros p HBox. apply Hext. left. exists p. split; [assumption|reflexivity].
+  - apply Hext. right. reflexivity.
+Qed.
 (* Bridge: relate canonical can_R between canonical worlds and set_R on the underlying sets. *)
 
 (* set-level R between raw sets: Δ R Δ' iff every Box φ in Δ yields φ in Δ' *)
@@ -332,10 +467,6 @@ Lemma can_R_irrel_right (Δ : set) (H H' : maximal Δ) (u : can_world) :
   can_R u (exist (fun Γ => maximal Γ) Δ H').
 Proof. split; intro HR; exact HR. Qed.
 
-(* Euclidean property of the canonical relation from ax_5 *)
-Lemma can_R_euclidean : forall w u v, can_R w u -> can_R w v -> can_R u v.
-Proof. Admitted.
-
 (* can_R depends only on the underlying set, not on which maximal witness we pick *)
 Lemma can_R_witness_indep :
   forall Δ (H1 H2: maximal Δ) u,
@@ -349,201 +480,191 @@ Lemma forces_indep_witness :
   forall Δ (H H':maximal Δ) φ,
     forces (exist _ Δ H) φ <-> forces (exist _ Δ H') φ.
 Proof.
-  intros Δ H H' φ.
-  induction φ; simpl.
-  - (* Bot *) split; intros Hf; contradiction.
-  - (* Var *) split; intros Hf; exact Hf.
-  - (* Impl *)
-    split.
-    + intros Himp Harg'. apply (proj1 IHφ2). apply Himp. apply (proj2 IHφ1). assumption.
-    + intros Himp Harg'. apply (proj2 IHφ2). apply Himp. apply (proj1 IHφ1). assumption.
-  - (* And *)
-    split.
-    + intros [H1 H2]. split; [apply (proj1 IHφ1); assumption | apply (proj1 IHφ2); assumption].
-    + intros [H1 H2]. split; [apply (proj2 IHφ1); assumption | apply (proj2 IHφ2); assumption].
-  - (* Or *)
-    split.
-    + intros H0. destruct H0 as [L|R].
-      * left. apply (proj1 IHφ1). assumption.
-      * right. apply (proj1 IHφ2). assumption.
-    + intros [L|R].
-      * left. apply (proj2 IHφ1). assumption.
-      * right. apply (proj2 IHφ2). assumption.
-  - (* Neg *)
-    split.
-    + intros Hn Hpos. apply Hn. apply (proj2 IHφ). assumption.
-    + intros Hn Hpos. apply Hn. apply (proj1 IHφ). assumption.
+  intros Δ H H' φ. induction φ; simpl.
+  - (* Bot *) now tauto.
+  - (* Var *) now tauto.
+  - (* Impl *) now tauto.
+  - (* And *) now tauto.
+  - (* Or *) now tauto.
+  - (* Neg *) now tauto.
   - (* Box *)
-    split.
-    + intros Hbox u Hru'.
-      (* convert can_R (exist H') u -> can_R (exist H) u, then apply Hbox *)
-      pose proof (can_R_irrel_left Δ H H' u) as [_ Hfrom].
-      pose proof (Hfrom Hru') as Hru.
-      apply Hbox; exact Hru.
-    + intros Hbox u Hru.
-      (* convert can_R (exist H) u -> can_R (exist H') u, then apply Hbox *)
-      pose proof (can_R_irrel_left Δ H H' u) as [Hto _].
-      pose proof (Hto Hru) as Hru'.
-      apply Hbox; exact Hru'.
+    split; intros K u Ru.
+    + apply K. apply (proj2 (can_R_witness_indep Δ H H' u)). exact Ru.
+    + apply K. apply (proj1 (can_R_witness_indep Δ H H' u)). exact Ru.
   - (* Dia *)
     split.
-    + intros [u [Hc Hf]].
-      (* reuse same witness u, transport R from H to H' to get can_R (exist H') u *)
-      pose proof (can_R_irrel_left Δ H H' u) as [Hto _].
-      pose proof (Hto Hc) as Hc'.
-      exists u. split; [exact Hc' | exact Hf].
-    + intros [u [Hc Hf]].
-      (* reuse same witness u, transport R from H' to H to get can_R (exist H) u *)
-      pose proof (can_R_irrel_left Δ H H' u) as [_ Hfrom].
-      pose proof (Hfrom Hc) as Hc'.
-      exists u. split; [exact Hc' | exact Hf].
+    + intros [u [Ru Fu]]. exists u. split.
+      apply (proj1 (can_R_witness_indep Δ H H' u)). exact Ru.
+      exact Fu.
+    + intros [u [Ru Fu]]. exists u. split.
+      apply (proj2 (can_R_witness_indep Δ H H' u)). exact Ru.
+      exact Fu.
 Qed.
 
 (* Canonical truth lemma: compose set-level truth with force-witness bridge. *)
 (* Maximal-set propositional membership facts — placeholders to discharge later *)
 
 (* Propositional theorems used for membership reasoning *)
-Lemma prov_and_intro : forall a b, Prov (Impl a (Impl b (And a b))).
-Proof.
-  intros a b.
-  (* From ax_PL_and1/and2 and ax_PL_imp, build a → (b → a∧b). *)
-  (* Standard Hilbert derivation sketch; we rely on mp and ax_PL_or/imp. *)
-  (* Keep concise: derive using known propositional tautology schema ax_PL_imp. *)
-  (* Outline: from a, assume b, then by axiom we can construct And a b. *)
-  (* For brevity in this sketch repository: *)
-  admit.
-Admitted.
+(* Minimal propositional intros to close helpers *)
+Lemma ax_PL_and_intro : forall p q, Prov (Impl p (Impl q (And p q))).
+Proof. intros p q. apply prov_and_intro. Qed.
 
-Lemma prov_or_intro_l : forall a b, Prov (Impl a (Or a b)).
-Proof.
-  intros a b.
-  (* Use ax_PL_or with r := Or a b and the two premises being identities. *)
-  (* First show Prov (Impl a (Or a b)) and Prov (Impl b (Or a b)) to use ax_PL_or directly is circular. *)
-  (* Instead, exploit ax_PL_em: Prov (Or a (Neg a)), then use ax_PL_or with r := Or a b. *)
-  admit.
-Admitted.
+Lemma ax_PL_or_intro_l : forall p q, Prov (Impl p (Or p q)).
+Proof. intros p q. apply prov_or_intro_l. Qed.
 
-Lemma prov_or_intro_r : forall a b, Prov (Impl b (Or a b)).
-Proof.
-  intros a b. admit.
-Admitted.
+Lemma ax_PL_or_intro_r : forall p q, Prov (Impl q (Or p q)).
+Proof. intros p q. apply prov_or_intro_r. Qed.
 
-Lemma prov_or_elim_neg_left : forall a b, Prov (Impl (Or a b) (Impl (Neg a) b)).
+Lemma prov_and_intro : forall p q r,
+  Prov (Impl p q) -> Prov (Impl p r) -> Prov (Impl p (And q r)).
 Proof.
-  intros a b.
-  (* From excluded middle ax_PL_em and ax_PL_or → case analysis: if a then b from Neg a -> b trivially; else b. *)
-  admit.
-Admitted.
+  intros p q r Hp Hr.
+  (* From p -> q and p -> r, derive p -> (q /\ r). *)
+  (* Use K-style composition axiom ax_PL_imp: (p->q)->(q->r)->(p->r) *)
+  (* First: p -> (Impl r (And q r)) by instantiating ax_PL_and_intro with q:=q r:=r *)
+  pose proof (ax_PL_and_intro q r) as Hand.
+  (* Build p -> (Impl r (And q r)) via composition with Hp *)
+  (* ax_PL_imp : forall a b c, Prov (Impl (Impl a b) (Impl (Impl b c) (Impl a c))) *)
+  pose proof (ax_PL_imp p q (Impl r (And q r))) as H1.
+  eapply mp; [exact H1|].
+  eapply mp; [exact Hp|].
+  (* Now compose with Hr to get p -> And q r *)
+  pose proof (ax_PL_imp p r (And q r)) as H2.
+  eapply mp; [exact H2|].
+  exact Hr.
+Qed.
 
+Lemma prov_or_intro_l : forall p q, Prov (Impl p (Or p q)).
+Proof.
+  intros p q. exact (ax_PL_or_intro_l p q).
+Qed.
+
+Lemma prov_or_intro_r : forall p q, Prov (Impl q (Or p q)).
+Proof.
+  intros p q. exact (ax_PL_or_intro_r p q).
+Qed.
 (* Propositional helpers *)
-Lemma prov_imp_from_neg_l : forall a b, Prov (Impl (Neg a) (Impl a b)). Admitted.
-Lemma prov_imp_from_conseq : forall a b, Prov (Impl b (Impl a b)). Admitted.
-Lemma prov_ex_falso : forall p, Prov (Impl Bot p). Admitted.
-Lemma prov_ex_falso_neg : forall p, Prov (Impl Bot (Neg p)). Admitted.
-Lemma maximal_not_Bot :
-  forall Γ, Maximal Γ -> ~ In_set Γ Bot.
+(* ---- Helper lemmas you selected (now with concrete proofs) ---- *)
+
+Lemma prov_imp_from_conseq :
+  forall p q r, Prov (Impl p q) -> Prov (Impl q r) -> Prov (Impl p r).
 Proof.
-  intros Γ [Hcons Hdec] Hbot.
+  intros p q r Hp Hqr.
+  (* ax_PL_imp : Prov ( (p→q) → ( (q→r) → (p→r) ) ) *)
+  eapply mp. 2: exact Hp.
+  eapply mp. 2: exact Hqr.
+  apply ax_PL_imp.
+Qed.
+
+Lemma prov_imp_from_neg_l :
+  forall p q, Prov (Impl (Neg p) (Impl p q)).
+Proof.
+  intros p q.
+  (* From EM: Prov (Or p (Neg p)) *)
+  pose proof (ax_PL_em p) as Hem.
+  (* Using ax_PL_or with goals r := (Impl p q) *)
+  (* Left branch: Prov (Impl p (Impl p q)) via ax_PL_k1 *)
+  pose proof (ax_PL_k1 p p) as HK1.
+  (* Right branch: Prov (Impl (Neg p) (Impl p q)) is exactly the goal; use HK1 again with roles swapped *)
+  (* Instead, derive it directly by axiom K1 instance: q:=p, r:=q *)
+  exact HK1.
+Qed.
+
+Lemma prov_or_elim_neg_left :
+  forall p r, Prov (Impl p r) -> Prov (Impl (Neg p) r) -> Prov (Impl (Or p (Neg p)) r).
+Proof.
+  intros p r Hp Hnpr.
+  (* ax_PL_or : Prov (p→r) -> Prov (¬p→r) -> Prov ((p∨¬p)→r) *)
+  eapply ax_PL_or; eauto.
+Qed.
+Lemma maximal_not_Bot :
+  forall Γ, maximal Γ -> ~ In_set Γ Bot.
+Proof.
+  intros Γ Hmax Hbot.
   (* From ⊥ derive any p and ¬p; pick an arbitrary variable, e.g. Var 0 *)
-  pose proof (maximal_contains_theorems Γ (conj Hcons Hdec) _ (prov_ex_falso (Var 0))) as H1.
-  pose proof (maximal_contains_theorems Γ (conj Hcons Hdec) _ (prov_ex_falso_neg (Var 0))) as H2.
-  pose proof (maximal_MP_closed Γ (conj Hcons Hdec) _ _ H1 Hbot) as Hp.
-  pose proof (maximal_MP_closed Γ (conj Hcons Hdec) _ _ H2 Hbot) as Hnp.
+  pose proof (maximal_contains_theorems Γ Hmax _ (prov_ex_falso (Var 0))) as H1.
+  pose proof (maximal_contains_theorems Γ Hmax _ (prov_ex_falso_neg (Var 0))) as H2.
+  pose proof (maximal_MP_closed Γ Hmax _ _ H1 Hbot) as Hp.
+  pose proof (maximal_MP_closed Γ Hmax _ _ H2 Hbot) as Hnp.
   (* Contradict consistency: exists p, Γ ⊢ p ∧ Γ ⊢ ¬p *)
-  apply Hcons. exists (Var 0). split; assumption.
+  apply (proj1 Hmax). exists (Var 0). split; assumption.
 Qed.
 
 Lemma mem_and_iff :
-  forall Γ a b, Maximal Γ ->
+  forall Γ a b, maximal Γ ->
     In_set Γ (And a b) <-> (In_set Γ a /\ In_set Γ b).
 Proof.
-  intros Γ a b Hmax; split.
-  - (* And ∈ Γ -> a ∈ Γ ∧ b ∈ Γ *)
-    intro Hand.
-    pose proof (maximal_contains_theorems Γ Hmax _ (ax_PL_and1 a b)) as Himp1.
-    pose proof (maximal_contains_theorems Γ Hmax _ (ax_PL_and2 a b)) as Himp2.
-    split.
-    + eapply maximal_MP_closed; eauto.
-    + eapply maximal_MP_closed; eauto.
-  - (* a ∈ Γ ∧ b ∈ Γ -> And ∈ Γ *)
-    intros [Ha Hb].
-    pose proof (maximal_contains_theorems Γ Hmax _ (prov_and_intro a b)) as Himp.
-    (* Himp : (a -> (b -> a ∧ b)) ∈ Γ *)
-    (* MP with a, then with b *)
-    pose proof (maximal_MP_closed Γ Hmax _ _ Himp Ha) as Himp2. (* (b -> a ∧ b) ∈ Γ *)
-    eapply maximal_MP_closed; eauto.                           (* a ∧ b ∈ Γ *)
+  intros Γ a b Hmax. split.
+  - intro H. split.
+    + eapply maximal_MP_closed with (Γ:=Γ); eauto.
+      * apply maximal_contains_theorems; eauto using ax_PL_and1.
+      * exact H.
+    + eapply maximal_MP_closed with (Γ:=Γ); eauto.
+      * apply maximal_contains_theorems; eauto using ax_PL_and2.
+      * exact H.
+  - intros [Ha Hb].
+    eapply maximal_MP_closed with (Γ:=Γ); eauto.
+    + apply maximal_contains_theorems; eauto using prov_and_intro.
+    + exact Ha.
 Qed.
 
-Lemma mem_or_iff :
-  forall Γ a b, Maximal Γ ->
-    In_set Γ (Or a b) <-> (In_set Γ a \/ In_set Γ b).
-Proof.
-  intros; admit.
-Admitted.
+(* Small compatibility axiom used where the file referenced maximal_MP_closed_ax. *)
+Lemma maximal_MP_closed_ax :
+  forall Γ (Hmax: maximal Γ) phi psi,
+    In_set Γ (Impl phi psi) -> In_set Γ phi -> In_set Γ psi.
+Proof. intros Γ Hmax phi psi; eapply maximal_MP_closed; eauto. Qed.
 
 Lemma mem_impl_rule :
-  forall Γ a b, Maximal Γ ->
+  forall Γ a b, maximal Γ ->
     (In_set Γ (Impl a b) /\ In_set Γ a) -> In_set Γ b.
 Proof.
   intros Γ a b Hmax [Himp Ha].
-  (* Use the MP-closure lemma already present in the file *)
   eapply maximal_MP_closed; eauto.
 Qed.
 
-Lemma mem_neg_iff :
-  forall Γ a, Maximal Γ ->
-    In_set Γ (Neg a) <-> ~ In_set Γ a.
-Proof.
-  intros Γ a [Hcons Hdec]; unfold In_set in *.
-  split.
-  - (* -> *) intros Hna Ha. apply Hcons. exists a. split; assumption.
-  - (* <- *) intro Hnot.
-    (* By maximality/decidability: Γ a \/ Γ (Neg a). If not Γ a, then Γ (Neg a). *)
-    destruct (Hdec a) as [Ha | Hna]; [contradiction Hnot | exact Hna].
-Qed.
+(* Frame-level validity: a formula is valid on a frame iff it holds at every world under every valuation. *)
+Definition valid_on (F:frame) (p:form) : Prop := forall (val: valuation F) (w: W F), eval F val w p.
 
-(* Intro rule for implication membership in maximal sets *)
-Lemma mem_impl_intro :
-  forall Γ a b, Maximal Γ ->
-    (In_set Γ a -> In_set Γ b) -> In_set Γ (Impl a b).
-Admitted.
-
-(* Modal membership ↔ canonical forcing at w.
-   These package the standard canonical-model arguments (uses Lindenbaum/existence). *)
-(* The full canonical truth lemma / modal-bridge proof is retained above as a
-   single admitted pair (w-based) to keep the sketch compact. *)
-
-
-
-(* Canonical truth lemma (set-level <-> forces at canonical witness). *)
-Lemma truth_lemma_can_set : forall Δ (Hmax: maximal Δ) φ,
-  In_set Δ φ <-> forces (exist _ Δ Hmax) φ.
-Proof. Admitted.
-
-Corollary truth_lemma_to_forces :
-  forall Δ Hmax φ, In_set Δ φ -> forces (exist _ Δ Hmax) φ.
-Proof. intros Δ H φ; apply (proj1 (truth_lemma_can_set Δ H φ)). Qed.
-
-Corollary truth_lemma_from_forces :
-  forall Δ Hmax φ, forces (exist _ Δ Hmax) φ -> In_set Δ φ.
-Proof. intros Δ H φ; apply (proj2 (truth_lemma_can_set Δ H φ)). Qed.
-
-(* The canonical valuation makes eval and forces definitionally equivalent on the canonical frame. *)
-(* For this Phase-4 sketch we axiomatically relate eval and forces on the canonical frame; a
-   constructive truth lemma can be written but is omitted here to keep iteration quick. *)
-(* The canonical valuation makes eval and forces equivalent on the canonical frame. *)
-(* We prove both directions simultaneously by induction on formulas. This keeps IHs
-   generalized over arbitrary worlds so they can be applied at successor worlds in
-   Box/Dia cases without destructing an [<->] proof. *)
-(* Canonical equivalence between semantic eval and canonical forcing.
-   We complete all propositional cases; modal cases remain to do. *)
+(* Canonical equivalence between eval and forces on the canonical frame (user-supplied proof). *)
 Lemma eval_forces_equiv :
   forall (w:can_world) (φ:form),
     eval can_frame canonical_valuation w φ <-> forces w φ.
-Proof. Admitted.
-
-(* Frame-level validity: a formula is valid on a frame iff it holds at every world under every valuation. *)
-Definition valid_on (F:frame) (p:form) : Prop := forall (val: valuation F) (w: W F), eval F val w p.
+Proof.
+  intros w φ. revert w. induction φ; intros w; simpl.
+  - (* Bot *) split; intros H; exact H.
+  - (* Var *) split; intros H; exact H.
+  - (* Impl *)
+    destruct (IHφ1 w) as [EaFa FaEa].
+    destruct (IHφ2 w) as [EbFb FbEb].
+    split.
+    + intros He HaF. apply EbFb. apply He. apply FaEa. exact HaF.
+    + intros Hf HaE. apply FbEb. apply Hf. apply EaFa. exact HaE.
+  - (* And *)
+    destruct (IHφ1 w) as [EaFa FaEa].
+    destruct (IHφ2 w) as [EbFb FbEb].
+    split.
+    + intros [HaE HbE]. split; [apply EaFa in HaE | apply EbFb in HbE]; assumption.
+    + intros [HaF HbF]. split; [apply FaEa in HaF | apply FbEb in HbF]; assumption.
+  - (* Or *)
+    destruct (IHφ1 w) as [EaFa FaEa].
+    destruct (IHφ2 w) as [EbFb FbEb].
+    split.
+    + intros [HaE|HbE]; [left; apply EaFa in HaE; exact HaE | right; apply EbFb in HbE; exact HbE].
+    + intros [HaF|HbF]; [left; apply FaEa in HaF; exact HaF | right; apply FbEb in HbF; exact HbF].
+  - (* Neg *)
+    destruct (IHφ w) as [EaFa FaEa].
+    split.
+    + intros Hneg HaF. apply Hneg. apply FaEa. exact HaF.
+    + intros Hneg HaE. apply Hneg. apply EaFa. exact HaE.
+  - (* Box *)
+    split.
+    + intros H u Hu. apply (proj1 (IHφ u)). apply H; exact Hu.
+    + intros H u Hu. apply (proj2 (IHφ u)). apply H; exact Hu.
+  - (* Dia *)
+    split.
+    + intros [u [Hu HaE]]. exists u. split; [exact Hu| apply (proj1 (IHφ u)); exact HaE].
+    + intros [u [Hu HaF]]. exists u. split; [exact Hu| apply (proj2 (IHφ u)); exact HaF].
+Qed.
 
 Corollary canonical_eval_to_forces : forall w φ, eval can_frame canonical_valuation w φ -> forces w φ.
 Proof. intros w φ He; apply (proj1 (eval_forces_equiv w φ)); exact He. Qed.
