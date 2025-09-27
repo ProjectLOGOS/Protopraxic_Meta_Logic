@@ -95,10 +95,30 @@ Lemma chain_upper_bound :
     is_chain C ->
     (forall X, C X -> superset_of Γ X /\
              consistent X) ->
+    (exists X, C X) ->                    (* non-empty chain *)
     exists U, union_chain C U /\
              superset_of Γ U /\
              consistent U.
-Proof. Admitted.
+Proof.
+  intros Γ C Hchain Hsup [X0 HC0].
+  set (U := fun p => exists X, C X /\ X p).
+  exists U. split.
+  - unfold union_chain; intros p; split.
+    + intros [X [HCX HXp]]. exists X; split; [exact HCX| exact HXp].
+    + intros H. exact H.
+  - split.
+    + intros p Hp.
+      destruct (Hsup X0 HC0) as [HsupX0 _].
+      exists X0; split; [exact HC0| apply HsupX0; exact Hp].
+    + unfold consistent; intros [p [Hp Hnp]].
+      destruct Hp  as [X1 [HC1 H1p]].
+      destruct Hnp as [X2 [HC2 H2np]].
+      destruct (Hchain X1 X2 HC1 HC2) as [H12|H21].
+      * pose proof (Hsup X2 HC2) as [_ Hcons2]. apply Hcons2.
+        exists p; split; [apply (H12 _ H1p) | exact H2np].
+      * pose proof (Hsup X1 HC1) as [_ Hcons1]. apply Hcons1.
+        exists p; split; [exact H1p | apply (H21 _ H2np)].
+Qed.
 (* Short Lindenbaum existence lemma (Prop-level) used by the weak completeness sketch. Kept as admitted lemma.) *)
 Lemma lindenbaum : forall Γ, consistent Γ -> exists Δ, extends Γ Δ /\ maximal Δ.
 Proof. Admitted.
