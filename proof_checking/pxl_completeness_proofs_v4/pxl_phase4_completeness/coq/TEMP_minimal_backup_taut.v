@@ -173,15 +173,6 @@ Proof. intros p q. apply Prov_or_intro_l. Qed.
 Lemma ax_PL_or_intro_r : forall p q, Prov (Impl q (Or p q)).
 Proof. intros p q. apply Prov_or_intro_r. Qed.
 
-(* Small tautology admitted to simplify constructive skeleton work: *)
-Lemma taut_neg_or_prime : forall p q, Prov (Impl (Neg p) (Impl (Or p q) q)).
-Proof. intros p q. Admitted.
-
-(* Simpler admitted tautology: from (¬p → q) derive (p ∨ ¬p) → q. *)
-Lemma taut_imp_from_neg_simple : forall p q,
-  Prov (Impl (Impl (Neg p) q) (Impl (Or p (Neg p)) q)).
-Proof. intros p q. Admitted.
-
 
 
 Lemma can_R_refl : forall Γ: can_world, can_R Γ Γ.
@@ -246,32 +237,10 @@ Axiom truth_lemma_from_forces_ax : forall (w:can_world) (p:form), forces w p -> 
 
 Definition canonical_valuation : valuation can_frame := fun n w => In_set (proj1_sig w) (Var n).
 
-Lemma canonical_eval_to_forces_ax : forall (w:can_world) (p:form),
+Axiom canonical_eval_to_forces_ax : forall (w:can_world) (p:form),
   eval can_frame canonical_valuation w p -> forces w p.
-Proof. intros. Admitted.
-Lemma canonical_forces_to_eval_ax : forall (w:can_world) (p:form),
+Axiom canonical_forces_to_eval_ax : forall (w:can_world) (p:form),
   forces w p -> eval can_frame canonical_valuation w p.
-Proof. intros. Admitted.
-
-(* Semantic K/T validity in the canonical frame. *)
-Lemma K_valid_canonical :
-  forall w p q,
-    eval can_frame canonical_valuation w (Impl (Box (Impl p q)) (Impl (Box p) (Box q))).
-Proof.
-  intros w p q Himpl Hboxp u Hru.
-  (* Himpl : eval (Box (Impl p q)) at w, therefore for any u with can_R w u we have eval (Impl p q) at u. *)
-  apply (Himpl u Hru).
-  apply (Hboxp u Hru).
-Qed.
-
-Lemma T_valid_canonical :
-  forall w p,
-    eval can_frame canonical_valuation w (Impl (Box p) p).
-Proof.
-  intros w p Hbox.
-  (* Use can_R_refl: can_R w w *)
-  apply (Hbox w (can_R_refl w)).
-Qed.
 
 End TEMP_minimal.
 
