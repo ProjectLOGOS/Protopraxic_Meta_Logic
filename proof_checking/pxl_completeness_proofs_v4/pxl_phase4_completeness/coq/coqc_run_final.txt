@@ -1,0 +1,8 @@
+File ".\PXL_Completeness_Sketch.v", line 113, characters 21-32:
+Error:
+In environment
+p : form
+Hneg : Neg (Neg p) = Neg p
+H0 : Neg p = p
+Unable to unify "Neg ?p" with "?p".
+
