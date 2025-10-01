@@ -75,14 +75,19 @@ Definition In_set (Γ:set) (p:form) : Prop := Γ p.
 Lemma maximal_contains_theorems_ax : forall Γ φ, maximal Γ -> Prov φ -> In_set Γ φ.
 Admitted.
 
-Lemma In_set_to_Prov :
-  forall Γ φ, maximal Γ -> In_set Γ φ -> Prov φ.
-Proof.
-  (* This requires Lindenbaum/Zorn extension; leaving admitted for now *)
-Admitted.
+Lemma In_set_to_Prov_from :
+  forall Γ φ, In_set Γ φ -> Prov_from Γ φ.
+Proof. intros Γ φ H; apply pf_assumption; exact H. Qed.
 
 Lemma maximal_closure_MP_ax : forall Γ φ ψ, maximal Γ -> In_set Γ (Impl φ ψ) -> In_set Γ φ -> In_set Γ ψ.
-Admitted.
+Proof.
+  intros Γ φ ψ Hmax Himpl Hφ.
+  apply In_set_to_Prov_from in Himpl; try assumption.
+  apply In_set_to_Prov_from in Hφ; try assumption.
+  pose proof (pf_mp _ _ _ Himpl Hphi) as Hpsi_pf.
+  (* Push back into maximal set using maximal_contains_theorems_ax *)
+  apply maximal_contains_theorems_ax; assumption.
+Qed.
 
 Definition can_world := { Γ : set | maximal Γ }.
 Definition can_R (w u:can_world) : Prop :=

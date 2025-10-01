@@ -99,19 +99,11 @@ Proof.
     + (* In_set Δ φ *) apply Hext. right. reflexivity.
     + (* extends Γ Δ *) intros x Hx; apply Hext; left; assumption.
 Admitted.
-Lemma In_set_to_Prov :
+Lemma In_set_to_Prov_from :
   forall Γ φ,
-    maximal Γ ->
     In_set Γ φ ->
-    Prov φ.
-Proof.
-  intros Γ φ Hmax Hin.
-  (* Strategy:
-     - Use extend_consistent_set (Lindenbaum extension).
-     - Build a maximal Δ extending Γ that decides φ.
-     - Show φ must be provable (otherwise contradiction with maximality).
-  *)
-  Admitted.
+    Prov_from Γ φ.
+Proof. intros Γ φ H; apply pf_assumption; exact H. Qed.
 
 Lemma maximal_closure_MP_ax :
   forall Γ φ ψ,
@@ -122,8 +114,8 @@ Lemma maximal_closure_MP_ax :
 Proof.
   intros Γ φ ψ Hmax Himpl Hφ.
   (* Step 1: convert set membership to Prov using bridge *)
-  apply In_set_to_Prov in Himpl; try assumption.
-  apply In_set_to_Prov in Hφ; try assumption.
+  apply In_set_to_Prov_from in Himpl; try assumption.
+  apply In_set_to_Prov_from in Hφ; try assumption.
   (* Step 2: apply mp to derive Prov ψ *)
   pose proof (mp _ _ Himpl Hφ) as Hprov.
   (* Step 3: push back into the maximal set *)

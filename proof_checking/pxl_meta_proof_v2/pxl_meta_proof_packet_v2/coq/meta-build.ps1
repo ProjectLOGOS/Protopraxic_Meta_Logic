@@ -1,6 +1,7 @@
 param([switch]$Clean)
 $ErrorActionPreference = "Stop"
 Set-Location -Path $PSScriptRoot
+
 if ($Clean) {
   Get-ChildItem -Filter *.vo -Recurse | Remove-Item -Force -ErrorAction SilentlyContinue
   Get-ChildItem -Filter *.glob -Recurse | Remove-Item -Force -ErrorAction SilentlyContinue

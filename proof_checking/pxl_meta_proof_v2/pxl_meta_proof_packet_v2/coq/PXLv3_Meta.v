@@ -93,10 +93,14 @@ Theorem ax_ident_refl  : forall x:Obj, x ⧟ x.
 Proof. intros x. reflexivity. Qed.
 
 Theorem ax_ident_symm  : forall x y:Obj, x ⧟ y -> y ⧟ x.
-Proof. intros x y H. subst. reflexivity. Qed.
+Proof.
+  intros x y H. exact (eq_sym H).
+Qed.
 
 Theorem ax_ident_trans : forall x y z:Obj, x ⧟ y -> y ⧟ z -> x ⧟ z.
-Proof. intros x y z Hxy Hyz. subst. reflexivity. Qed.
+Proof.
+  intros x y z Hxy Hyz. exact (eq_trans Hxy Hyz).
+Qed.
 
 Theorem ax_nonequiv_irrefl : forall x:Obj, ~ (x ⇎ x).
 Proof.
@@ -105,18 +109,20 @@ Qed.
 
 Theorem ax_inter_comm : forall x y:Obj, x ⇌ y <-> y ⇌ x.
 Proof.
-  intros x y. split; intro _; exact I.
+  intros x y. split.
+  - intros _. exact I.
+  - intros _. exact I.
 Qed.
 
 (* === Triune axioms discharged === *)
 Theorem A1_identity : □ (forall x:Obj, x ⧟ x).
 Proof.
-  intro x. exact (fun x => eq_refl x).
+  intros x. reflexivity.
 Qed.
 
 Theorem A2_noncontradiction : □ (forall x y:Obj, ∼ (x ⧟ y /\ x ⇎ y)).
 Proof.
-  intros x y [Hid Hneq]. unfold NonEquiv in Hneq. subst. apply Hneq. reflexivity.
+  intros x y [Hid Hneq]. unfold NonEquiv in Hneq. unfold Ident in Hid. apply Hneq. exact Hid.
 Qed.
 
 Theorem A3_excluded_middle : forall (P:Obj->Prop) (x:Obj), P x \/ ∼ P x.

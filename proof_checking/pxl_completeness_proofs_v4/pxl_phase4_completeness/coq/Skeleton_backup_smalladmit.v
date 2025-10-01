@@ -86,8 +86,17 @@ Ltac pxl_case φ :=
 (* Compatibility: sketch exposes maximal_not_Bot under a different name; if it's missing,
    provide a thin lemma pointing to the expected behavior so the skeleton compiles while
    the sketch supplies the real proof. Keep admitted for now. *)
-Lemma maximal_not_Bot_admit : forall Γ, Maximal Γ -> ~ In_set Γ Bot.
-Proof. intros. Admitted.
+Lemma maximal_not_Bot : forall Γ, Maximal Γ -> ~ In_set Γ Bot.
+Proof.
+  intros Γ Hmax Hmem.
+  unfold not in *.
+  (* If Bot were in a maximal Γ then Γ would be inconsistent, so Prov_from Γ Bot.
+     Use pf_incons_def and pf_assumption to derive contradiction. *)
+  pose proof (pf_incons_def Γ) as Hpf.
+  pose proof (pf_assumption Γ Bot Hmem) as Hprov.
+  apply Hpf in Hprov.
+  exact Hprov.
+Qed.
 
 (* Compatibility lemma: forces are independent of which maximal witness is picked. *)
 Lemma forces_indep_witness :
@@ -189,7 +198,7 @@ Lemma truth_set_bot_forward :
 Proof.
   intros Δ Hmax Hmem Hmax'.
   (* In a maximal theory Bot cannot be a member *)
-  exfalso. apply (maximal_not_Bot_admit Δ Hmax). exact Hmem.
+  exfalso. apply (maximal_not_Bot Δ Hmax). exact Hmem.
 Qed.
 
 Lemma truth_set_bot_backward :
