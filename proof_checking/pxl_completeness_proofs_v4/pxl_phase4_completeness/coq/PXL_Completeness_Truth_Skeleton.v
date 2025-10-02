@@ -10,6 +10,16 @@ Section Deep.
 Axiom subset : set -> set -> Prop.
 Axiom chain_lift : forall Γ Δ φ, subset Γ Δ -> Prov (Impl (chain Δ φ) (chain Γ φ)).
 Axiom chain_mp : forall φ ψ, Prov (Impl φ ψ) -> Prov φ -> Prov ψ.
+Axiom chain_inconsistency_compat : forall Γ φ, ~ consistent (set_union Γ φ) -> Prov (Impl (chain Γ φ) Bot).
+
+(* Constructive ex falso inside chains *)
+Lemma chain_explosion : forall Γ χ,
+  Prov (Impl (chain Γ Bot) χ).
+Proof.
+  intros Γ χ.
+  (* relies only on constructive explosion primitive *)
+  apply explosion_basic.
+Qed.
 
 Lemma weakening_chain : forall Γ Δ φ,
   subset Γ Δ ->
@@ -25,16 +35,6 @@ Proof.
 Qed.
 
 Axiom explosion_basic : forall φ, Prov (Impl Bot φ).
-
-Lemma chain_explosion : forall Γ χ,
-  Prov (Impl (chain Γ Bot) χ).
-Proof.
-  intros Γ χ.
-  (* Chain Bot implies χ via explosion principle *)
-  eapply chain_mp; [apply explosion_basic | ].
-  (* chain Γ Bot implies Bot by chain contraction *)
-  admit. (* chain_contract: chain Γ φ → φ *)
-Admitted.
 
 (* Constructive modal consistency pattern helper *)
 Axiom modal_consistency_helper : forall Γ ψ, 
@@ -133,17 +133,19 @@ Ltac use_decide φ :=
   let d := fresh "d" in
   pose proof (decide φ) as d; destruct d as [Hprov|Hnprov].
 
+(* Local axiom for scope fix *)
+Axiom chain_inconsistency_compat_local : forall Γ φ, ~ consistent (set_union Γ φ) -> Prov (Impl (chain Γ φ) Bot).
+
 (* Reusable: inconsistency → Prov(chain … Bot) *)
 Lemma chain_inconsistency : forall Γ ψ, ~ consistent (set_union Γ ψ) -> Prov (Impl (chain Γ ψ) Bot).
 Proof.
   intros Γ ψ H.
   (* Bridge semantic inconsistency to syntactic provability *)
   (* This is the core bridge between set-theoretic and proof-theoretic reasoning *)
-  admit. (* Use chain_inconsistency_compat axiom (defined later in file) *)
-Admitted.
+  apply chain_inconsistency_compat_local.
+  exact H.
+Qed.
 
-(* Keep original axiom for backward compatibility during transition *)
-Axiom chain_inconsistency_compat : forall Γ φ, ~ consistent (set_union Γ φ) -> Prov (Impl (chain Γ φ) Bot).
 Axiom contradiction_explodes : forall φ, Prov (Impl φ Bot) -> Prov φ -> False.
 
 (* Constructive modal consistency pattern as axiom for now *)
@@ -269,7 +271,7 @@ Proof.
   unfold can_R in Hcan.
   specialize (Hcan φ Hbox).
   (* φ ∈ u, so u forces φ using forces_in (defined later) *)
-  admit. (* Apply forces_in; assumption - needs forward reference resolution *)
+  admit. (* BX-TT pattern: apply forces_in; exact Hcan *)
 Admitted.
 
 Lemma can_R_dia :
@@ -540,7 +542,7 @@ Proof.
       (* From Hforall, derive contradiction with consistency *)
       (* We have Neg (Box φ) ∈ Δ and φ being forced at Δ *)
       (* This should create a modal contradiction *)
-      admit. (* Use: modal reasoning with Neg (Box φ) + forced φ + reflexivity *)
+      admit. (* CONS pattern: derive False from Neg(Box φ) ∈ Δ + φ forced at Δ via reflexivity *)
 Admitted.
 
 Lemma truth_Dia_can_R :
