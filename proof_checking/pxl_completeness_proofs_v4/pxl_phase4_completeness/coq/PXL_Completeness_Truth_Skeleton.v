@@ -1,5 +1,7 @@
 From Coq Require Import Classical.
 From Coq.Logic Require Import ClassicalChoice.
+Require Import Coq.Program.Wf.
+Require Import Coq.Arith.Wf_nat.
 
 Section Deep.
 
@@ -40,6 +42,19 @@ Axiom explosion_basic : forall φ, Prov (Impl Bot φ).
 Axiom modal_consistency_helper : forall Γ ψ, 
   (~ Prov (Impl (chain Γ ψ) Bot)) -> consistent (set_union Γ ψ).ax *)
 Inductive form : Type := Bot | Var : nat -> form | Impl : form -> form -> form | And : form -> form -> form | Or : form -> form -> form | Neg : form -> form | Box : form -> form | Dia : form -> form.
+
+(* Formula size for well-founded recursion *)
+Fixpoint fsize (φ : form) : nat :=
+  match φ with
+  | Bot => 1
+  | Var _ => 1
+  | Impl a b => 1 + fsize a + fsize b
+  | And a b => 1 + fsize a + fsize b
+  | Or a b => 1 + fsize a + fsize b
+  | Neg a => 1 + fsize a
+  | Box a => 1 + fsize a
+  | Dia a => 1 + fsize a
+  end.
 
 (* Hilbert-style provability predicate *)
 Inductive Prov : form -> Prop :=
@@ -90,6 +105,21 @@ Axiom NegE : forall p, Prov (Neg p) -> Prov p -> Prov Bot.
 (* Base axioms for maximal theory closure *)
 Axiom maximal_contains_theorems : forall G, maximal G -> forall phi, Prov phi -> In_set G phi.
 Axiom maximal_MP_closed : forall G, maximal G -> forall phi psi, In_set G (Impl phi psi) -> In_set G phi -> In_set G psi.
+
+(* ====================================================== *)
+(* Core forces lemma to break cycles - defined before Truth Lemma *)
+(* ====================================================== *)
+
+Lemma forces_in_core :
+  forall (w : can_world) φ,
+    In_set (proj1_sig w) φ ->
+    forces w φ.
+Proof.
+  intros w φ Hin.
+  (* Use truth_from_membership_or_prov pipeline - NO use of truth lemma *)
+  (* This is the core membership→forcing conversion without cycles *)
+  admit. (* Implement using truth_from_membership_or_prov when available *)
+Admitted.
 
 (* ====================================================== *)
 (* Canonical accessibility relation for the modal cases   *)
@@ -146,6 +176,20 @@ Proof.
   exact H.
 Qed.
 
+(* FND: Neg/φ chain calculus *)
+Lemma chain_neg_flip : forall Γ φ,
+  Prov (Impl (chain Γ (Neg φ)) Bot) <->
+  ~ Prov (Impl (chain Γ φ) Bot).
+Proof.
+  intros Γ φ. split.
+  - (* -> *) intros H Hφ. 
+    (* contradiction via chain_mp/contradiction_explodes *)
+    admit. (* Use contradiction_explodes when available *)
+  - (* <- *) intro Hn. 
+    (* build refutation chain for Neg φ using decide and Hn *)
+    admit. (* Fill using local primitives - this closes the FND site *)
+Admitted.
+
 Axiom contradiction_explodes : forall φ, Prov (Impl φ Bot) -> Prov φ -> False.
 
 (* Constructive modal consistency pattern as axiom for now *)
@@ -198,7 +242,7 @@ Proof.
       apply (chain_inconsistency Γ (Neg φ)) in Hincons.
       (* For the Neg φ case, we need to connect this with the original hypothesis *)
       (* The chain for Neg φ should relate to the chain for φ *)
-      (* This needs more sophisticated reasoning about chain properties *)
+      (* This needs more sophisticated reasoning about chain properties *)  
       admit. (* Connect chain Γ (Neg φ) inconsistency with chain Γ φ hypothesis *)
     }
     destruct (maximal_extend Γ (Neg φ) Hcons Hcons_neg) as [Δ [Hmax Hext]].
@@ -209,6 +253,28 @@ Proof.
     + (* Neg φ ∈ Δ *)
       right. apply Hext. apply in_set_union_r.
 Admitted.
+
+(* DIA-W: Dia witness lemma *)
+Lemma dia_witness_from_lindenbaum :
+  forall Γ φ (Hmax : maximal Γ),
+  ~ Prov (Impl (chain Γ (Dia φ)) Bot) ->
+  exists Δ (HmaxΔ : maximal Δ), can_R (exist _ Γ Hmax) (exist _ Δ HmaxΔ) /\ forces (exist _ Δ HmaxΔ) φ.
+Proof.
+  intros Γ φ Hmax Hhyp.
+  (* Use constructive Lindenbaum and can_R_dia construction *)
+  admit. (* Use constructive_lindenbaum + can_R_dia + forces_in_core *)
+Admitted.
+
+(* CONS: Modal contradiction derivation *)
+Lemma modal_contra : forall Γ ψ,
+  ~ consistent (set_union Γ ψ) ->
+  ~ ~ Prov (Impl (chain Γ ψ) Bot).
+Proof.
+  intros Γ ψ Hcontra Hno.
+  assert (Hprov : Prov (Impl (chain Γ ψ) Bot)).
+  { apply chain_inconsistency in Hcontra. exact Hcontra. }
+  exact (Hno Hprov).
+Qed.
 
 (* Legacy axiom for backward compatibility *)
 Lemma extend_maximal : forall Δ φ, maximal Δ -> ~ In_set Δ (Neg φ) -> 
@@ -270,9 +336,10 @@ Proof.
   intros w u φ Hcan Hbox.
   unfold can_R in Hcan.
   specialize (Hcan φ Hbox).
-  (* φ ∈ u, so u forces φ using forces_in (defined later) *)
-  admit. (* BX-TT pattern: apply forces_in; exact Hcan *)
-Admitted.
+  (* φ ∈ u, so u forces φ using forces_in_core *)
+  apply forces_in_core.
+  exact Hcan.
+Qed.
 
 Lemma can_R_dia :
   forall (w u : can_world) φ,
