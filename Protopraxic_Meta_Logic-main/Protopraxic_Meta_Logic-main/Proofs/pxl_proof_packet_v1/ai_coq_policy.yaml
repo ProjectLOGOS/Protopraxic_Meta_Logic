@@ -1,0 +1,104 @@
+version: 1.0
+name: AI Coq Policy for PXLv3 Proofkit
+description: |
+  Machine-readable policy file giving an AI assistant the exact build commands,
+  file/notation rules, proof-style conventions and common troubleshooting steps
+  so generated Coq sources compile on Windows PowerShell in this repository.
+
+metadata:
+  repo: logos_system_dev
+  path: "."
+  coq_subdir: "coq"
+  coq_project: "coq/_CoqProject"
+
+env_setup:
+  - "$env:Path = 'C:\\Coq-Platform~8.20~2025.01\\bin;' + $env:Path"
+  - "Ensure coqc, coqtop, coqide are available on PATH"
+
+build_commands:
+  windows_powerShell_build: |
+    cd coq
+    powershell -NoProfile -ExecutionPolicy Bypass -File .\coq-build.ps1 -Clean
+  single_file:
+    - "C:\\Coq-Platform~8.20~2025.01\\bin\\coqc.exe -q <file>.v"
+  make_unix_note: "coq_makefile + Makefile uses Unix tools; on Windows use WSL/Git-Bash or the provided PowerShell script"
+
+project_rules:
+  - "Keep _CoqProject up-to-date: list new .v files in dependency order. The build script reads it."
+  - "Prefer top-level files for shared Parameters/Notations so all modules can import them."
+  - "Use -Q/-R remaps in _CoqProject if you introduce nested libraries."
+
+file_rules:
+  encoding: "UTF-8"
+  disallow:
+    - "Markdown code fences (```) inside .v files"
+    - "Backticks or raw HTML inside Gallina code"
+  allow_unicode: true
+  notations: |
+    - "Declare notations at top-level (Infix/Notation). Avoid local re-declares."
+
+proof_style:
+  high_level:
+    - "Prefer small, deterministic proofs for library lemmas."
+    - "If automation fails in batch builds, convert to explicit proof terms."
+  patterns:
+    - name: explicit_apply
+      before: |
+        Proof. intro H; apply ax_imp_elim in H; exact H. Qed.
+      after: |
+        Proof. intro H. exact (ax_imp_elim (p:=p) (q:=q) H). Qed.
+      reason: "avoids 'apply ... in H' instance-search issues in batch compilation"
+
+    - name: avoid_tauto_in_library
+      before: "split; tauto."
+      after: "split; intros; assumption."
+      reason: "tauto can mask required explicit structure; explicit steps are reproducible"
+
+naming_and_kinds:
+  - "Do not use Coq reserved vernacular names for identifiers (e.g., don't name a parameter `Axiom`). Use `IsAxiom` instead."
+  - "Be explicit about kinds: Obj vs Prop. Use Prop-level MEquiv (⩪) for Prop equivalence and Obj-level Inter (⇌) for Obj relations."
+
+examples:
+  _CoqProject_sample: |
+    -Q . PXLv3
+    PXLv3.v
+    PXLv3_head.v
+    test_meta.v
+
+  test_meta_v: |
+    From PXLv3 Require Export PXLv3 PXLv3_head.
+
+    (* quick meta check *)
+    Theorem sanity_example : (exists M:Prop, True) -> ~ (exists P:Prop, P /\ ~ P).
+    Proof. intros _ [P [HP HnP]]. apply HnP; exact HP. Qed.
+
+troubleshooting:
+  Lexer_Unterminated_Comment: |
+    symptoms: "Lexer: Unterminated comment"
+    quick_fix: |
+      - "Count occurrences: (Get-Content <file> | Select-String -Pattern '\(\*' -AllMatches).Matches.Count"
+      - "Count closing: (Get-Content <file> | Select-String -Pattern '\*\)' -AllMatches).Matches.Count"
+      - "Open last ~40 lines of file and close unmatched '(*' with '*)' or remove stray Markdown fences."
+
+  KindMismatch_Obj_vs_Prop: |
+    symptoms: "term has type 'Obj' while expected 'Prop'"
+    fix: "If the logical connective is about Props, replace Obj-level operator (e.g., '⇌') with Prop-level '⩪' (MEquiv)."
+
+  InstanceSearchFailures: |
+    symptoms: "Unable to find an instance for variable q / ambiguous inference after 'apply ... in H'"
+    fix: "Replace 'apply ... in H' patterns with explicit 'exact (lemma (p:=p) (q:=q) H)'."
+
+  Makefile_on_Windows: |
+    symptoms: "make failure: 'cut' not recognized or coqc not found"
+    fix: "Use 'coq-build.ps1' or run make under WSL/Git-Bash; ensure Coq bin is in PATH for the session."
+
+ci_integration:
+  - "Use the PowerShell script as the Windows runner step."
+  - "Fail the job on any non-zero exit code from the script."
+
+assistant_contract:
+  - "Produce UTF-8 .v files only; no Markdown fences embedded."
+  - "Add any new files to _CoqProject in dependency order."
+  - "Prefer deterministic, explicit proof scripts in library files."
+
+format: YAML

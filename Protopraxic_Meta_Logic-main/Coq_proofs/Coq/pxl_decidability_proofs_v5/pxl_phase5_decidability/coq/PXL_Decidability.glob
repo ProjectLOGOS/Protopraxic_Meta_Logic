@@ -1,0 +1,394 @@
+DIGEST b97e76e0e22b8424b2a26b0473d98192
+FPXL_Decidability
+R24:27 Coq.Lists.List <> <> lib
+R29:33 Coq.Arith.Arith <> <> lib
+R35:38 Coq.Bool.Bool <> <> lib
+R48:60 Coq.Lists.List ListNotations <> mod
+ind 255:258 <> form
+constr 272:274 <> Bot
+constr 286:288 <> Var
+constr 307:310 <> Impl
+constr 337:339 <> And
+constr 367:368 <> Or
+constr 397:399 <> Neg
+constr 419:421 <> Box
+constr 441:443 <> Dia
+R279:282 PXL_Decidability <> form:1 ind
+R296:299 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R293:295 Coq.Init.Datatypes <> nat ind
+R300:303 PXL_Decidability <> form:1 ind
+R318:321 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R314:317 PXL_Decidability <> form:1 ind
+R326:329 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R322:325 PXL_Decidability <> form:1 ind
+R330:333 PXL_Decidability <> form:1 ind
+R348:351 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R344:347 PXL_Decidability <> form:1 ind
+R356:359 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R352:355 PXL_Decidability <> form:1 ind
+R360:363 PXL_Decidability <> form:1 ind
+R378:381 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R374:377 PXL_Decidability <> form:1 ind
+R386:389 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R382:385 PXL_Decidability <> form:1 ind
+R390:393 PXL_Decidability <> form:1 ind
+R408:411 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R404:407 PXL_Decidability <> form:1 ind
+R412:415 PXL_Decidability <> form:1 ind
+R430:433 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R426:429 PXL_Decidability <> form:1 ind
+R434:437 PXL_Decidability <> form:1 ind
+R452:455 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R448:451 PXL_Decidability <> form:1 ind
+R456:459 PXL_Decidability <> form:1 ind
+scheme 255:258 <> form_rect
+scheme 255:258 <> form_ind
+scheme 255:258 <> form_rec
+scheme 255:258 <> form_sind
+def 631:634 <> vars
+R640:643 PXL_Decidability <> form ind
+binder 637:638 <> φ:3
+R648:651 Coq.Init.Datatypes <> list ind
+R653:655 Coq.Init.Datatypes <> nat ind
+R668:669 PXL_Decidability <> φ:3 var
+R680:682 PXL_Decidability <> Bot constr
+R687:688 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R694:696 PXL_Decidability <> Var constr
+R703:703 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
+R705:705 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
+R711:714 PXL_Decidability <> Impl constr
+R729:732 Coq.Init.Datatypes <> ::list_scope:x_'++'_x not
+R723:726 PXL_Decidability <> vars:4 def
+R733:736 PXL_Decidability <> vars:4 def
+R744:746 PXL_Decidability <> And constr
+R762:765 Coq.Init.Datatypes <> ::list_scope:x_'++'_x not
+R756:759 PXL_Decidability <> vars:4 def
+R766:769 PXL_Decidability <> vars:4 def
+R777:778 PXL_Decidability <> Or constr
+R795:798 Coq.Init.Datatypes <> ::list_scope:x_'++'_x not
+R789:792 PXL_Decidability <> vars:4 def
+R799:802 PXL_Decidability <> vars:4 def
+R810:812 PXL_Decidability <> Neg constr
+R822:825 PXL_Decidability <> vars:4 def
+R833:835 PXL_Decidability <> Box constr
+R845:848 PXL_Decidability <> vars:4 def
+R856:858 PXL_Decidability <> Dia constr
+R868:871 PXL_Decidability <> vars:4 def
+def 892:894 <> mem
+R899:901 Coq.Init.Datatypes <> nat ind
+binder 897:897 <> x:6
+R908:911 Coq.Init.Datatypes <> list ind
+R913:915 Coq.Init.Datatypes <> nat ind
+binder 905:906 <> xs:7
+R920:923 Coq.Init.Datatypes <> bool ind
+R936:937 PXL_Decidability <> xs:7 var
+R946:947 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R952:956 Coq.Init.Datatypes <> false constr
+R961:962 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R972:978 Coq.Arith.PeanoNat Nat eqb def
+R980:980 PXL_Decidability <> x:6 var
+R999:1001 PXL_Decidability <> mem:8 def
+R1003:1003 PXL_Decidability <> x:6 var
+R989:992 Coq.Init.Datatypes <> true constr
+def 1023:1027 <> nodup
+R1033:1036 Coq.Init.Datatypes <> list ind
+R1038:1040 Coq.Init.Datatypes <> nat ind
+binder 1030:1031 <> xs:10
+R1045:1048 Coq.Init.Datatypes <> list ind
+R1050:1052 Coq.Init.Datatypes <> nat ind
+R1065:1066 PXL_Decidability <> xs:10 var
+R1077:1078 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R1083:1084 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R1091:1092 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R1102:1104 PXL_Decidability <> mem def
+R1131:1134 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R1135:1139 PXL_Decidability <> nodup:11 def
+R1116:1120 PXL_Decidability <> nodup:11 def
+def 1161:1169 <> eval_prop
+R1178:1179 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1175:1177 Coq.Init.Datatypes <> nat ind
+R1180:1183 Coq.Init.Datatypes <> bool ind
+binder 1172:1173 <> ρ:13
+R1190:1193 PXL_Decidability <> form ind
+binder 1187:1188 <> φ:14
+R1198:1201 Coq.Init.Datatypes <> bool ind
+R1214:1215 PXL_Decidability <> φ:14 var
+R1226:1228 PXL_Decidability <> Bot constr
+R1233:1237 Coq.Init.Datatypes <> false constr
+R1243:1245 PXL_Decidability <> Var constr
+R1252:1253 PXL_Decidability <> ρ:13 var
+R1261:1264 PXL_Decidability <> Impl constr
+R1294:1297 Coq.Init.Datatypes <> ::bool_scope:x_'||'_x not
+R1273:1276 Coq.Init.Datatypes <> negb def
+R1279:1287 PXL_Decidability <> eval_prop:15 def
+R1289:1290 PXL_Decidability <> ρ:13 var
+R1298:1306 PXL_Decidability <> eval_prop:15 def
+R1308:1309 PXL_Decidability <> ρ:13 var
+R1317:1319 PXL_Decidability <> And constr
+R1329:1332 Coq.Init.Datatypes <> andb def
+R1352:1360 PXL_Decidability <> eval_prop:15 def
+R1362:1363 PXL_Decidability <> ρ:13 var
+R1335:1343 PXL_Decidability <> eval_prop:15 def
+R1345:1346 PXL_Decidability <> ρ:13 var
+R1372:1373 PXL_Decidability <> Or constr
+R1384:1386 Coq.Init.Datatypes <> orb def
+R1407:1415 PXL_Decidability <> eval_prop:15 def
+R1417:1418 PXL_Decidability <> ρ:13 var
+R1390:1398 PXL_Decidability <> eval_prop:15 def
+R1400:1401 PXL_Decidability <> ρ:13 var
+R1427:1429 PXL_Decidability <> Neg constr
+R1439:1442 Coq.Init.Datatypes <> negb def
+R1445:1453 PXL_Decidability <> eval_prop:15 def
+R1455:1456 PXL_Decidability <> ρ:13 var
+R1465:1467 PXL_Decidability <> Box constr
+R1477:1485 PXL_Decidability <> eval_prop:15 def
+R1487:1488 PXL_Decidability <> ρ:13 var
+R1496:1498 PXL_Decidability <> Dia constr
+R1508:1516 PXL_Decidability <> eval_prop:15 def
+R1518:1519 PXL_Decidability <> ρ:13 var
+def 1540:1554 <> all_assignments
+R1560:1563 Coq.Init.Datatypes <> list ind
+R1565:1567 Coq.Init.Datatypes <> nat ind
+binder 1557:1558 <> xs:17
+R1572:1575 Coq.Init.Datatypes <> list ind
+R1581:1584 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1578:1580 Coq.Init.Datatypes <> nat ind
+R1585:1588 Coq.Init.Datatypes <> bool ind
+R1602:1603 PXL_Decidability <> xs:17 var
+R1614:1615 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R1620:1620 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
+R1635:1635 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
+R1630:1634 Coq.Init.Datatypes <> false constr
+R1642:1643 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R1668:1682 PXL_Decidability <> all_assignments:18 def
+binder 1660:1663 <> rest:20
+R1708:1715 Coq.Lists.List <> map def
+R1774:1777 PXL_Decidability <> rest:20 var
+binder 1722:1723 <> ρ:21
+binder 1732:1732 <> n:22
+R1740:1746 Coq.Arith.PeanoNat Nat eqb def
+R1748:1748 PXL_Decidability <> n:22 var
+R1768:1769 PXL_Decidability <> ρ:21 var
+R1771:1771 PXL_Decidability <> n:22 var
+R1757:1761 Coq.Init.Datatypes <> false constr
+binder 1700:1703 <> set0:23
+R1800:1807 Coq.Lists.List <> map def
+R1866:1869 PXL_Decidability <> rest:20 var
+binder 1814:1815 <> ρ:24
+binder 1824:1824 <> n:25
+R1832:1838 Coq.Arith.PeanoNat Nat eqb def
+R1840:1840 PXL_Decidability <> n:25 var
+R1860:1861 PXL_Decidability <> ρ:24 var
+R1863:1863 PXL_Decidability <> n:25 var
+R1849:1852 Coq.Init.Datatypes <> true constr
+binder 1792:1795 <> set1:26
+R1884:1887 Coq.Init.Datatypes <> ::list_scope:x_'++'_x not
+R1880:1883 PXL_Decidability <> set0:23 var
+R1888:1891 PXL_Decidability <> set1:26 var
+def 1912:1925 <> tautology_prop
+R1931:1934 PXL_Decidability <> form ind
+binder 1928:1929 <> φ:27
+R1939:1942 Coq.Init.Datatypes <> bool ind
+R1959:1963 PXL_Decidability <> nodup def
+R1966:1969 PXL_Decidability <> vars def
+R1971:1972 PXL_Decidability <> φ:27 var
+binder 1953:1954 <> xs:28
+R1991:2005 PXL_Decidability <> all_assignments def
+R2007:2008 PXL_Decidability <> xs:28 var
+binder 1984:1986 <> asg:29
+R2015:2021 Coq.Lists.List <> forallb def
+R2051:2053 PXL_Decidability <> asg:29 var
+binder 2028:2029 <> ρ:30
+R2034:2042 PXL_Decidability <> eval_prop def
+R2044:2045 PXL_Decidability <> ρ:30 var
+R2047:2048 PXL_Decidability <> φ:27 var
+prf 2117:2134 <> forallb_implies_in
+binder 2148:2148 <> A:31
+R2159:2160 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R2158:2158 PXL_Decidability <> A:31 var
+R2161:2164 Coq.Init.Datatypes <> bool ind
+binder 2156:2156 <> p:32
+R2171:2174 Coq.Init.Datatypes <> list ind
+R2176:2176 PXL_Decidability <> A:31 var
+binder 2168:2169 <> ls:33
+R2182:2182 PXL_Decidability <> A:31 var
+binder 2180:2180 <> x:34
+R2209:2212 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R2202:2204 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R2190:2196 Coq.Lists.List <> forallb def
+R2200:2201 PXL_Decidability <> ls:33 var
+R2198:2198 PXL_Decidability <> p:32 var
+R2205:2208 Coq.Init.Datatypes <> true constr
+R2220:2223 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R2213:2214 Coq.Lists.List <> In def
+R2218:2219 PXL_Decidability <> ls:33 var
+R2216:2216 PXL_Decidability <> x:34 var
+R2227:2229 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R2224:2224 PXL_Decidability <> p:32 var
+R2226:2226 PXL_Decidability <> x:34 var
+R2230:2233 Coq.Init.Datatypes <> true constr
+R2362:2379 Coq.Bool.Bool <> andb_true_iff thm
+R2362:2379 Coq.Bool.Bool <> andb_true_iff thm
+prf 2564:2588 <> eval_depends_only_on_vars
+binder 2601:2602 <> φ:35
+binder 2604:2605 <> ρ:36
+binder 2607:2608 <> σ:37
+R2615:2615 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R2655:2663 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+binder 2623:2623 <> v:38
+R2640:2643 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R2626:2627 Coq.Lists.List <> In def
+R2632:2635 PXL_Decidability <> vars def
+R2637:2638 PXL_Decidability <> φ:35 var
+R2629:2629 PXL_Decidability <> v:38 var
+R2648:2650 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R2644:2645 PXL_Decidability <> ρ:36 var
+R2647:2647 PXL_Decidability <> v:38 var
+R2651:2652 PXL_Decidability <> σ:37 var
+R2654:2654 PXL_Decidability <> v:38 var
+R2679:2681 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R2664:2672 PXL_Decidability <> eval_prop def
+R2674:2675 PXL_Decidability <> ρ:36 var
+R2677:2678 PXL_Decidability <> φ:35 var
+R2682:2690 PXL_Decidability <> eval_prop def
+R2692:2693 PXL_Decidability <> σ:37 var
+R2695:2696 PXL_Decidability <> φ:35 var
+binder 2907:2907 <> v:39
+binder 2909:2910 <> Hv:40
+R2917:2917 PXL_Decidability <> v:39 var
+R2920:2924 Coq.Init.Logic <> proj2 thm
+R2960:2968 Coq.Init.Logic <> or_introl constr
+R2970:2971 PXL_Decidability <> Hv:40 var
+R2927:2936 Coq.Lists.List <> in_app_iff thm
+R2956:2956 PXL_Decidability <> v:39 var
+R2948:2951 PXL_Decidability <> vars def
+R2939:2942 PXL_Decidability <> vars def
+binder 2907:2907 <> v:41
+binder 2909:2910 <> Hv:42
+R2917:2917 PXL_Decidability <> v:41 var
+R2920:2924 Coq.Init.Logic <> proj2 thm
+R2960:2968 Coq.Init.Logic <> or_introl constr
+R2970:2971 PXL_Decidability <> Hv:42 var
+R2927:2936 Coq.Lists.List <> in_app_iff thm
+R2956:2956 PXL_Decidability <> v:41 var
+R2948:2951 PXL_Decidability <> vars def
+R2939:2942 PXL_Decidability <> vars def
+binder 2996:2996 <> v:43
+binder 2998:2999 <> Hv:44
+R3006:3006 PXL_Decidability <> v:43 var
+R3009:3013 Coq.Init.Logic <> proj2 thm
+R3049:3057 Coq.Init.Logic <> or_intror constr
+R3059:3060 PXL_Decidability <> Hv:44 var
+R3016:3025 Coq.Lists.List <> in_app_iff thm
+R3045:3045 PXL_Decidability <> v:43 var
+R3037:3040 PXL_Decidability <> vars def
+R3028:3031 PXL_Decidability <> vars def
+binder 2996:2996 <> v:45
+binder 2998:2999 <> Hv:46
+R3006:3006 PXL_Decidability <> v:45 var
+R3009:3013 Coq.Init.Logic <> proj2 thm
+R3049:3057 Coq.Init.Logic <> or_intror constr
+R3059:3060 PXL_Decidability <> Hv:46 var
+R3016:3025 Coq.Lists.List <> in_app_iff thm
+R3045:3045 PXL_Decidability <> v:45 var
+R3037:3040 PXL_Decidability <> vars def
+R3028:3031 PXL_Decidability <> vars def
+binder 3156:3156 <> v:47
+binder 3158:3159 <> Hv:48
+R3166:3166 PXL_Decidability <> v:47 var
+R3169:3173 Coq.Init.Logic <> proj2 thm
+R3209:3217 Coq.Init.Logic <> or_introl constr
+R3219:3220 PXL_Decidability <> Hv:48 var
+R3176:3185 Coq.Lists.List <> in_app_iff thm
+R3205:3205 PXL_Decidability <> v:47 var
+R3197:3200 PXL_Decidability <> vars def
+R3188:3191 PXL_Decidability <> vars def
+binder 3156:3156 <> v:49
+binder 3158:3159 <> Hv:50
+R3166:3166 PXL_Decidability <> v:49 var
+R3169:3173 Coq.Init.Logic <> proj2 thm
+R3209:3217 Coq.Init.Logic <> or_introl constr
+R3219:3220 PXL_Decidability <> Hv:50 var
+R3176:3185 Coq.Lists.List <> in_app_iff thm
+R3205:3205 PXL_Decidability <> v:49 var
+R3197:3200 PXL_Decidability <> vars def
+R3188:3191 PXL_Decidability <> vars def
+binder 3245:3245 <> v:51
+binder 3247:3248 <> Hv:52
+R3255:3255 PXL_Decidability <> v:51 var
+R3258:3262 Coq.Init.Logic <> proj2 thm
+R3298:3306 Coq.Init.Logic <> or_intror constr
+R3308:3309 PXL_Decidability <> Hv:52 var
+R3265:3274 Coq.Lists.List <> in_app_iff thm
+R3294:3294 PXL_Decidability <> v:51 var
+R3286:3289 PXL_Decidability <> vars def
+R3277:3280 PXL_Decidability <> vars def
+binder 3245:3245 <> v:53
+binder 3247:3248 <> Hv:54
+R3255:3255 PXL_Decidability <> v:53 var
+R3258:3262 Coq.Init.Logic <> proj2 thm
+R3298:3306 Coq.Init.Logic <> or_intror constr
+R3308:3309 PXL_Decidability <> Hv:54 var
+R3265:3274 Coq.Lists.List <> in_app_iff thm
+R3294:3294 PXL_Decidability <> v:53 var
+R3286:3289 PXL_Decidability <> vars def
+R3277:3280 PXL_Decidability <> vars def
+binder 3404:3404 <> v:55
+binder 3406:3407 <> Hv:56
+R3414:3414 PXL_Decidability <> v:55 var
+R3417:3421 Coq.Init.Logic <> proj2 thm
+R3457:3465 Coq.Init.Logic <> or_introl constr
+R3467:3468 PXL_Decidability <> Hv:56 var
+R3424:3433 Coq.Lists.List <> in_app_iff thm
+R3453:3453 PXL_Decidability <> v:55 var
+R3445:3448 PXL_Decidability <> vars def
+R3436:3439 PXL_Decidability <> vars def
+binder 3404:3404 <> v:57
+binder 3406:3407 <> Hv:58
+R3414:3414 PXL_Decidability <> v:57 var
+R3417:3421 Coq.Init.Logic <> proj2 thm
+R3457:3465 Coq.Init.Logic <> or_introl constr
+R3467:3468 PXL_Decidability <> Hv:58 var
+R3424:3433 Coq.Lists.List <> in_app_iff thm
+R3453:3453 PXL_Decidability <> v:57 var
+R3445:3448 PXL_Decidability <> vars def
+R3436:3439 PXL_Decidability <> vars def
+binder 3493:3493 <> v:59
+binder 3495:3496 <> Hv:60
+R3503:3503 PXL_Decidability <> v:59 var
+R3506:3510 Coq.Init.Logic <> proj2 thm
+R3546:3554 Coq.Init.Logic <> or_intror constr
+R3556:3557 PXL_Decidability <> Hv:60 var
+R3513:3522 Coq.Lists.List <> in_app_iff thm
+R3542:3542 PXL_Decidability <> v:59 var
+R3534:3537 PXL_Decidability <> vars def
+R3525:3528 PXL_Decidability <> vars def
+binder 3493:3493 <> v:61
+binder 3495:3496 <> Hv:62
+R3503:3503 PXL_Decidability <> v:61 var
+R3506:3510 Coq.Init.Logic <> proj2 thm
+R3546:3554 Coq.Init.Logic <> or_intror constr
+R3556:3557 PXL_Decidability <> Hv:62 var
+R3513:3522 Coq.Lists.List <> in_app_iff thm
+R3542:3542 PXL_Decidability <> v:61 var
+R3534:3537 PXL_Decidability <> vars def
+R3525:3528 PXL_Decidability <> vars def
+prf 3838:3843 <> mem_in
+binder 3854:3854 <> x:63
+binder 3856:3857 <> xs:64
+R3867:3870 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R3860:3861 Coq.Lists.List <> In def
+R3865:3866 PXL_Decidability <> xs:64 var
+R3863:3863 PXL_Decidability <> x:63 var
+R3879:3881 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R3871:3873 PXL_Decidability <> mem def
+R3875:3875 PXL_Decidability <> x:63 var
+R3877:3878 PXL_Decidability <> xs:64 var
+R3882:3885 Coq.Init.Datatypes <> true constr
+R4036:4047 Coq.Arith.PeanoNat Nat eqb_refl thm
+R4036:4047 Coq.Arith.PeanoNat Nat eqb_refl thm
+R4036:4047 Coq.Arith.PeanoNat Nat eqb_refl thm
+R4067:4073 Coq.Arith.PeanoNat Nat eqb def
+R4101:4110 Coq.Arith.PeanoNat Nat eqb_eq thm
+R4067:4073 Coq.Arith.PeanoNat Nat eqb def
+R4101:4110 Coq.Arith.PeanoNat Nat eqb_eq thm

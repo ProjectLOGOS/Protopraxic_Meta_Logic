@@ -1,0 +1,2 @@
+PXL_Completeness_Sketch.vo PXL_Completeness_Sketch.glob PXL_Completeness_Sketch.v.beautified PXL_Completeness_Sketch.required_vo: PXL_Completeness_Sketch.v ../../../pxl_decidability_proofs_v5/pxl_phase5_decidability/coq/PXL_Decidability.vo
+PXL_Completeness_Sketch.vos PXL_Completeness_Sketch.vok PXL_Completeness_Sketch.required_vos: PXL_Completeness_Sketch.v ../../../pxl_decidability_proofs_v5/pxl_phase5_decidability/coq/PXL_Decidability.vos

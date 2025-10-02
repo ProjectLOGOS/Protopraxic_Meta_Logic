@@ -1,0 +1,111 @@
+﻿(*** PXLv3 Coq Skeleton
+ Purpose: scaffold for machine-checked validity and soundness proofs.
+ Notes:
+ - PXL operators are distinct from Coq's ->, <->, =.
+ - UTF-8 required. Tested with Coq 8.18+.
+ *)
+ Set Implicit Arguments.
+ Set Universe Polymorphism.
+ Generalizable All Variables.
+
+(* Object domain *)
+Parameter Obj : Type.
+
+(* Unicode-named constants used in axioms (declare early so axioms can refer to them) *)
+Parameter ð•† : Obj.
+Parameter ð•€â‚ ð•€â‚‚ ð•€â‚ƒ : Obj.
+Parameter Î›â‚ Î›â‚‚ Î›â‚ƒ : Prop.
+Parameter I1 I2 I3 : Obj.
+
+(* Predicates referenced by axioms before their module-local definitions *)
+Parameter distinct_modal_instantiation : Obj -> Obj -> Obj -> Prop.
+Parameter entails : Obj -> Prop -> Prop.
+Notation "âˆ¼ p" := (~ p) (at level 75).
+Parameter grounded_in : Prop -> Obj -> Prop.
+Parameter incoherent : Prop -> Prop.
+Parameter coherence   : Obj -> Prop.
+
+(* Primitive relations / operators *)
+Parameter Ident : Obj -> Obj -> Prop.     (* â§Ÿ *)
+Parameter NonEquiv : Obj -> Obj -> Prop.  (* â‡Ž *)
+Parameter Inter : Obj -> Obj -> Prop.     (* â‡Œ *)
+
+
+Parameter PImp : Prop -> Prop -> Prop.    (* âŸ¹ *)
+Parameter MEquiv : Prop -> Prop -> Prop.  (* â©ª *)
+
+(* Modal operators *)
+Parameter Box : Prop -> Prop.   (* â–¡ *)
+Parameter Dia : Prop -> Prop.   (* â—‡ *)
+
+(* Notations (Unicode) *)
+Infix " â§Ÿ " := Ident (at level 50).
+Infix " â‡Ž " := NonEquiv (at level 50).
+Infix " â‡Œ " := Inter (at level 50).
+
+Infix " âŸ¹ " := PImp (at level 90, right associativity).
+Infix " â©ª " := MEquiv (at level 80).
+
+Notation "â–¡ p" := (Box p) (at level 75).
+Notation "â—‡ p" := (Dia p) (at level 75).
+
+(* S5-style axioms (schemata) *)
+Axiom ax_K  : forall p q:Prop, â–¡ (p -> q) -> (â–¡ p -> â–¡ q).
+Axiom ax_T  : forall p:Prop, â–¡ p -> p.
+Axiom ax_4  : forall p:Prop, â–¡ p -> â–¡ â–¡ p.
+Axiom ax_5  : forall p:Prop, â—‡ p -> â–¡ â—‡ p.
+
+(* Necessitation surrogate *)
+Axiom ax_Nec : forall p:Prop, p -> â–¡ p.
+
+(* Core structural axioms (placeholders; replace with approved list) *)
+Axiom ax_ident_refl  : forall x:Obj, x â§Ÿ x.
+Axiom ax_ident_symm  : forall x y:Obj, x â§Ÿ y -> y â§Ÿ x.
+Axiom ax_ident_trans : forall x y z:Obj, x â§Ÿ y -> y â§Ÿ z -> x â§Ÿ z.
+
+Axiom ax_nonequiv_irrefl : forall x:Obj, ~ (x â‡Ž x).
+Axiom ax_inter_comm      : forall x y:Obj, x â‡Œ y <-> y â‡Œ x.
+
+(* Bridging axioms between PXL connectives and Coq meta-logic *)
+Axiom ax_imp_intro : forall p q:Prop, (p -> q) -> (p âŸ¹ q).
+Axiom ax_imp_elim  : forall p q:Prop, (p âŸ¹ q) -> (p -> q).
+
+Axiom ax_mequiv_intro : forall p q:Prop, (p <-> q) -> (p â©ª q).
+Axiom ax_mequiv_elim  : forall p q:Prop, (p â©ª q) -> (p <-> q).
+
+(* Example lemmas to be proved later *)
+Lemma imp_respects_truth (p q:Prop) : (p âŸ¹ q) -> (p -> q).
+Proof. intro H. exact (ax_imp_elim (p:=p) (q:=q) H). Qed.
+
+Lemma mequiv_reflexive (p:Prop) : p â©ª p.
+Proof. apply ax_mequiv_intro. split; tauto. Qed.
+
+(* Lemma K_sound (p q:Prop) : (â–¡ (p -> q)) -> (â–¡ p -> â–¡ q).
+Proof.
+  exact (fun (H:â–¡ (p -> q)) (Hp:â–¡ p) => ax_K (p:=p) (q:=q) H Hp).
+Qed. *)
+
+
+(* --- Inline copy of PXL_Axioms.txt for reference ---
+ðŸ“˜ Protopraxic Logic â€” Axiom and Symbol Suite
+
+ðŸ”§ SYSTEM DESCRIPTION
+Protopraxic Logic is a triune, modal, metaphysically grounded logic system that unifies identity, contradiction, and excluded middle under three interdependent hypostatic identitiesâ€”ð•€â‚, ð•€â‚‚, ð•€â‚ƒâ€”within a Necessary Being ð•†. It incorporates:
+
+
+ðŸ§® SYMBOL KEY
+â§Ÿ : Identity (self-coherence)
+â‡Ž : Non-equivalence (exclusivity)
+â‡Œ : Interchange (balance)
+âŸ¹ : Implication
+âˆ¼ : Negation (non-coherence)
+â‰€ : Conflation (misalignment)
+â«´ : Dichotomy (excluded middle)
+âŸ¼ : Grounded entailment
+â©ª : Modal coherence equivalence (triune parallelism)
+
+ðŸ“ AXIOMS
+A1. â–¡(âˆ€x [ x â§Ÿ x ]) â€” Law of Identity grounded in ð•€â‚
+A2. â–¡(âˆ€x [ âˆ¼(x â§Ÿ y âˆ§ x â‡Ž y) ]) â€” Law of Non-Contradiction grounded in ð•€â‚‚
+A3. â–¡(âˆ€x [ x â«´ âˆ¼x ]) â€” Law of Excluded Middle grounded in ð•€â‚ƒ
+A4. â–¡(Each law requi

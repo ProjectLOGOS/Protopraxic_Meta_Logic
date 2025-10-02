@@ -1,0 +1,12 @@
+path,count_axiom,count_theorem,count_advanced_theorem,count_paradox,count_resolution,has_disallowed,disallowed_hits,had_equiv_sign,count_identity,count_non_equivalence,count_interchange,count_implication,count_modal_equiv,count_S5_box,count_S5_diamond
+PARSE_INDEX.csv,0,0,0,1,1,0,0,False,0,0,0,0,0,0,0
+PARSE_INDEX.json,1,3,0,9,5,0,0,False,0,0,0,0,0,0,0
+PARSE_SUMMARY.txt,1,3,0,11,7,1,33,False,19,7,14,5,10,32,7
+Protopraxic_Meta_Logic/PXL Paradox Resolution.txt,0,0,0,218,124,0,0,False,0,0,0,0,0,124,0
+Protopraxic_Meta_Logic/PXL_Abstract.txt,0,0,0,0,0,0,0,False,1,1,0,0,1,0,0
+Protopraxic_Meta_Logic/PXL_Axioms.txt,1,0,0,0,0,1,3,False,4,3,2,2,2,8,1
+Protopraxic_Meta_Logic/PXL_Derived_Attributes.txt,0,0,0,0,0,1,5,False,1,1,0,0,0,3,2
+Protopraxic_Meta_Logic/PXL_Domain_Mapping.txt,0,0,0,0,0,1,4,False,2,0,2,0,1,2,0
+Protopraxic_Meta_Logic/PXL_Formal_Language_Definition.txt,0,0,0,0,0,1,1,False,2,1,3,2,2,3,3
+Protopraxic_Meta_Logic/PXL_Theorems.txt,0,3,0,0,0,1,20,False,9,1,7,1,4,12,1
+TREE.txt,0,0,0,1,1,0,0,False,0,0,0,0,0,0,0

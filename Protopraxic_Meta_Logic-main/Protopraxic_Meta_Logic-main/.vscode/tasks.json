@@ -1,0 +1,50 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Open S5_Kripke.v (Phase 3)",
+      "type": "shell",
+      "command": "code",
+      "args": [
+        "--goto",
+        "${workspaceFolder}/proof_checking/pxl_core_meta_validation_v3/pxl_meta_sets_v3/coq/S5_Kripke.v:1"
+      ],
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "Open PXL_Deep_Soundness.v (Phase 3)",
+      "type": "shell",
+      "command": "code",
+      "args": [
+        "--goto",
+        "${workspaceFolder}/proof_checking/pxl_core_meta_validation_v3/pxl_meta_sets_v3/coq/PXL_Deep_Soundness.v:1"
+      ],
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "Open S5_Independence_Barcan.v (Phase 3)",
+      "type": "shell",
+      "command": "code",
+      "args": [
+        "--goto",
+        "${workspaceFolder}/proof_checking/pxl_core_meta_validation_v3/pxl_meta_sets_v3/coq/S5_Independence_Barcan.v:1"
+      ],
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared"
+      }
+    }
+  ]
+}

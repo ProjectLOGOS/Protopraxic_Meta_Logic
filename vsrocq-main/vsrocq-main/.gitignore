@@ -1,0 +1,13 @@
+client/node_modules
+client/dist/
+client/out/
+language-server/_build
+language-server/dm/dune
+language-server/language/dune
+language-server/protocol/dune
+language-server/vsrocqtop/dune
+client/yarn-error.log
+client/.vscode-test/
+client/out/
+.DS_Store
+result

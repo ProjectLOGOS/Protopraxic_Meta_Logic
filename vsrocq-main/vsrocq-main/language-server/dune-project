@@ -1,0 +1,5 @@
+(lang dune 3.2)
+(name vsrocq-language-server)
+(license LGPL-2.1-only)
+(authors "The VsRocq development team")
+(source (github rocq-prover/vsrocq))

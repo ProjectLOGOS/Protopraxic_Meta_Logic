@@ -1,0 +1,995 @@
+{
+  "name": "vsrocq",
+  "displayName": "VsRocq",
+  "description": "VsRocq is an extension for Visual Studio Code with support for the Rocq Prover",
+  "publisher": "rocq-prover",
+  "license": "MIT",
+  "version": "2.3.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rocq-prover/vsrocq.git"
+  },
+  "icon": "assets/icon-rocq-orange.png",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "dependencies": {
+    "compare-versions": "^6.0.0-rc.1",
+    "vscode-languageclient": "^9.0.1",
+    "which": "^5.0.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "keywords": [
+    "rocq",
+    "theorem prover",
+    "proof assistant"
+  ],
+  "readme": "https://github.com/rocq-prover/vscoq/blob/main/README.md",
+  "bugs": "https://github.com/rocq-prover/vscoq/issues",
+  "homepage": "https://github.com/rocq-prover/vscoq/blob/main/README.md",
+  "activationEvents": [],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "languages": [
+      {
+        "id": "rocq",
+        "aliases": [
+          "Rocq",
+          "rocq",
+          "Gallina",
+          "gallina"
+        ],
+        "extensions": [
+          ".v"
+        ],
+        "configuration": "./syntax/rocq.language-configuration.json",
+        "icon": {
+          "light": "./assets/icon-rocq-orange.png",
+          "dark": "./assets/icon-rocq-orange.png"
+        }
+      },
+      {
+        "id": "coq-project",
+        "aliases": [
+          "Coq Project",
+          "coq-project"
+        ],
+        "extensions": [
+          "_CoqProject"
+        ],
+        "configuration": "./syntax/coq-project.language-configuration.json",
+        "icon": {
+          "light": "./assets/icon-rocq-orange.png",
+          "dark": "./assets/icon-rocq-orange.png"
+        }
+      }
+    ],
+    "grammars": [
+      {
+        "language": "rocq",
+        "scopeName": "source.rocq",
+        "path": "./syntax/rocq.tmLanguage.json"
+      },
+      {
+        "language": "coq-project",
+        "scopeName": "source.coq-project",
+        "path": "./syntax/coq-project.tmLanguage.json"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "vsrocq-sidebar",
+          "title": "Rocq Proof Assistant",
+          "icon": "./assets/icon-rocq-black.svg"
+        }
+      ]
+    },
+    "views": {
+      "vsrocq-sidebar": [
+        {
+          "type": "webview",
+          "id": "vsrocq.search",
+          "name": "Query",
+          "when": "resourceLangId == rocq || editorLangId == rocq"
+        }
+      ]
+    },
+    "configuration": [
+      {
+        "title": "Rocq configuration",
+        "type": "object",
+        "properties": {
+          "vsrocq-language-server.trace.server": {
+            "scope": "window",
+            "type": "string",
+            "enum": [
+              "off",
+              "messages",
+              "compact",
+              "verbose"
+            ],
+            "default": "off",
+            "description": "Traces the communication between VS Code and the language server."
+          },
+          "vsrocq.path": {
+            "type": "string",
+            "default": "",
+            "description": "Path to vsrocqtop."
+          },
+          "vsrocq.args": {
+            "type": "array",
+            "default": [],
+            "description": "vsrocqtop arguments"
+          }
+        }
+      },
+      {
+        "title": "Memory management",
+        "type": "object",
+        "properties": {
+          "vsrocq.memory.limit": {
+            "scope": "workspace",
+            "type": "number",
+            "default": 4,
+            "description": "Sets the memory limit over which we discard the execution state of documents which have been saved (in Gb). "
+          }
+        }
+      },
+      {
+        "title": "Goal and Info view panel",
+        "type": "object",
+        "properties": {
+          "vsrocq.goals.auto": {
+            "scope": "window",
+            "type": "boolean",
+            "default": "true",
+            "description": "Should the goal view automatically display when navigating a rocq document."
+          },
+          "vsrocq.goals.display": {
+            "scope": "window",
+            "type": "string",
+            "enum": [
+              "Tabs",
+              "List"
+            ],
+            "default": "List",
+            "description": "Determines whether multiple goals should be displayed in different tabs or as a list of collapsible items."
+          },
+          "vsrocq.goals.diff.mode": {
+            "type": "string",
+            "enum": [
+              "off",
+              "on",
+              "removed"
+            ],
+            "default": "off",
+            "markdownDescription": "Controls vsrocq's diff mode. If `on`, only added characters are displayed. If `removed` is selected, both added and removed characters are shown."
+          },
+          "vsrocq.goals.ppmode": {
+            "type": "string",
+            "enum": ["Pp"],
+            "default": "Pp",
+            "description": "This read-only setting is to indicate to the server to send goals in pretty printed format instead of plain text.",
+            "readOnly": true
+          },
+          "vsrocq.goals.messages.full": {
+            "type": "boolean",
+            "default": true,
+            "markdownDescription": "Include warning and errors in proofview messages"
+          },
+          "vsrocq.goals.maxDepth": {
+            "type": "number",
+            "default": 17,
+            "markdownDescription": "The maximum depth in goals over which an ellipsis will be displayed (instead of the sub-terms)."
+          }
+        }
+      },
+      {
+        "title": "Proof checking",
+        "type": "object",
+        "properties": {
+          "vsrocq.proof.mode": {
+            "scope": "window",
+            "type": "number",
+            "enum": [
+              0,
+              1
+            ],
+            "enumItemLabels": [
+              "Manual",
+              "Continuous"
+            ],
+            "default": 0,
+            "description": "Configures the proof checking mode for rocq."
+          },
+          "vsrocq.proof.pointInterpretationMode": {
+            "scope": "window",
+            "type": "number",
+            "enum": [
+              0,
+              1
+            ],
+            "enumItemLabels": [
+              "Cursor",
+              "NextCommand"
+            ],
+            "default": 0,
+            "description": "Determines the point to which the proof should be checked when using the `Interpret to point` command."
+          },
+          "vsrocq.proof.cursor.sticky": {
+            "scope": "window",
+            "type": "boolean",
+            "default": true,
+            "description": "Move the editor's cursor position as Rocq interactively steps forward/backward a command"
+          },
+          "vsrocq.proof.delegation": {
+            "scope": "window",
+            "type": "string",
+            "enum": [
+              "None",
+              "Skip",
+              "Delegate"
+            ],
+            "enumItemLabels": [
+              "No delegation (all proofs are checked one after the other)",
+              "Skip the proofs which are out of focus. This requires a continuous checking to be off",
+              "Delegate proofs"
+            ],
+            "default": "None",
+            "description": "Determines which delegation strategy should be used by the server."
+          },
+          "vsrocq.proof.workers": {
+            "scope": "window",
+            "type": "number",
+            "default": 1,
+            "description": "Amount of workers assigned to proofs in delegation mode"
+          },
+          "vsrocq.proof.block": {
+            "scope": "window",
+            "type": "boolean",
+            "default": true,
+            "description": "Should execution be halted after reaching the first error ? "
+          },
+          "vsrocq.proof.display-buttons": {
+            "scope": "workspace",
+            "type": "boolean",
+            "default": true,
+            "description": "Toggles whether the Rocq buttons are displayed in the editor actions tab menu."
+          }
+        }
+      },
+      {
+        "title": "Code Completion",
+        "type": "object",
+        "properties": {
+          "vsrocq.completion.enable": {
+            "scope": "window",
+            "type": "boolean",
+            "default": false,
+            "description": "Enable completion support from the vsrocq language server"
+          },
+          "vsrocq.completion.unificationLimit": {
+            "scope": "window",
+            "type": "number",
+            "default": 100,
+            "minimum": 0,
+            "description": "Sets the limit for how many theorems unification is attempted for when attempting code completion for the application of theorems. This determines which theorems can be marked as applicable. The higher the limit, the better results will be, but the slower code completion will be."
+          },
+          "vsrocq.completion.algorithm": {
+            "scope": "window",
+            "type": "number",
+            "enum": [
+              0,
+              1
+            ],
+            "enumItemLabels": [
+              "SplitTypeIntersection",
+              "StructuredSplitUnification"
+            ],
+            "default": 1,
+            "description": "Configures the ranking algorithm for auto completions in rocq."
+          }
+        }
+      },
+      {
+        "title": "Diagnostics",
+        "type": "object",
+        "properties": {
+          "vsrocq.diagnostics.full": {
+            "scope": "window",
+            "type": "boolean",
+            "default": false,
+            "description": "Include info in diagnostics"
+          }
+        }
+      }
+    ],
+    "commands": [
+      {
+        "command": "extension.rocq.showManual",
+        "category": "Rocq",
+        "title": "Docs: Show manual"
+      },
+      {
+        "command": "extension.rocq.walkthrough",
+        "category": "Rocq",
+        "title": "Docs: Show setup guide"
+      },
+      {
+        "command": "extension.rocq.showSetup",
+        "category": "Rocq",
+        "title": "Troubleshooting: Show setup"
+      },
+      {
+        "command": "extension.rocq.showLog",
+        "category": "Rocq",
+        "title": "Troubleshooting: Show Log Output"
+      },
+      {
+        "command": "extension.rocq.reset",
+        "category": "Rocq",
+        "title": "Reset",
+        "icon": "$(fold-up)"
+      },
+      {
+        "command": "extension.rocq.query.search",
+        "category": "Rocq",
+        "title": "Search",
+        "description": "Search for the term pattern at the cursor"
+      },
+      {
+        "command": "extension.rocq.query.about",
+        "category": "Rocq",
+        "title": "About",
+        "description": "About the term pattern at the cursor"
+      },
+      {
+        "command": "extension.rocq.query.check",
+        "category": "Rocq",
+        "title": "Check",
+        "description": "Check the type of term at the cursor"
+      },
+      {
+        "command": "extension.rocq.query.locate",
+        "title": "Locate",
+        "description": "Locate the term at the cursor",
+        "category": "Rocq"
+      },
+      {
+        "command": "extension.rocq.query.print",
+        "title": "Print",
+        "description": "Print the definition of the term at the cursor",
+        "category": "Rocq"
+      },
+      {
+        "command": "extension.rocq.interpretToPoint",
+        "category": "Rocq",
+        "title": "Interpret to point",
+        "description": "Interprets the current rocq file until the given point",
+        "enablement": "config.vsrocq.proof.mode == 0",
+        "icon": "$(arrow-right)"
+      },
+      {
+        "command": "extension.rocq.interpretToEnd",
+        "category": "Rocq",
+        "title": "Interpret to end",
+        "description": "Interprets the current rocq file until the end",
+        "enablement": "config.vsrocq.proof.mode == 0",
+        "icon": "$(fold-down)"
+      },
+      {
+        "command": "extension.rocq.stepForward",
+        "title": "Step Forward",
+        "category": "Rocq",
+        "icon": "$(arrow-down)"
+      },
+      {
+        "command": "extension.rocq.stepBackward",
+        "title": "Step Backward",
+        "category": "Rocq",
+        "icon": "$(arrow-up)"
+      },
+      {
+        "command": "extension.rocq.displayProofView",
+        "title": "Display Proof View",
+        "category": "Rocq",
+        "icon": "$(open-preview)"
+      },
+      {
+        "command": "extension.rocq.documentState",
+        "title": "Troubleshooting: Get current document state",
+        "category": "Rocq"
+      },
+      {
+        "command": "extension.rocq.addQueryTab",
+        "title": "Add Tab",
+        "category": "Rocq",
+        "icon": "$(add)"
+      },
+      {
+        "command": "extension.rocq.collapseAllQueries",
+        "title": "Collapse All",
+        "category": "Rocq",
+        "icon": "$(collapse-all)",
+        "enablement": "vsrocq.hasSearchResults"
+      },
+      {
+        "command": "extension.rocq.expandAllQueries",
+        "title": "Expand All",
+        "category": "Rocq",
+        "icon": "$(expand-all)",
+        "enablement": "vsrocq.hasSearchResults"
+      }
+    ],
+    "menus": {
+      "editor/title": [
+        {
+          "when": "resourceLangId == rocq && config.vsrocq.proof.display-buttons == true",
+          "command": "extension.rocq.interpretToPoint",
+          "group": "navigation@3"
+        },
+        {
+          "when": "resourceLangId == rocq && config.vsrocq.proof.display-buttons == true",
+          "command": "extension.rocq.stepForward",
+          "group": "navigation@1"
+        },
+        {
+          "when": "resourceLangId == rocq && config.vsrocq.proof.display-buttons == true",
+          "command": "extension.rocq.stepBackward",
+          "group": "navigation@2"
+        },
+        {
+          "when": "resourceLangId == rocq && config.vsrocq.proof.display-buttons == true",
+          "command": "extension.rocq.interpretToEnd",
+          "group": "navigation@4"
+        },
+        {
+          "when": "resourceLangId == rocq && config.vsrocq.proof.display-buttons == true",
+          "command": "extension.rocq.reset",
+          "group": "navigation@5"
+        },
+        {
+          "when": "resourceLangId == rocq && config.vsrocq.proof.display-buttons == true && !config.vsrocq.goals.auto",
+          "command": "extension.rocq.displayProofView",
+          "group": "navigation@0"
+        },
+        {
+          "when": "resourceLangId == rocq && config.vsrocq.proof.display-buttons == true",
+          "submenu": "vsrocq.menu",
+          "group": "navigation@0"
+        }
+      ],
+      "vsrocq.menu": [
+        {
+          "when": "resourceLangId == rocq",
+          "command": "extension.rocq.documentState",
+          "group": "1_troubleshooting@1"
+        },
+        {
+          "when": "resourceLangId == rocq",
+          "command": "extension.rocq.showSetup",
+          "group": "1_troubleshooting@2"
+        },
+        {
+          "when": "resourceLangId == rocq",
+          "command": "extension.rocq.showLog",
+          "group": "1_troubleshooting@2"
+        },
+        {
+          "when": "resourceLangId == rocq",
+          "submenu": "vsrocq.menu.doc",
+          "group": "2_documentation@0"
+        }
+      ],
+      "vsrocq.menu.doc": [
+        {
+          "when": "resourceLangId == rocq",
+          "command": "extension.rocq.walkthrough"
+        },
+        {
+          "when": "resourceLangId == rocq",
+          "command": "extension.rocq.showManual"
+        }
+      ],
+      "editor/context": [
+        {
+          "when": "resourceLangId == rocq",
+          "command": "extension.rocq.interpretToPoint",
+          "group": "navigation@rocq"
+        },
+        {
+          "when": "resourceLangId == rocq",
+          "command": "extension.rocq.query.check",
+          "group": "queries"
+        },
+        {
+          "when": "resourceLangId == rocq",
+          "command": "extension.rocq.query.print",
+          "group": "queries"
+        },
+        {
+          "when": "resourceLangId == rocq",
+          "command": "extension.rocq.query.search",
+          "group": "queries"
+        },
+        {
+          "when": "resourceLangId == rocq",
+          "command": "extension.rocq.query.locate",
+          "group": "queries"
+        }
+      ],
+      "view/title": [
+        {
+          "command": "extension.rocq.addQueryTab",
+          "group": "navigation",
+          "when": "view == vsrocq.search"
+        },
+        {
+          "command": "extension.rocq.collapseAllQueries",
+          "group": "navigation",
+          "when": "view == vsrocq.search && vsrocq.expandedQueries"
+        },
+        {
+          "command": "extension.rocq.expandAllQueries",
+          "group": "navigation",
+          "enablement": "editorHasSelection",
+          "when": "view == vsrocq.search && !vsrocq.expandedQueries"
+        }
+      ]
+    },
+    "submenus": [
+      {
+        "id": "vsrocq.menu",
+        "icon": {
+          "dark": "./assets/icon-rocq-mini-dark.svg",
+          "light": "./assets/icon-rocq-mini-light.svg"
+        },
+        "label": "Rocq"
+      },
+      {
+        "id": "vsrocq.menu.doc",
+        "label": "Documentation"
+      }
+    ],
+    "keybindings": [
+      {
+        "key": "alt+down",
+        "mac": "ctrl+alt+down",
+        "command": "extension.rocq.stepForward",
+        "when": "editorTextFocus && editorLangId == rocq"
+      },
+      {
+        "key": "alt+down",
+        "mac": "ctrl+alt+down",
+        "command": "extension.rocq.stepForward",
+        "when": "resourceScheme==rocq-view"
+      },
+      {
+        "key": "alt+up",
+        "mac": "ctrl+alt+up",
+        "command": "extension.rocq.stepBackward",
+        "when": "editorTextFocus && editorLangId == rocq"
+      },
+      {
+        "key": "alt+up",
+        "mac": "ctrl+alt+up",
+        "command": "extension.rocq.stepBackward",
+        "when": "resourceScheme==rocq-view"
+      },
+      {
+        "key": "alt+right",
+        "mac": "ctrl+alt+right",
+        "command": "extension.rocq.interpretToPoint",
+        "when": "editorTextFocus && editorLangId == rocq"
+      },
+      {
+        "key": "alt+right",
+        "mac": "ctrl+alt+right",
+        "command": "extension.rocq.interpretToPoint",
+        "when": "resourceScheme==rocq-view"
+      },
+      {
+        "key": "alt+end",
+        "mac": "ctrl+alt+end",
+        "command": "extension.rocq.interpretToEnd",
+        "when": "editorTextFocus && editorLangId == rocq"
+      },
+      {
+        "key": "alt+end",
+        "mac": "ctrl+alt+end",
+        "command": "extension.rocq.interpretToEnd",
+        "when": "resourceScheme==rocq-view"
+      },
+      {
+        "key": "ctrl+alt+a",
+        "mac": "cmd+ctrl+a",
+        "command": "extension.rocq.query.about",
+        "when": "editorTextFocus && editorLangId == rocq"
+      },
+      {
+        "key": "ctrl+alt+k",
+        "mac": "cmd+ctrl+k",
+        "command": "extension.rocq.query.search",
+        "when": "editorTextFocus && editorLangId == rocq"
+      },
+      {
+        "key": "ctrl+alt+c",
+        "mac": "cmd+ctrl+c",
+        "command": "extension.rocq.query.check",
+        "when": "editorTextFocus && editorLangId == rocq"
+      },
+      {
+        "key": "ctrl+alt+l",
+        "mac": "cmd+ctrl+l",
+        "command": "extension.rocq.query.locate",
+        "when": "editorTextFocus && editorLangId == rocq"
+      },
+      {
+        "key": "ctrl+alt+p",
+        "mac": "cmd+ctrl+p",
+        "command": "extension.rocq.query.print",
+        "when": "editorTextFocus && editorLangId == rocq"
+      }
+    ],
+    "colors": [
+      {
+        "id": "rocq.proofviewText",
+        "description": "Color for proofview text.",
+        "defaults": {
+          "dark": "#cccccc",
+          "light": "#333333",
+          "highContrast": "#333333"
+        }
+      },
+      {
+        "id": "rocq.proofviewMessage",
+        "description": "Color for proofview messages.",
+        "defaults": {
+          "dark": "#cccccc",
+          "light": "#333333",
+          "highContrast": "#333333"
+        }
+      },
+      {
+        "id": "rocq.proofviewError",
+        "description": "Color for proofview errors.",
+        "defaults": {
+          "dark": "#ffc0cb",
+          "light": "#ff0000",
+          "highContrast": "#ff0000"
+        }
+      },
+      {
+        "id": "rocq.hypothesisIdent",
+        "description": "Color for goal hypotheses identifiers.",
+        "defaults": {
+          "dark": "#20b2aa",
+          "light": "#006400",
+          "highContrast": "#006400"
+        }
+      },
+      {
+        "id": "rocq.hypothesesSeparator",
+        "description": "Color for hypotheses separator.",
+        "defaults": {
+          "dark": "#ffffff66",
+          "light": "#00000033",
+          "highContrast": "#00000033"
+        }
+      },
+      {
+        "id": "rocq.oddHypothesisBackground",
+        "description": "Background color for hypotheses with odd index.",
+        "defaults": {
+          "dark": "#0000000d",
+          "light": "#ffffff0d",
+          "highContrast": "#ffffff0d"
+        }
+      },
+      {
+        "id": "rocq.newHypothesisBackground",
+        "description": "Background color for new hypotheses.",
+        "defaults": {
+          "dark": "#00ff0017",
+          "light": "#00aa0040",
+          "highContrast": "#00aa0040"
+        }
+      },
+      {
+        "id": "rocq.changedHypothesisBackground",
+        "description": "Background color for changed hypotheses.",
+        "defaults": {
+          "dark": "#0000ff26",
+          "light": "#0000ff0d",
+          "highContrast": "#0000ff0d"
+        }
+      },
+      {
+        "id": "rocq.goalId",
+        "description": "Color of goal identifiers.",
+        "defaults": {
+          "dark": "#add8e6",
+          "light": "#00008b",
+          "highContrast": "#00008b"
+        }
+      },
+      {
+        "id": "rocq.addedCharacter",
+        "description": "Color of added characters (in diffs).",
+        "defaults": {
+          "dark": "#00fa0033",
+          "light": "#00fa0033",
+          "highContrast": "#00fa0033"
+        }
+      },
+      {
+        "id": "rocq.addedCharacterBackground",
+        "description": "Color of added characters (in diffs).",
+        "defaults": {
+          "dark": "#00fa000f",
+          "light": "#00fa000f",
+          "highContrast": "#00fa000f"
+        }
+      },
+      {
+        "id": "rocq.removedCharacter",
+        "description": "Color of removed characters (in diffs).",
+        "defaults": {
+          "dark": "#fa000066",
+          "light": "#fa000066",
+          "highContrast": "#fa000066"
+        }
+      },
+      {
+        "id": "rocq.removedCharacterBackground",
+        "description": "Color of removed characters (in diffs).",
+        "defaults": {
+          "dark": "#fa000033",
+          "light": "#fa000033",
+          "highContrast": "#fa000033"
+        }
+      },
+      {
+        "id": "rocq.mainSubgoalBackground",
+        "description": "Background color for main subgoal.",
+        "defaults": {
+          "dark": "#ffffff0d",
+          "light": "#0000000d",
+          "highContrast": "#0000000d"
+        }
+      },
+      {
+        "id": "rocq.subgoalBackground",
+        "description": "Background color for subgoals.",
+        "defaults": {
+          "dark": "#ffffff0d",
+          "light": "#0000000d",
+          "highContrast": "#0000000d"
+        }
+      },
+      {
+        "id": "rocq.subgoalSeparator",
+        "description": "Color of subgoal separators.",
+        "defaults": {
+          "dark": "#ffffff33",
+          "light": "#00000033",
+          "highContrast": "#00000033"
+        }
+      },
+      {
+        "id": "rocq.termNotation",
+        "description": "Color of term notations.",
+        "defaults": {
+          "dark": "#ff8c00",
+          "light": "#ff8c00",
+          "highContrast": "#ff8c00"
+        }
+      },
+      {
+        "id": "rocq.termKeyword",
+        "description": "Color of term keywords.",
+        "defaults": {
+          "dark": "#6495ed",
+          "light": "#6495ed",
+          "highContrast": "#6495ed"
+        }
+      },
+      {
+        "id": "rocq.termEvar",
+        "description": "Color of existential variables.",
+        "defaults": {
+          "dark": "#ff8c00",
+          "light": "#ff8c00",
+          "highContrast": "#ff8c00"
+        }
+      },
+      {
+        "id": "rocq.termPath",
+        "description": "Color of term paths.",
+        "defaults": {
+          "dark": "#9370d8",
+          "light": "#ff8c00",
+          "highContrast": "#ff8c00"
+        }
+      },
+      {
+        "id": "rocq.termReference",
+        "description": "Color of name references in terms.",
+        "defaults": {
+          "dark": "#7cfc00",
+          "light": "#32cd32",
+          "highContrast": "#32cd32"
+        }
+      },
+      {
+        "id": "rocq.termType",
+        "description": "Color of types in terms.",
+        "defaults": {
+          "dark": "#f08080",
+          "light": "#ff7f50",
+          "highContrast": "#ff7f50"
+        }
+      },
+      {
+        "id": "rocq.termVariable",
+        "description": "Color of variables in terms.",
+        "defaults": {
+          "dark": "#7fff00",
+          "light": "#20b2aa",
+          "highContrast": "#20b2aa"
+        }
+      },
+      {
+        "id": "rocq.debugMessage",
+        "description": "Color of debug messages.",
+        "defaults": {
+          "dark": "#9370d8",
+          "light": "#daa520",
+          "highContrast": "#daa520"
+        }
+      },
+      {
+        "id": "rocq.errorMessage",
+        "description": "Color of error messages.",
+        "defaults": {
+          "dark": "#ff0000",
+          "light": "#ff0000",
+          "highContrast": "#ff0000"
+        }
+      },
+      {
+        "id": "rocq.warningMessage",
+        "description": "Color of warning messages.",
+        "defaults": {
+          "dark": "#ffff00",
+          "light": "#ff6f00",
+          "highContrast": "#ff6f00"
+        }
+      },
+      {
+        "id": "rocq.moduleKeyword",
+        "description": "Color of module keywords.",
+        "defaults": {
+          "dark": "#6495ed",
+          "light": "#6495ed",
+          "highContrast": "#6495ed"
+        }
+      },
+      {
+        "id": "rocq.tacticKeyword",
+        "description": "Color of tactic keywords.",
+        "defaults": {
+          "dark": "#6495ed",
+          "light": "#6495ed",
+          "highContrast": "#6495ed"
+        }
+      },
+      {
+        "id": "rocq.tacticPrimitive",
+        "description": "Color of tactic primitives.",
+        "defaults": {
+          "dark": "#5f9ea0",
+          "light": "#5f9ea0",
+          "highContrast": "#5f9ea0"
+        }
+      },
+      {
+        "id": "rocq.tacticString",
+        "description": "Color of tactic strings.",
+        "defaults": {
+          "dark": "#ffa500",
+          "light": "#ffa500",
+          "highContrast": "#ffa500"
+        }
+      }
+    ],
+    "walkthroughs": [
+      {
+        "id": "rocq.welcome",
+        "title": "Rocq Setup",
+        "description": "Getting started with Rocq",
+        "steps": [
+          {
+            "id": "rocq.welcome.openHelpPage",
+            "title": "Re-open the setup page",
+            "description": "This page is accessible at any moment by opening an empty file, clicking on the Rocq menu and selecting ``Documentation > Docs: Show Setup Guide`` from the drop down menu.",
+            "media": {
+              "image": "./media/open_walkthrough.png",
+              "altText": "Click on the Rocq symbol and go to ```Docs: Show Setup Guide``` to re-open this walkthrough."
+            }
+          },
+          {
+            "id": "rocq.welcome.books",
+            "title": "Ressources to get started in the Rocq world",
+            "description": "You can find helpful books, documentations, and tutorials on this page",
+            "media": {
+              "markdown": "./media/books.md"
+            }
+          },
+          {
+            "id": "rocq.welcome.install",
+            "title": "Install dependencies",
+            "description": "How to install Rocq, setup vsrocq and its dependencies",
+            "media": {
+              "markdown": "./media/install.md"
+            }
+          },
+          {
+            "id": "rocq.welcome.troubleshooting",
+            "title": "Getting help",
+            "description": "If you have any questions or are having problem with any of the previous steps, please head over to the [Rocq zulip chat](https://rocq.zulipchat.com/) so we can help you.",
+            "media": {
+              "markdown": "./media/troubleshooting.md"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "scripts": {
+    "install:all": "yarn install && cd pp-display && yarn install && cd ../goal-view-ui && yarn install && cd ../search-ui && yarn install",
+    "build:all": "cd pp-display && yarn run build && cd ../goal-view-ui && yarn run build && cd ../search-ui && yarn run build && cd .. && yarn compile",
+    "start:goal-view-ui": "cd goal-view-ui && yarn run start",
+    "build:goal-view-ui": "cd goal-view-ui && yarn run build",
+    "build:dev:goal-view-ui": "cd goal-view-ui && yarn run build:dev",
+    "start:search-ui": "cd search-ui && yarn run start",
+    "build:search-ui": "cd search-ui && yarn run build",
+    "build:dev:search-ui": "cd search-ui && yarn run build:dev",
+    "compile": "webpack",
+    "watch": "webpack --watch",
+    "package": "yarn run install:all && yarn run build:all && webpack --mode production --devtool hidden-source-map",
+    "compile-tests": "tsc -p . --outDir out",
+    "watch-tests": "tsc -p . -w --outDir out",
+    "pretest": "yarn run compile-tests && yarn run compile && yarn run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/glob": "^8.0.0",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "16.x",
+    "@types/tmp": "^0.2.3",
+    "@types/vscode": "^1.74.0",
+    "@types/which": "^3.0.4",
+    "@typescript-eslint/eslint-plugin": "^5.45.0",
+    "@typescript-eslint/parser": "^5.45.0",
+    "@vscode/test-electron": "^2.2.0",
+    "@vscode/vsce": "^2.19.0",
+    "eslint": "^8.28.0",
+    "eslint-config-prettier": "^9.1.0",
+    "expect": "^29.4.3",
+    "glob": "^8.0.3",
+    "mocha": "^10.1.0",
+    "prettier": "3.3.3",
+    "prettier-plugin-organize-imports": "^4.0.0",
+    "tmp-promise": "^3.0.3",
+    "ts-loader": "^9.4.1",
+    "typescript": "^4.9.3",
+    "vsce": "^2.15.0",
+    "webpack": "^5.94.0",
+    "webpack-cli": "^5.0.0"
+  }
+}

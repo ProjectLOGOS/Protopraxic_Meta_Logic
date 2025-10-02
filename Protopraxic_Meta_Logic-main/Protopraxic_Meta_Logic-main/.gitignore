@@ -1,0 +1,13 @@
+﻿# Coq build artifacts
+*.vo
+*.glob
+*.aux
+*.vok
+*.vos
+*.log
+*.out
+*.tlog
+.PXL_*.aux
+
+# Optional: ignore editor workspace
+# .vscode/

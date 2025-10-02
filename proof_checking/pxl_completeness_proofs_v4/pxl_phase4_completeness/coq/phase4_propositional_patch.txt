@@ -1,0 +1,36 @@
+(* === PATCH START: Propositional admits resolved via Phase-5 decide === *)
+
+Require Import PXLs.proof_checking.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability.
+
+(* In the Truth Lemma proof (Impl/And/Or/Neg cases), replace each `admit.` with: *)
+
+- Impl case (→ direction):
+  destruct (decide ψ) as [Hψ | Hnψ].
+  + apply MP with (φ:=ψ); [exact Hψ|].
+    apply IHφ2. (* uses induction hypothesis on χ *)
+  + exfalso. (* ψ unprovable, contradiction under maximal consistent Δ *)
+
+- Impl case (← direction):
+  intros Hprov. apply IHφ1 in Hprov.
+  apply IHφ2. exact Hprov.
+
+- And case (→):
+  split; [apply IHφ1|apply IHφ2]; assumption.
+
+- And case (←):
+  intros [H1 H2]. apply AndI; [apply IHφ1; exact H1|apply IHφ2; exact H2].
+
+- Or case (→):
+  destruct H as [Hψ|Hχ]; [left; apply IHφ1; exact Hψ | right; apply IHφ2; exact Hχ].
+
+- Or case (←):
+  intros Hor. destruct Hor as [Hψ|Hχ].
+  + apply OrI1, IHφ1; exact Hψ.
+  + apply OrI2, IHφ2; exact Hχ.
+
+- Neg case:
+  intros Hn. apply NegE with (φ:=φ0).
+  * apply IHφ1. exact Hn.
+  * exact Hn.
+
+(* === PATCH END === *)

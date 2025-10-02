@@ -1,0 +1,253 @@
+on:
+  push:
+    branches: [ main, coq-master ]
+    tags:
+      - "v*.*.*"
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build-extension:
+    strategy:
+      matrix:
+        os: [macos-latest, ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+    - name: Install Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 16.x
+    - run: |
+        cd client
+        yarn run package
+
+  nix-dev-build:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+        coq: [8-18, 8-19, 8-20, 9, master]
+        profile: [dev, fatalwarnings]
+    runs-on: ${{ matrix.os }}
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+    - name: Configure Dune
+      run: |
+        mkdir -p ~/.config/dune
+        cat <<EOF > ~/.config/dune/config
+        (lang dune 3.2)
+        (display short)
+        EOF
+    - uses: cachix/install-nix-action@v31
+      with:
+        nix_path: nixpkgs=channel:nixos-unstable
+    - name: Check each yarn.nix up to date
+      run: |
+        cd client && nix-shell -p yarn2nix --run "yarn2nix > new_yarn.nix"
+        cd goal-view-ui && nix-shell -p yarn2nix --run "yarn2nix > new_yarn.nix"
+        cd ../search-ui && nix-shell -p yarn2nix --run "yarn2nix > new_yarn.nix" && cd ..
+        nix fmt new_yarn.nix goal-view-ui/new_yarn.nix search-ui/new_yarn.nix
+        nix fmt yarn.nix goal-view-ui/yarn.nix search-ui/yarn.nix
+        diff new_yarn.nix yarn.nix
+        diff goal-view-ui/new_yarn.nix goal-view-ui/yarn.nix
+        diff search-ui/new_yarn.nix search-ui/yarn.nix
+    - run: nix develop .#vsrocq-${{ matrix.coq }} -c bash -c "cd language-server && make dune-files && dune build --profile ${{ matrix.profile }}"
+      if: ${{matrix.coq != 9}}
+    - run: nix develop .#vsrocq-${{ matrix.coq }} -c bash -c "cd language-server && make dune-files && etc/rocq-wrap-coqc.sh && dune build --profile ${{ matrix.profile }}"
+      if: ${{matrix.coq == 9}}
+    - run: nix develop .#vsrocq-${{ matrix.coq }} -c bash -c "cd client && yarn run install:all && yarn run build:all && yarn run compile"
+    - name: Test xvfb
+      uses: Wandalen/wretry.action@v3
+      with:
+        attempt_limit: 5
+        attempt_delay: 5000
+        command: |
+            xvfb-run nix develop .#vsrocq-${{ matrix.coq }} -c bash -c "cd client && yarn test"
+      if: runner.os == 'Linux'
+    - name: Test
+      uses: Wandalen/wretry.action@v3
+      with:
+        attempt_limit: 5
+        attempt_delay: 5000
+        command: |
+            nix develop .#vsrocq-${{ matrix.coq }} -c bash -c "cd client && yarn test"
+      if: runner.os != 'Linux'
+    - if: ${{ failure() }}
+      run: cat /tmp/vsrocq_init_log.*
+
+  install-opam:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest]
+        ocaml-compiler: [4.14.x]
+        coq: [8.18.0, 8.19.0, 8.20.0, 9.0.0, dev]
+    runs-on: ${{ matrix.os }}
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Use OCaml ${{ matrix.ocaml-compiler }}
+      uses: avsm/setup-ocaml@v3
+      with:
+        ocaml-compiler: ${{ matrix.ocaml-compiler }}
+
+    - name: Install vsrocq-language-server
+      env:
+        OPAMYES: true
+      run: |
+        opam repo add rocq-core-dev https://rocq-prover.org/opam/core-dev
+        if [ "${{ matrix.coq }}" = "dev" ]; then opam install rocq-core.dev; else opam pin add coq-core ${{ matrix.coq }}; fi
+        opam pin add vsrocq-language-server ./language-server/ --with-doc --with-test -y
+
+    - run: |
+        eval $(opam env)
+        echo "vsrocqtop=`which vsrocqtop`" >> $GITHUB_ENV
+        vsrocqtop -v
+
+    - uses: actions/setup-node@v3
+      with:
+        node-version: 16
+
+    - run: cd client && yarn run package
+    - run: eval $(opam env) && cd client && xvfb-run yarn test
+      env:
+        VSROCQPATH: ${{ env.vsrocqtop }}
+        VSROCQARGS: "-bt"
+    - if: ${{ failure() }}
+      run: cat /tmp/vsrocq_init_log.*
+
+  install-windows:
+    if: false
+    runs-on: windows-latest
+    steps:
+    - name: Set git to use LF
+      run: |
+        git config --global core.autocrlf false
+        git config --global core.eol lf
+
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Build language server
+      run: .\language-server\build-windows-platform.bat
+      env:
+        COQ_VERSION: V8.18+rc1
+
+    - run: C:\ci\cygwin64\bin\bash.exe --login -c 'echo vsrocqtop=$(cygpath -m $(which vsrocqtop))' >> $Env:GITHUB_ENV
+
+    - uses: actions/setup-node@v3
+      with:
+        node-version: 16
+
+    - run: cd client && yarn run package && yarn test
+      env:
+        VSROCQPATH: ${{ env.vsrocqtop }}
+        VSROCQARGS: "-bt"
+
+  dev-setup-opam:
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        ocaml-compiler: [4.14.x]
+        profile: [dev, fatalwarnings]
+    runs-on: ${{ matrix.os }}
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Use OCaml ${{ matrix.ocaml-compiler }}
+      uses: avsm/setup-ocaml@v3
+      with:
+        ocaml-compiler: ${{ matrix.ocaml-compiler }}
+
+    - name: Install deps
+      env:
+        OPAMYES: true
+      run: |
+        opam repo add rocq-core-dev https://rocq-prover.org/opam/core-dev
+        opam install dune
+        opam install ./language-server/vsrocq-language-server.opam --deps-only --with-doc --with-test --ignore-constraints-on dune
+      
+    - name: Build vsrocq-language-server
+      run: |
+        eval $(opam env)
+        cd language-server && make ${{ matrix.profile }}
+
+    - name: Unit tests
+      run: |
+        eval $(opam env)
+        cd language-server && make test
+
+    - uses: actions/setup-node@v3
+      with:
+        node-version: 16
+
+    - run: cd client && yarn run install:all && yarn run build:all && yarn run compile
+    - run: cd client && xvfb-run yarn test
+    - if: ${{ failure() }}
+      run: cat /tmp/vsrocq_init_log.*
+
+
+  create-release:
+    runs-on: ubuntu-latest
+    needs: [build-extension, nix-dev-build, install-opam, dev-setup-opam]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Inject slug/short variables
+        uses: rlespinasse/github-slug-action@v4
+
+      - name: Create language-server archive
+        run: |
+          cd language-server
+          VERSION="${GITHUB_REF_NAME_SLUG#v}"
+          git archive -o ../vsrocq-language-server-$VERSION.tar.gz --prefix=vsrocq-language-server-$VERSION/ $GITHUB_SHA .
+
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          files: vsrocq-language-server-*.tar.gz
+          fail_on_unmatched_files: true
+          draft: true
+          prerelease: false
+          generate_release_notes: true
+
+  publish-extension:
+    runs-on: ubuntu-latest
+    if: success()
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+    - name: Install Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 16.x
+    - name: Pre publish phase
+      run: |
+        cd client
+        yarn run package
+    - name: Publish to Open VSX Registry
+      uses: HaaLeo/publish-vscode-extension@v1.6.2
+      id: publishToOpenVSX
+      with:
+        pat: 'stub'
+        packagePath: ./client/
+        yarn: true
+        preRelease: false
+        dryRun: true
+    - name: Publish to Visual Studio Marketplace
+      uses: HaaLeo/publish-vscode-extension@v1.6.2
+      with:
+        pat: 'stub'
+        packagePath: ./client/
+        registryUrl: https://marketplace.visualstudio.com
+        extensionFile: ${{ steps.publishToOpenVSX.outputs.vsixPath }}
+        yarn: true
+        preRelease: false
+        dryRun: true

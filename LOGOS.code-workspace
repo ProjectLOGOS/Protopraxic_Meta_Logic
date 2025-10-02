@@ -1,0 +1,7 @@
+﻿{
+  "folders": [{ "path": "." }],
+  "settings": {
+    "files.watcherExclude": { "**/backups/**": true, "**/.git/**": true },
+    "search.exclude": { "**/backups/**": true, "**/.git/**": true }
+  }
+}

@@ -1,0 +1,415 @@
+DIGEST 34bfa587d62671ecefd925d2bc0b2a7b
+FPXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch
+R24:38 Coq.Logic.Classical <> <> lib
+sec 50:53 <> Deep
+ind 67:70 <> form
+constr 84:86 <> Bot
+constr 98:100 <> Var
+constr 119:122 <> Impl
+constr 149:151 <> And
+constr 179:180 <> Or
+constr 209:211 <> Neg
+constr 231:233 <> Box
+constr 253:255 <> Dia
+R91:94 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> form:1 ind
+R108:111 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R105:107 Coq.Init.Datatypes <> nat ind
+R112:115 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> form:1 ind
+R130:133 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R126:129 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> form:1 ind
+R138:141 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R134:137 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> form:1 ind
+R142:145 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> form:1 ind
+R160:163 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R156:159 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> form:1 ind
+R168:171 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R164:167 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> form:1 ind
+R172:175 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> form:1 ind
+R190:193 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R186:189 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> form:1 ind
+R198:201 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R194:197 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> form:1 ind
+R202:205 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> form:1 ind
+R220:223 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R216:219 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> form:1 ind
+R224:227 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> form:1 ind
+R242:245 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R238:241 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> form:1 ind
+R246:249 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> form:1 ind
+R264:267 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R260:263 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> form:1 ind
+R268:271 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> form:1 ind
+scheme 67:70 <> form_rect
+scheme 67:70 <> form_ind
+scheme 67:70 <> form_rec
+scheme 67:70 <> form_sind
+ind 285:288 <> Prov
+constr 310:313 <> ax_K
+constr 384:387 <> ax_T
+constr 428:431 <> ax_4
+constr 484:487 <> ax_5
+constr 540:548 <> ax_PL_imp
+constr 624:633 <> ax_PL_and1
+constr 675:684 <> ax_PL_and2
+constr 726:733 <> ax_PL_or
+constr 815:822 <> ax_PL_em
+constr 859:860 <> mp
+constr 917:919 <> nec
+R296:299 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R292:295 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> form ind
+binder 325:325 <> p:5
+binder 327:327 <> q:6
+R330:333 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> Prov:3 ind
+R336:339 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> Impl constr
+R342:344 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> Box constr
+R347:350 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> Impl constr
+R352:352 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> p:5 var
+R354:354 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> q:6 var
+R359:362 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> Impl constr
+R365:367 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> Box constr
+R369:369 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> p:5 var
+R373:375 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> Box constr
+R377:377 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> q:6 var
+binder 399:399 <> p:7
+R404:407 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> Prov:3 ind
+R410:413 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> Impl constr
+R416:418 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> Box constr
+R420:420 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> p:7 var
+R423:423 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> p:7 var
+binder 443:443 <> p:8
+R448:451 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> Prov:3 ind
+R454:457 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> Impl constr
+R460:462 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> Box constr
+R464:464 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> p:8 var
+R468:470 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> Box constr
+R473:475 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> Box constr
+R477:477 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> p:8 var
+binder 499:499 <> p:9
+R504:507 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> Prov:3 ind
+R510:513 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> Impl constr
+R516:518 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> Dia constr
+R520:520 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> p:9 var
+R524:526 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> Box constr
+R529:531 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> Dia constr
+R533:533 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> p:9 var
+binder 559:559 <> p:10
+binder 561:561 <> q:11
+binder 563:563 <> r:12
+R570:573 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> Prov:3 ind
+R576:579 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> Impl constr
+R582:585 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> Impl constr
+R587:587 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> p:10 var
+R589:589 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> q:11 var
+R593:596 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> Impl constr
+R599:602 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> Impl constr
+R604:604 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> q:11 var
+R606:606 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> r:12 var
+R610:613 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> Impl constr
+R615:615 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> p:10 var
+R617:617 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> r:12 var
+binder 644:644 <> p:13
+binder 646:646 <> q:14
+R649:652 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> Prov:3 ind
+R655:658 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> Impl constr
+R661:663 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> And constr
+R665:665 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> p:13 var
+R667:667 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> q:14 var
+R670:670 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> p:13 var
+binder 695:695 <> p:15
+binder 697:697 <> q:16
+R700:703 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> Prov:3 ind
+R706:709 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> Impl constr
+R712:714 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> And constr
+R716:716 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> p:15 var
+R718:718 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> q:16 var
+R721:721 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> q:16 var
+binder 745:745 <> p:17
+binder 747:747 <> q:18
+binder 749:749 <> r:19
+R767:770 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R752:755 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> Prov:3 ind
+R758:761 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> Impl constr
+R763:763 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> p:17 var
+R765:765 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> r:19 var
+R786:789 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R771:774 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> Prov:3 ind
+R777:780 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> Impl constr
+R782:782 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> q:18 var
+R784:784 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> r:19 var
+R790:793 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> Prov:3 ind
+R796:799 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> Impl constr
+R802:803 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> Or constr
+R805:805 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> p:17 var
+R807:807 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> q:18 var
+R810:810 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> r:19 var
+binder 834:834 <> p:20
+R837:840 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> Prov:3 ind
+R843:844 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> Or constr
+R846:846 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> p:20 var
+R849:851 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> Neg constr
+R853:853 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> p:20 var
+binder 874:874 <> p:21
+binder 876:876 <> q:22
+R894:897 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R879:882 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> Prov:3 ind
+R885:888 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> Impl constr
+R890:890 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> p:21 var
+R892:892 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> q:22 var
+R904:907 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R898:901 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> Prov:3 ind
+R903:903 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> p:21 var
+R908:911 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> Prov:3 ind
+R913:913 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> q:22 var
+binder 932:932 <> p:23
+R941:944 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R935:938 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> Prov:3 ind
+R940:940 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> p:23 var
+R945:948 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> Prov:3 ind
+R951:953 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> Box constr
+R955:955 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> p:23 var
+scheme 285:288 <> Prov_ind
+scheme 285:288 <> Prov_sind
+rec 967:971 <> frame
+proj 980:980 <> W
+proj 990:990 <> R
+proj 1012:1017 <> R_refl
+proj 1041:1046 <> R_symm
+proj 1081:1087 <> R_trans
+R995:998 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R994:994 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> W:25 meth
+R1000:1003 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R999:999 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> W:25 meth
+binder 1029:1029 <> w:27
+R1032:1032 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> R:26 meth
+R1036:1036 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> w:27 var
+R1034:1034 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> w:27 var
+binder 1058:1058 <> w:29
+binder 1060:1060 <> u:30
+R1068:1071 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1063:1063 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> R:26 meth
+R1067:1067 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> u:30 var
+R1065:1065 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> w:29 var
+R1072:1072 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> R:26 meth
+R1076:1076 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> w:29 var
+R1074:1074 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> u:30 var
+binder 1098:1098 <> w:32
+binder 1100:1100 <> u:33
+binder 1102:1102 <> v:34
+R1110:1113 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1105:1105 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> R:26 meth
+R1109:1109 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> u:33 var
+R1107:1107 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> w:32 var
+R1119:1122 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1114:1114 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> R:26 meth
+R1118:1118 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> v:34 var
+R1116:1116 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> u:33 var
+R1123:1123 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> R:26 meth
+R1127:1127 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> v:34 var
+R1125:1125 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> w:32 var
+def 1144:1152 <> valuation
+R1157:1161 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> frame rec
+binder 1155:1155 <> F:36
+R1170:1173 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1167:1169 Coq.Init.Datatypes <> nat ind
+R1174:1174 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1178:1182 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1175:1175 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> W proj
+R1177:1177 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> F:36 var
+def 1199:1202 <> eval
+R1207:1211 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> frame rec
+binder 1205:1205 <> F:37
+R1217:1225 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> valuation def
+R1227:1227 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> F:37 var
+binder 1215:1215 <> v:38
+R1234:1234 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> W proj
+R1236:1236 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> F:37 var
+binder 1231:1231 <> w:39
+R1244:1247 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> form ind
+binder 1241:1242 <> φ:40
+R1268:1269 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> φ:40 var
+R1280:1282 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> Bot constr
+R1292:1296 Coq.Init.Logic <> False ind
+R1302:1304 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> Var constr
+R1314:1314 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> v:38 var
+R1318:1318 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> w:39 var
+R1324:1327 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> Impl constr
+R1348:1351 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1336:1339 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> eval:41 def
+R1345:1345 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> w:39 var
+R1343:1343 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> v:38 var
+R1341:1341 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> F:37 var
+R1352:1355 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> eval:41 def
+R1361:1361 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> w:39 var
+R1359:1359 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> v:38 var
+R1357:1357 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> F:37 var
+R1369:1371 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> And constr
+R1393:1396 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R1381:1384 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> eval:41 def
+R1390:1390 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> w:39 var
+R1388:1388 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> v:38 var
+R1386:1386 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> F:37 var
+R1397:1400 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> eval:41 def
+R1406:1406 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> w:39 var
+R1404:1404 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> v:38 var
+R1402:1402 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> F:37 var
+R1414:1415 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> Or constr
+R1438:1441 Coq.Init.Logic <> ::type_scope:x_'\/'_x not
+R1426:1429 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> eval:41 def
+R1435:1435 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> w:39 var
+R1433:1433 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> v:38 var
+R1431:1431 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> F:37 var
+R1442:1445 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> eval:41 def
+R1451:1451 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> w:39 var
+R1449:1449 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> v:38 var
+R1447:1447 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> F:37 var
+R1459:1461 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> Neg constr
+R1471:1472 Coq.Init.Logic <> ::type_scope:'~'_x not
+R1473:1476 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> eval:41 def
+R1482:1482 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> w:39 var
+R1480:1480 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> v:38 var
+R1478:1478 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> F:37 var
+R1490:1492 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> Box constr
+binder 1509:1509 <> u:43
+R1519:1522 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1512:1512 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> R proj
+R1514:1514 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> F:37 var
+R1516:1516 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> w:39 var
+R1518:1518 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> u:43 var
+R1523:1526 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> eval:41 def
+R1532:1532 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> u:43 var
+R1530:1530 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> v:38 var
+R1528:1528 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> F:37 var
+R1540:1542 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> Dia constr
+R1552:1558 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R1560:1561 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+binder 1559:1559 <> u:44
+R1569:1572 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R1562:1562 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> R proj
+R1564:1564 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> F:37 var
+R1566:1566 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> w:39 var
+R1568:1568 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> u:44 var
+R1573:1576 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> eval:41 def
+R1582:1582 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> u:44 var
+R1580:1580 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> v:38 var
+R1578:1578 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> F:37 var
+def 1605:1612 <> valid_on
+R1617:1621 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> frame rec
+binder 1615:1615 <> F:45
+R1628:1631 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> form ind
+binder 1625:1626 <> φ:46
+binder 1651:1651 <> v:47
+binder 1653:1653 <> w:48
+R1656:1659 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> eval def
+R1661:1661 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> F:45 var
+R1663:1663 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> v:47 var
+R1665:1665 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> w:48 var
+R1667:1668 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> φ:46 var
+def 1682:1686 <> valid
+R1692:1695 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> form ind
+binder 1689:1690 <> φ:49
+R1718:1722 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> frame rec
+binder 1716:1716 <> F:50
+R1726:1733 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> valid_on def
+R1735:1735 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> F:50 var
+R1737:1738 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> φ:49 var
+def 1753:1755 <> set
+R1764:1767 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1760:1763 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> form ind
+def 1785:1794 <> consistent
+R1800:1802 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> set def
+binder 1797:1798 <> Γ:51
+R1815:1817 Coq.Init.Logic <> ::type_scope:'~'_x not
+R1846:1846 Coq.Init.Logic <> ::type_scope:'~'_x not
+R1818:1824 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R1826:1827 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+binder 1825:1825 <> p:52
+R1832:1835 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R1828:1829 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> Γ:51 var
+R1831:1831 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> p:52 var
+R1836:1837 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> Γ:51 var
+R1840:1842 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> Neg constr
+R1844:1844 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> p:52 var
+def 1860:1866 <> extends
+R1875:1877 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> set def
+binder 1869:1870 <> Γ:53
+binder 1872:1873 <> Δ:54
+binder 1897:1897 <> p:55
+R1904:1907 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R1900:1901 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> Γ:53 var
+R1903:1903 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> p:55 var
+R1908:1909 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> Δ:54 var
+R1911:1911 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> p:55 var
+def 1925:1931 <> maximal
+R1937:1939 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> set def
+binder 1934:1935 <> Γ:56
+R1967:1970 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R1954:1963 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> consistent def
+R1965:1966 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> Γ:56 var
+binder 1978:1978 <> p:57
+R1985:1988 Coq.Init.Logic <> ::type_scope:x_'\/'_x not
+R1981:1982 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> Γ:56 var
+R1984:1984 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> p:57 var
+R1989:1990 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> Γ:56 var
+R1993:1995 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> Neg constr
+R1997:1997 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> p:57 var
+var 2008:2017 Deep lindenbaum
+binder 2028:2029 <> Γ:58
+R2045:2048 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R2032:2041 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> consistent def
+R2043:2044 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> Γ:58 var
+R2049:2055 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R2058:2059 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+binder 2056:2057 <> Δ:59
+R2073:2076 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R2060:2066 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> extends def
+R2068:2069 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> Γ:58 var
+R2071:2072 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> Δ:59 var
+R2077:2083 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> maximal def
+R2085:2086 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> Δ:59 var
+def 2101:2102 <> In
+R2108:2110 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> set def
+binder 2105:2106 <> Γ:62
+R2116:2119 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> form ind
+binder 2114:2114 <> p:63
+R2132:2133 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> Γ:62 var
+R2135:2135 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> p:63 var
+def 2150:2158 <> can_world
+R2163:2164 Coq.Init.Specif <> ::type_scope:'{'_x_':'_x_'|'_x_'}' not
+R2167:2169 Coq.Init.Specif <> ::type_scope:'{'_x_':'_x_'|'_x_'}' not
+R2173:2175 Coq.Init.Specif <> ::type_scope:'{'_x_':'_x_'|'_x_'}' not
+R2186:2187 Coq.Init.Specif <> ::type_scope:'{'_x_':'_x_'|'_x_'}' not
+R2170:2172 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> set def
+binder 2165:2166 <> Γ:64
+R2176:2182 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> maximal def
+R2184:2185 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> Γ:64 var
+def 2202:2206 <> can_R
+R2213:2221 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> can_world def
+binder 2209:2209 <> w:65
+binder 2211:2211 <> u:66
+binder 2243:2243 <> p:67
+R2270:2273 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R2246:2247 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> In def
+R2250:2258 Coq.Init.Specif <> proj1_sig def
+R2260:2260 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> w:65 var
+R2264:2266 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> Box constr
+R2268:2268 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> p:67 var
+R2274:2275 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> In def
+R2278:2286 Coq.Init.Specif <> proj1_sig def
+R2288:2288 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> u:66 var
+R2291:2291 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> p:67 var
+def 2306:2314 <> can_frame
+R2318:2322 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> frame rec
+R2344:2344 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> W proj
+R2344:2344 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> W proj
+R2344:2344 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> W proj
+R2360:2360 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> R proj
+R2360:2360 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> R proj
+R2349:2357 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> can_world def
+R2365:2369 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> can_R def
+R2344:2344 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> W proj
+R2344:2344 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> W proj
+R2344:2344 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> W proj
+R2360:2360 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> R proj
+R2360:2360 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> R proj
+R2349:2357 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> can_world def
+R2365:2369 PXLs.Coq.pxl_completeness_proofs_v4.pxl_phase4_completeness.coq.PXL_Completeness_Sketch <> can_R def

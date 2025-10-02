@@ -1,0 +1,28 @@
+File ".\PXL_Deep_Soundness.v", line 66, characters 66-68:
+Error: Unable to apply lemma of type "eval F v w (Box p)"
+on hypothesis of type
+ "(fix eval (F : frame) (v : valuation F) (w : W F) (φ : form) {struct φ} :
+       Prop :=
+     match φ with
+     | Bot => False
+     | Var n => v n w
+     | Impl p q => eval F v w p -> eval F v w q
+     | And p q => eval F v w p /\ eval F v w q
+     | Or p q => eval F v w p \/ eval F v w q
+     | Neg p => ~ eval F v w p
+     | Box p => forall u : W F, R F w u -> eval F v u p
+     | Dia p => exists u : W F, R F w u /\ eval F v u p
+     end) F v u p ->
+  (fix eval (F : frame) (v : valuation F) (w : W F) (φ : form) {struct φ} :
+       Prop :=
+     match φ with
+     | Bot => False
+     | Var n => v n w
+     | Impl p q => eval F v w p -> eval F v w q
+     | And p q => eval F v w p /\ eval F v w q
+     | Or p q => eval F v w p \/ eval F v w q
+     | Neg p => ~ eval F v w p
+     | Box p => forall u : W F, R F w u -> eval F v u p
+     | Dia p => exists u : W F, R F w u /\ eval F v u p
+     end) F v u q".
+

@@ -1,2 +1,3 @@
 -Q . PXLc
+-Q ../../../pxl_decidability_proofs_v5/pxl_phase5_decidability/coq PXLd
 PXL_Completeness_Sketch.v

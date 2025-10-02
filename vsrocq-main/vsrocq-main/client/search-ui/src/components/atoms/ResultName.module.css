@@ -1,0 +1,53 @@
+.ResultName {
+    font-family: var(--vscode-editor-font-family);
+    font-weight: bold;
+    width: 90%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.constr-notation {
+  color: var(--vscode-rocq-termNotation);
+}
+.constr-keyword {
+  color: var(--vscode-rocq-termKeyword);
+}
+.constr-evar {
+  color: var(--vscode-rocq-termEvar);
+  font-style: italic;
+}
+.constr-path {
+  color: var(--vscode-rocq-termPath);
+}
+.constr-reference {
+  color: var(--vscode-rocq-termReference);
+}
+.constr-type {
+  color: var(--vscode-rocq-termType);
+}
+.constr-variable {
+  color: var(--vscode-rocq-termVariable);
+}
+.message-debug {
+  color: var(--vscode-rocq-debugMessage);
+}
+.message-error {
+  color: var(--vscode-rocq-errorMessage);
+  text-decoration: underline;
+}
+.message-warning {
+  color: var(--vscode-rocq-warningMessage);
+}
+.module-keyword {
+  color: var(--vscode-rocq-moduleKeyword);
+}
+.tactic-keyword {
+  color: var(--vscode-rocq-tacticKeyword);
+}
+.tactic-primitive {
+  color: var(--vscode-rocq-tacticPrimitive);
+}
+.tactic-string {
+  color: var(--vscode-rocq-tacticString);
+}
