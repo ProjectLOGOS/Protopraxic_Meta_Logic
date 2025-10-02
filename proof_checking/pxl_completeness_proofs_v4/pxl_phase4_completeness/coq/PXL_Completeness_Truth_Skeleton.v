@@ -114,6 +114,19 @@ Axiom maximal_MP_closed : forall G, maximal G -> forall phi psi, In_set G (Impl 
 (* Core forces lemma to break cycles - defined before Truth Lemma *)
 (* ====================================================== *)
 
+(* Core membership → forces lemma (cycle-free) *)
+Lemma truth_from_membership_core :
+  forall (w : can_world) φ, 
+    In_set (proj1_sig w) φ -> 
+    forces w φ.
+Proof.
+  intros w φ Hin.
+  destruct w as [Γ Hmax]. simpl in Hin.
+  (* Framework lemma for cycle-free truth derivation *)
+  (* Will complete using structural induction once WF infrastructure ready *)
+  admit. (* Use structural decomposition: membership in maximal → forces *)
+Admitted.
+
 (* Membership/provability → forces, constructively *)
 Lemma truth_from_membership_or_prov :
   forall (w : can_world) φ, 
@@ -137,8 +150,24 @@ Lemma forces_in_core :
     forces w φ.
 Proof. 
   intros w φ Hin. 
-  eapply truth_from_membership_or_prov; left; exact Hin. 
+  eapply truth_from_membership_core; exact Hin.
 Qed.
+
+(* === Helper lemmas for TL-free construction === *)
+
+Lemma truth_from_membership_or_prov_fixed :
+  forall (w : can_world) φ, 
+  In_set (proj1_sig w) φ \/ Prov φ -> forces w φ.
+Proof.
+  intros w φ H; destruct H; [eapply forces_in_core; eauto| ].
+  (* For provability path, use maximal_contains_theorems + membership *)
+  destruct w as [Γ Hmax]. simpl.
+  assert (In_set Γ φ) as Hin.
+  { apply (maximal_contains_theorems Γ Hmax). exact H. }
+  eapply forces_in_core; simpl; exact Hin.
+Qed.
+
+(* Helper lemmas will be added after chain definition to avoid forward references *)
 
 (* ====================================================== *)
 (* Canonical accessibility relation for the modal cases   *)
@@ -165,6 +194,10 @@ Definition chain (Γ : set) (φ : form) : form := φ. (* Simplified for now *)
 
 (* Helper: set union operation *)
 Definition set_union (Γ : set) (φ : form) : set := fun ψ => Γ ψ \/ ψ = φ.
+
+(* === Additional helper lemmas (now that chain is defined) === *)
+
+
 
 (* Helper lemmas for set operations *)
 Lemma in_set_union_l : forall Γ φ ψ, In_set Γ ψ -> In_set (set_union Γ φ) ψ.
@@ -379,7 +412,13 @@ Qed.
 
 Axiom maximal_neg : forall Δ φ, maximal Δ -> ~ In_set Δ φ -> In_set Δ (Neg φ).
 Axiom can_R_refl : forall Δ (Hmax : maximal Δ), can_R (exist _ Δ Hmax) (exist _ Δ Hmax).
-Axiom consistency_contradiction : forall Δ φ, maximal Δ -> In_set Δ φ -> In_set Δ (Neg φ) -> False.
+Lemma consistency_contradiction : forall Δ φ, maximal Δ -> In_set Δ φ -> In_set Δ (Neg φ) -> False.
+Proof.
+  intros Δ φ Hmax Hpos Hneg.
+  (* Maximal sets are consistent - φ ∧ ¬φ contradicts consistency *)
+  apply (proj1 Hmax). (* Δ is consistent *)
+  exists φ. split; [exact Hpos | exact Hneg ].
+Qed.
 
 (* === Pre-TL Section: structural membership ⇒ truth === *)
 
@@ -428,17 +467,7 @@ Qed.
 
 (* === Section MembershipToTruthCore: cycle-free infrastructure === *)
 
-Lemma truth_from_membership_core :
-  forall (w : can_world) φ, 
-    In_set (proj1_sig w) φ -> 
-    forces w φ.
-Proof.
-  intros w φ Hin.
-  destruct w as [Γ HmaxΓ]. simpl in Hin.
-  (* Framework lemma for cycle-free truth derivation *)
-  (* Will use truth_lemma when properly defined with WF recursion *)
-  admit. (* Use structural decomposition: membership in maximal → forces *)
-Admitted.
+
 
 Axiom can_R_dia_extract : forall Δ φ (Hmax : maximal Δ), In_set Δ (Dia φ) -> 
   exists Δ' (HmaxΔ' : maximal Δ'), can_R (exist _ Δ Hmax) (exist _ Δ' HmaxΔ') /\ forces (exist _ Δ' HmaxΔ') φ.
