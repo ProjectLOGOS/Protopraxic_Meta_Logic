@@ -107,6 +107,10 @@ Axiom maximal_contains_theorems : forall G, maximal G -> forall phi, Prov phi ->
 Axiom maximal_MP_closed : forall G, maximal G -> forall phi psi, In_set G (Impl phi psi) -> In_set G phi -> In_set G psi.
 
 (* ====================================================== *)
+(* Pre-TL Section: Structural lemmas moved to after consistency_contradiction axiom *)
+(* ====================================================== *)
+
+(* ====================================================== *)
 (* Core forces lemma to break cycles - defined before Truth Lemma *)
 (* ====================================================== *)
 
@@ -376,6 +380,66 @@ Qed.
 Axiom maximal_neg : forall Δ φ, maximal Δ -> ~ In_set Δ φ -> In_set Δ (Neg φ).
 Axiom can_R_refl : forall Δ (Hmax : maximal Δ), can_R (exist _ Δ Hmax) (exist _ Δ Hmax).
 Axiom consistency_contradiction : forall Δ φ, maximal Δ -> In_set Δ φ -> In_set Δ (Neg φ) -> False.
+
+(* === Pre-TL Section: structural membership ⇒ truth === *)
+
+Lemma max_and : forall Γ φ ψ, maximal Γ -> In_set Γ (And φ ψ) -> (In_set Γ φ /\ In_set Γ ψ).
+Proof.
+  intros Γ φ ψ Hmax Hand.
+  split.
+  - apply (maximal_MP_closed Γ Hmax (And φ ψ) φ); auto.
+    apply (maximal_contains_theorems Γ Hmax). exact (ax_PL_and1 φ ψ).
+  - apply (maximal_MP_closed Γ Hmax (And φ ψ) ψ); auto.
+    apply (maximal_contains_theorems Γ Hmax). exact (ax_PL_and2 φ ψ).
+Qed.
+
+Lemma max_orL : forall Γ φ ψ, maximal Γ -> In_set Γ (Or φ ψ) -> (In_set Γ φ \/ In_set Γ ψ).
+Proof.
+  intros Γ φ ψ Hmax Hor.
+  (* Use classical reasoning on maximal sets *)
+  destruct (classic (In_set Γ φ)) as [H1|H1].
+  - left. exact H1.
+  - right. 
+    (* If φ ∉ Γ then ¬φ ∈ Γ by maximality, and from Or φ ψ + ¬φ derive ψ *)
+    admit. (* Need maximal_neg and disjunctive syllogism axiom *)
+Admitted.
+
+Lemma max_impl : forall Γ φ ψ, maximal Γ -> In_set Γ (Impl φ ψ) -> (In_set Γ φ -> In_set Γ ψ).
+Proof.
+  intros Γ φ ψ Hmax Himpl Hphi.
+  apply (maximal_MP_closed Γ Hmax φ ψ); auto.
+Qed.
+
+Lemma max_neg : forall Γ φ, maximal Γ -> In_set Γ (Neg φ) -> ~ In_set Γ φ.
+Proof.
+  intros Γ φ Hmax Hneg Hphi.
+  (* Use consistency: φ ∈ Γ ∧ ¬φ ∈ Γ → contradiction *)
+  eapply consistency_contradiction; eauto.
+Qed.
+
+Lemma box_bridge_mem : forall Γ Δ φ (HmaxΓ : maximal Γ) (HmaxΔ : maximal Δ),
+  In_set Γ (Box φ) -> can_R (exist _ Γ HmaxΓ) (exist _ Δ HmaxΔ) -> In_set Δ φ.
+Proof.
+  intros Γ Δ φ HmaxΓ HmaxΔ Hbox Hrel.
+  (* Use can_R definition: can_R w u means ∀ψ, Box ψ ∈ w → ψ ∈ u *)
+  unfold can_R in Hrel.
+  apply Hrel. exact Hbox.
+Qed.
+
+(* === Section MembershipToTruthCore: cycle-free infrastructure === *)
+
+Lemma truth_from_membership_core :
+  forall (w : can_world) φ, 
+    In_set (proj1_sig w) φ -> 
+    forces w φ.
+Proof.
+  intros w φ Hin.
+  destruct w as [Γ HmaxΓ]. simpl in Hin.
+  (* Framework lemma for cycle-free truth derivation *)
+  (* Will use truth_lemma when properly defined with WF recursion *)
+  admit. (* Use structural decomposition: membership in maximal → forces *)
+Admitted.
+
 Axiom can_R_dia_extract : forall Δ φ (Hmax : maximal Δ), In_set Δ (Dia φ) -> 
   exists Δ' (HmaxΔ' : maximal Δ'), can_R (exist _ Δ Hmax) (exist _ Δ' HmaxΔ') /\ forces (exist _ Δ' HmaxΔ') φ.
 Axiom can_R_dia_back : forall Δ Δ' φ (HmaxΔ : maximal Δ) (HmaxΔ' : maximal Δ'),
