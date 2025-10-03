@@ -1,5 +1,5 @@
-DIGEST e54d2f3e001cb27efe667bb5c5bc3ac4
-FPXL_Decidability
+DIGEST 475a649738dc590b2d686d007a0fea9a
+FPXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability
 R24:27 Coq.Lists.List <> <> lib
 R29:33 Coq.Arith.Arith <> <> lib
 R35:38 Coq.Bool.Bool <> <> lib
@@ -15,54 +15,54 @@ constr 177:179 <> Box
 constr 192:194 <> Dia
 R104:106 Coq.Init.Datatypes <> nat ind
 binder 102:102 <> n:3
-R121:124 PXL_Decidability <> form:1 ind
+R121:124 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> form:1 ind
 binder 117:117 <> p:4
 binder 119:119 <> q:5
-R138:141 PXL_Decidability <> form:1 ind
+R138:141 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> form:1 ind
 binder 134:134 <> p:6
 binder 136:136 <> q:7
-R154:157 PXL_Decidability <> form:1 ind
+R154:157 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> form:1 ind
 binder 150:150 <> p:8
 binder 152:152 <> q:9
-R169:172 PXL_Decidability <> form:1 ind
+R169:172 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> form:1 ind
 binder 167:167 <> p:10
-R184:187 PXL_Decidability <> form:1 ind
+R184:187 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> form:1 ind
 binder 182:182 <> p:11
-R199:202 PXL_Decidability <> form:1 ind
+R199:202 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> form:1 ind
 binder 197:197 <> p:12
 scheme 74:77 <> form_rect
 scheme 74:77 <> form_ind
 scheme 74:77 <> form_rec
 scheme 74:77 <> form_sind
 def 216:219 <> vars
-R225:228 PXL_Decidability <> form ind
+R225:228 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> form ind
 binder 222:223 <> φ:13
 R233:236 Coq.Init.Datatypes <> list ind
 R238:240 Coq.Init.Datatypes <> nat ind
-R253:254 PXL_Decidability <> φ:13 var
-R265:267 PXL_Decidability <> Bot constr
+R253:254 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> φ:13 var
+R265:267 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Bot constr
 R272:273 Coq.Lists.List ListNotations ::list_scope:'['_']' not
-R277:279 PXL_Decidability <> Var constr
+R277:279 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Var constr
 R286:286 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
 R288:288 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
-R294:297 PXL_Decidability <> Impl constr
-R305:307 PXL_Decidability <> And constr
-R315:316 PXL_Decidability <> Or constr
+R294:297 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Impl constr
+R305:307 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> And constr
+R315:316 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Or constr
 R331:334 Coq.Init.Datatypes <> ::list_scope:x_'++'_x not
-R325:328 PXL_Decidability <> vars:14 def
-R335:338 PXL_Decidability <> vars:14 def
+R325:328 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> vars:14 def
+R335:338 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> vars:14 def
 R331:334 Coq.Init.Datatypes <> ::list_scope:x_'++'_x not
-R325:328 PXL_Decidability <> vars:14 def
-R335:338 PXL_Decidability <> vars:14 def
+R325:328 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> vars:14 def
+R335:338 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> vars:14 def
 R331:334 Coq.Init.Datatypes <> ::list_scope:x_'++'_x not
-R325:328 PXL_Decidability <> vars:14 def
-R335:338 PXL_Decidability <> vars:14 def
-R346:348 PXL_Decidability <> Neg constr
-R354:356 PXL_Decidability <> Box constr
-R362:364 PXL_Decidability <> Dia constr
-R371:374 PXL_Decidability <> vars:14 def
-R371:374 PXL_Decidability <> vars:14 def
-R371:374 PXL_Decidability <> vars:14 def
+R325:328 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> vars:14 def
+R335:338 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> vars:14 def
+R346:348 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Neg constr
+R354:356 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Box constr
+R362:364 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Dia constr
+R371:374 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> vars:14 def
+R371:374 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> vars:14 def
+R371:374 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> vars:14 def
 def 395:397 <> mem
 R402:404 Coq.Init.Datatypes <> nat ind
 binder 400:400 <> x:16
@@ -70,14 +70,14 @@ R411:414 Coq.Init.Datatypes <> list ind
 R416:418 Coq.Init.Datatypes <> nat ind
 binder 408:409 <> xs:17
 R423:426 Coq.Init.Datatypes <> bool ind
-R439:440 PXL_Decidability <> xs:17 var
+R439:440 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> xs:17 var
 R447:448 Coq.Lists.List ListNotations ::list_scope:'['_']' not
 R451:455 Coq.Init.Datatypes <> false constr
 R460:461 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
 R471:477 Coq.Arith.PeanoNat Nat eqb def
-R479:479 PXL_Decidability <> x:16 var
-R498:500 PXL_Decidability <> mem:18 def
-R502:502 PXL_Decidability <> x:16 var
+R479:479 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> x:16 var
+R498:500 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> mem:18 def
+R502:502 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> x:16 var
 R488:491 Coq.Init.Datatypes <> true constr
 def 522:526 <> nodup
 R532:535 Coq.Init.Datatypes <> list ind
@@ -85,60 +85,60 @@ R537:539 Coq.Init.Datatypes <> nat ind
 binder 529:530 <> xs:20
 R544:547 Coq.Init.Datatypes <> list ind
 R549:551 Coq.Init.Datatypes <> nat ind
-R564:565 PXL_Decidability <> xs:20 var
+R564:565 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> xs:20 var
 R572:573 Coq.Lists.List ListNotations ::list_scope:'['_']' not
 R576:577 Coq.Lists.List ListNotations ::list_scope:'['_']' not
 R582:583 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
-R593:595 PXL_Decidability <> mem def
+R593:595 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> mem def
 R622:623 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
-R624:628 PXL_Decidability <> nodup:21 def
-R607:611 PXL_Decidability <> nodup:21 def
+R624:628 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> nodup:21 def
+R607:611 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> nodup:21 def
 def 648:656 <> eval_prop
 R665:666 Coq.Init.Logic <> ::type_scope:x_'->'_x not
 R662:664 Coq.Init.Datatypes <> nat ind
 R667:670 Coq.Init.Datatypes <> bool ind
 binder 659:660 <> ρ:23
-R677:680 PXL_Decidability <> form ind
+R677:680 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> form ind
 binder 674:675 <> φ:24
 R685:688 Coq.Init.Datatypes <> bool ind
-R701:702 PXL_Decidability <> φ:24 var
-R713:715 PXL_Decidability <> Bot constr
+R701:702 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> φ:24 var
+R713:715 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Bot constr
 R720:724 Coq.Init.Datatypes <> false constr
-R728:730 PXL_Decidability <> Var constr
-R737:738 PXL_Decidability <> ρ:23 var
-R746:749 PXL_Decidability <> Impl constr
+R728:730 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Var constr
+R737:738 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> ρ:23 var
+R746:749 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Impl constr
 R779:782 Coq.Init.Datatypes <> ::bool_scope:x_'||'_x not
 R758:761 Coq.Init.Datatypes <> negb def
-R764:772 PXL_Decidability <> eval_prop:25 def
-R774:775 PXL_Decidability <> ρ:23 var
-R783:791 PXL_Decidability <> eval_prop:25 def
-R793:794 PXL_Decidability <> ρ:23 var
-R802:804 PXL_Decidability <> And constr
+R764:772 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> eval_prop:25 def
+R774:775 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> ρ:23 var
+R783:791 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> eval_prop:25 def
+R793:794 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> ρ:23 var
+R802:804 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> And constr
 R814:814 Coq.Init.Datatypes <> ::bool_scope:x_'&&'_x not
 R829:834 Coq.Init.Datatypes <> ::bool_scope:x_'&&'_x not
 R849:849 Coq.Init.Datatypes <> ::bool_scope:x_'&&'_x not
-R815:823 PXL_Decidability <> eval_prop:25 def
-R825:826 PXL_Decidability <> ρ:23 var
-R835:843 PXL_Decidability <> eval_prop:25 def
-R845:846 PXL_Decidability <> ρ:23 var
-R855:856 PXL_Decidability <> Or constr
+R815:823 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> eval_prop:25 def
+R825:826 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> ρ:23 var
+R835:843 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> eval_prop:25 def
+R845:846 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> ρ:23 var
+R855:856 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Or constr
 R867:867 Coq.Init.Datatypes <> ::bool_scope:x_'||'_x not
 R882:887 Coq.Init.Datatypes <> ::bool_scope:x_'||'_x not
 R902:902 Coq.Init.Datatypes <> ::bool_scope:x_'||'_x not
-R868:876 PXL_Decidability <> eval_prop:25 def
-R878:879 PXL_Decidability <> ρ:23 var
-R888:896 PXL_Decidability <> eval_prop:25 def
-R898:899 PXL_Decidability <> ρ:23 var
-R908:910 PXL_Decidability <> Neg constr
+R868:876 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> eval_prop:25 def
+R878:879 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> ρ:23 var
+R888:896 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> eval_prop:25 def
+R898:899 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> ρ:23 var
+R908:910 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Neg constr
 R920:923 Coq.Init.Datatypes <> negb def
-R926:934 PXL_Decidability <> eval_prop:25 def
-R936:937 PXL_Decidability <> ρ:23 var
-R946:948 PXL_Decidability <> Box constr
-R954:956 PXL_Decidability <> Dia constr
-R963:971 PXL_Decidability <> eval_prop:25 def
-R973:974 PXL_Decidability <> ρ:23 var
-R963:971 PXL_Decidability <> eval_prop:25 def
-R973:974 PXL_Decidability <> ρ:23 var
+R926:934 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> eval_prop:25 def
+R936:937 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> ρ:23 var
+R946:948 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Box constr
+R954:956 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Dia constr
+R963:971 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> eval_prop:25 def
+R973:974 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> ρ:23 var
+R963:971 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> eval_prop:25 def
+R973:974 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> ρ:23 var
 def 995:1009 <> all_assignments
 R1015:1018 Coq.Init.Datatypes <> list ind
 R1020:1022 Coq.Init.Datatypes <> nat ind
@@ -147,70 +147,70 @@ R1027:1030 Coq.Init.Datatypes <> list ind
 R1036:1037 Coq.Init.Logic <> ::type_scope:x_'->'_x not
 R1033:1035 Coq.Init.Datatypes <> nat ind
 R1038:1041 Coq.Init.Datatypes <> bool ind
-R1055:1056 PXL_Decidability <> xs:27 var
+R1055:1056 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> xs:27 var
 R1067:1068 Coq.Lists.List ListNotations ::list_scope:'['_']' not
 R1073:1073 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
 R1088:1088 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
 R1083:1087 Coq.Init.Datatypes <> false constr
 R1095:1096 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
-R1121:1135 PXL_Decidability <> all_assignments:28 def
+R1121:1135 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> all_assignments:28 def
 binder 1113:1116 <> rest:30
 R1207:1216 Coq.Init.Datatypes <> ::list_scope:x_'++'_x not
 R1149:1151 Coq.Lists.List <> map def
-R1203:1206 PXL_Decidability <> rest:30 var
+R1203:1206 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> rest:30 var
 binder 1158:1159 <> ρ:31
 binder 1161:1161 <> n:32
 R1169:1175 Coq.Arith.PeanoNat Nat eqb def
-R1177:1177 PXL_Decidability <> n:32 var
-R1197:1198 PXL_Decidability <> ρ:31 var
-R1200:1200 PXL_Decidability <> n:32 var
+R1177:1177 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> n:32 var
+R1197:1198 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> ρ:31 var
+R1200:1200 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> n:32 var
 R1186:1190 Coq.Init.Datatypes <> false constr
 R1217:1219 Coq.Lists.List <> map def
-R1271:1274 PXL_Decidability <> rest:30 var
+R1271:1274 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> rest:30 var
 binder 1226:1227 <> ρ:33
 binder 1229:1229 <> n:34
 R1237:1243 Coq.Arith.PeanoNat Nat eqb def
-R1245:1245 PXL_Decidability <> n:34 var
-R1265:1266 PXL_Decidability <> ρ:33 var
-R1268:1268 PXL_Decidability <> n:34 var
+R1245:1245 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> n:34 var
+R1265:1266 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> ρ:33 var
+R1268:1268 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> n:34 var
 R1254:1257 Coq.Init.Datatypes <> true constr
 def 1295:1308 <> tautology_prop
-R1314:1317 PXL_Decidability <> form ind
+R1314:1317 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> form ind
 binder 1311:1312 <> φ:35
 R1322:1325 Coq.Init.Datatypes <> bool ind
 R1332:1338 Coq.Lists.List <> forallb def
-R1379:1393 PXL_Decidability <> all_assignments def
-R1396:1400 PXL_Decidability <> nodup def
-R1403:1406 PXL_Decidability <> vars def
-R1408:1409 PXL_Decidability <> φ:35 var
+R1379:1393 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> all_assignments def
+R1396:1400 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> nodup def
+R1403:1406 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> vars def
+R1408:1409 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> φ:35 var
 binder 1345:1346 <> ρ:36
-R1351:1359 PXL_Decidability <> eval_prop def
-R1361:1362 PXL_Decidability <> ρ:36 var
-R1364:1365 PXL_Decidability <> φ:35 var
+R1351:1359 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> eval_prop def
+R1361:1362 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> ρ:36 var
+R1364:1365 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> φ:35 var
 prf 1422:1439 <> forallb_implies_in
 binder 1451:1451 <> A:37
 R1462:1463 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R1461:1461 PXL_Decidability <> A:37 var
+R1461:1461 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> A:37 var
 R1464:1467 Coq.Init.Datatypes <> bool ind
 binder 1459:1459 <> p:38
 R1474:1477 Coq.Init.Datatypes <> list ind
-R1479:1479 PXL_Decidability <> A:37 var
+R1479:1479 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> A:37 var
 binder 1471:1472 <> ls:39
-R1485:1485 PXL_Decidability <> A:37 var
+R1485:1485 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> A:37 var
 binder 1483:1483 <> x:40
 R1510:1513 Coq.Init.Logic <> ::type_scope:x_'->'_x not
 R1503:1505 Coq.Init.Logic <> ::type_scope:x_'='_x not
 R1491:1497 Coq.Lists.List <> forallb def
-R1501:1502 PXL_Decidability <> ls:39 var
-R1499:1499 PXL_Decidability <> p:38 var
+R1501:1502 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> ls:39 var
+R1499:1499 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> p:38 var
 R1506:1509 Coq.Init.Datatypes <> true constr
 R1521:1524 Coq.Init.Logic <> ::type_scope:x_'->'_x not
 R1514:1515 Coq.Lists.List <> In def
-R1519:1520 PXL_Decidability <> ls:39 var
-R1517:1517 PXL_Decidability <> x:40 var
+R1519:1520 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> ls:39 var
+R1517:1517 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> x:40 var
 R1528:1530 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R1525:1525 PXL_Decidability <> p:38 var
-R1527:1527 PXL_Decidability <> x:40 var
+R1525:1525 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> p:38 var
+R1527:1527 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> x:40 var
 R1531:1534 Coq.Init.Datatypes <> true constr
 R1637:1654 Coq.Bool.Bool <> andb_true_iff thm
 R1637:1654 Coq.Bool.Bool <> andb_true_iff thm
@@ -219,12 +219,12 @@ binder 1755:1755 <> x:41
 binder 1757:1758 <> xs:42
 R1768:1771 Coq.Init.Logic <> ::type_scope:x_'->'_x not
 R1761:1762 Coq.Lists.List <> In def
-R1766:1767 PXL_Decidability <> xs:42 var
-R1764:1764 PXL_Decidability <> x:41 var
+R1766:1767 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> xs:42 var
+R1764:1764 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> x:41 var
 R1780:1782 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R1772:1774 PXL_Decidability <> mem def
-R1776:1776 PXL_Decidability <> x:41 var
-R1778:1779 PXL_Decidability <> xs:42 var
+R1772:1774 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> mem def
+R1776:1776 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> x:41 var
+R1778:1779 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> xs:42 var
 R1783:1786 Coq.Init.Datatypes <> true constr
 R1908:1919 Coq.Arith.PeanoNat Nat eqb_refl thm
 R1908:1919 Coq.Arith.PeanoNat Nat eqb_refl thm
@@ -236,13 +236,13 @@ binder 2011:2011 <> x:43
 binder 2013:2014 <> xs:44
 R2032:2035 Coq.Init.Logic <> ::type_scope:x_'->'_x not
 R2025:2027 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R2017:2019 PXL_Decidability <> mem def
-R2021:2021 PXL_Decidability <> x:43 var
-R2023:2024 PXL_Decidability <> xs:44 var
+R2017:2019 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> mem def
+R2021:2021 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> x:43 var
+R2023:2024 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> xs:44 var
 R2028:2031 Coq.Init.Datatypes <> true constr
 R2036:2037 Coq.Lists.List <> In def
-R2041:2042 PXL_Decidability <> xs:44 var
-R2039:2039 PXL_Decidability <> x:43 var
+R2041:2042 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> xs:44 var
+R2039:2039 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> x:43 var
 R2118:2124 Coq.Arith.PeanoNat Nat eqb def
 R2162:2171 Coq.Arith.PeanoNat Nat eqb_eq thm
 R2118:2124 Coq.Arith.PeanoNat Nat eqb def
@@ -252,16 +252,16 @@ binder 2237:2237 <> x:45
 binder 2239:2239 <> l:46
 R2248:2251 Coq.Init.Logic <> ::type_scope:x_'->'_x not
 R2242:2243 Coq.Lists.List <> In def
-R2247:2247 PXL_Decidability <> l:46 var
-R2245:2245 PXL_Decidability <> x:45 var
+R2247:2247 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> l:46 var
+R2245:2245 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> x:45 var
 R2252:2253 Coq.Lists.List <> In def
-R2258:2262 PXL_Decidability <> nodup def
-R2264:2264 PXL_Decidability <> l:46 var
-R2255:2255 PXL_Decidability <> x:45 var
-R2353:2355 PXL_Decidability <> mem def
-R2405:2415 PXL_Decidability <> mem_true_in thm
-R2353:2355 PXL_Decidability <> mem def
-R2405:2415 PXL_Decidability <> mem_true_in thm
+R2258:2262 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> nodup def
+R2264:2264 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> l:46 var
+R2255:2255 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> x:45 var
+R2353:2355 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> mem def
+R2405:2415 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> mem_true_in thm
+R2353:2355 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> mem def
+R2405:2415 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> mem_true_in thm
 ind 2618:2621 <> Prov
 constr 2643:2643 <> K
 constr 2689:2689 <> S
@@ -274,142 +274,142 @@ constr 3074:3078 <> AndE2
 constr 3119:3121 <> OrE
 constr 3210:3211 <> MP
 R2629:2632 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R2625:2628 PXL_Decidability <> form ind
+R2625:2628 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> form ind
 binder 2657:2657 <> p:49
 binder 2659:2659 <> q:50
-R2662:2665 PXL_Decidability <> Prov:47 ind
-R2668:2671 PXL_Decidability <> Impl constr
-R2673:2673 PXL_Decidability <> p:49 var
-R2676:2679 PXL_Decidability <> Impl constr
-R2681:2681 PXL_Decidability <> q:50 var
-R2683:2683 PXL_Decidability <> p:49 var
+R2662:2665 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Prov:47 ind
+R2668:2671 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Impl constr
+R2673:2673 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> p:49 var
+R2676:2679 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Impl constr
+R2681:2681 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> q:50 var
+R2683:2683 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> p:49 var
 binder 2703:2703 <> p:51
 binder 2705:2705 <> q:52
 binder 2707:2707 <> r:53
-R2710:2713 PXL_Decidability <> Prov:47 ind
-R2716:2719 PXL_Decidability <> Impl constr
-R2722:2725 PXL_Decidability <> Impl constr
-R2727:2727 PXL_Decidability <> p:51 var
-R2730:2733 PXL_Decidability <> Impl constr
-R2735:2735 PXL_Decidability <> q:52 var
-R2737:2737 PXL_Decidability <> r:53 var
-R2772:2775 PXL_Decidability <> Impl constr
-R2778:2781 PXL_Decidability <> Impl constr
-R2783:2783 PXL_Decidability <> p:51 var
-R2785:2785 PXL_Decidability <> q:52 var
-R2789:2792 PXL_Decidability <> Impl constr
-R2794:2794 PXL_Decidability <> p:51 var
-R2796:2796 PXL_Decidability <> r:53 var
+R2710:2713 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Prov:47 ind
+R2716:2719 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Impl constr
+R2722:2725 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Impl constr
+R2727:2727 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> p:51 var
+R2730:2733 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Impl constr
+R2735:2735 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> q:52 var
+R2737:2737 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> r:53 var
+R2772:2775 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Impl constr
+R2778:2781 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Impl constr
+R2783:2783 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> p:51 var
+R2785:2785 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> q:52 var
+R2789:2792 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Impl constr
+R2794:2794 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> p:51 var
+R2796:2796 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> r:53 var
 binder 2817:2817 <> p:54
 binder 2819:2819 <> q:55
-R2822:2825 PXL_Decidability <> Prov:47 ind
-R2828:2831 PXL_Decidability <> Impl constr
-R2833:2833 PXL_Decidability <> p:54 var
-R2836:2837 PXL_Decidability <> Or constr
-R2839:2839 PXL_Decidability <> p:54 var
-R2841:2841 PXL_Decidability <> q:55 var
+R2822:2825 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Prov:47 ind
+R2828:2831 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Impl constr
+R2833:2833 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> p:54 var
+R2836:2837 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Or constr
+R2839:2839 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> p:54 var
+R2841:2841 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> q:55 var
 binder 2861:2861 <> p:56
 binder 2863:2863 <> q:57
-R2866:2869 PXL_Decidability <> Prov:47 ind
-R2872:2875 PXL_Decidability <> Impl constr
-R2877:2877 PXL_Decidability <> q:57 var
-R2880:2881 PXL_Decidability <> Or constr
-R2883:2883 PXL_Decidability <> p:56 var
-R2885:2885 PXL_Decidability <> q:57 var
+R2866:2869 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Prov:47 ind
+R2872:2875 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Impl constr
+R2877:2877 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> q:57 var
+R2880:2881 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Or constr
+R2883:2883 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> p:56 var
+R2885:2885 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> q:57 var
 binder 2905:2905 <> p:58
 binder 2907:2907 <> q:59
-R2910:2913 PXL_Decidability <> Prov:47 ind
-R2916:2919 PXL_Decidability <> Impl constr
-R2922:2924 PXL_Decidability <> Neg constr
-R2926:2926 PXL_Decidability <> p:58 var
-R2930:2933 PXL_Decidability <> Impl constr
-R2935:2935 PXL_Decidability <> p:58 var
-R2937:2937 PXL_Decidability <> q:59 var
+R2910:2913 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Prov:47 ind
+R2916:2919 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Impl constr
+R2922:2924 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Neg constr
+R2926:2926 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> p:58 var
+R2930:2933 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Impl constr
+R2935:2935 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> p:58 var
+R2937:2937 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> q:59 var
 binder 2989:2989 <> p:60
 binder 2991:2991 <> q:61
-R2994:2997 PXL_Decidability <> Prov:47 ind
-R3000:3003 PXL_Decidability <> Impl constr
-R3005:3005 PXL_Decidability <> p:60 var
-R3008:3011 PXL_Decidability <> Impl constr
-R3013:3013 PXL_Decidability <> q:61 var
-R3016:3018 PXL_Decidability <> And constr
-R3020:3020 PXL_Decidability <> p:60 var
-R3022:3022 PXL_Decidability <> q:61 var
+R2994:2997 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Prov:47 ind
+R3000:3003 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Impl constr
+R3005:3005 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> p:60 var
+R3008:3011 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Impl constr
+R3013:3013 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> q:61 var
+R3016:3018 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> And constr
+R3020:3020 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> p:60 var
+R3022:3022 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> q:61 var
 binder 3043:3043 <> p:62
 binder 3045:3045 <> q:63
-R3048:3051 PXL_Decidability <> Prov:47 ind
-R3054:3057 PXL_Decidability <> Impl constr
-R3060:3062 PXL_Decidability <> And constr
-R3064:3064 PXL_Decidability <> p:62 var
-R3066:3066 PXL_Decidability <> q:63 var
-R3069:3069 PXL_Decidability <> p:62 var
+R3048:3051 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Prov:47 ind
+R3054:3057 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Impl constr
+R3060:3062 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> And constr
+R3064:3064 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> p:62 var
+R3066:3066 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> q:63 var
+R3069:3069 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> p:62 var
 binder 3088:3088 <> p:64
 binder 3090:3090 <> q:65
-R3093:3096 PXL_Decidability <> Prov:47 ind
-R3099:3102 PXL_Decidability <> Impl constr
-R3105:3107 PXL_Decidability <> And constr
-R3109:3109 PXL_Decidability <> p:64 var
-R3111:3111 PXL_Decidability <> q:65 var
-R3114:3114 PXL_Decidability <> q:65 var
+R3093:3096 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Prov:47 ind
+R3099:3102 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Impl constr
+R3105:3107 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> And constr
+R3109:3109 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> p:64 var
+R3111:3111 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> q:65 var
+R3114:3114 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> q:65 var
 binder 3133:3133 <> p:66
 binder 3135:3135 <> q:67
 binder 3137:3137 <> r:68
-R3149:3152 PXL_Decidability <> Prov:47 ind
-R3155:3158 PXL_Decidability <> Impl constr
-R3161:3164 PXL_Decidability <> Impl constr
-R3166:3166 PXL_Decidability <> p:66 var
-R3168:3168 PXL_Decidability <> r:68 var
-R3172:3175 PXL_Decidability <> Impl constr
-R3178:3181 PXL_Decidability <> Impl constr
-R3183:3183 PXL_Decidability <> q:67 var
-R3185:3185 PXL_Decidability <> r:68 var
-R3189:3192 PXL_Decidability <> Impl constr
-R3195:3196 PXL_Decidability <> Or constr
-R3198:3198 PXL_Decidability <> p:66 var
-R3200:3200 PXL_Decidability <> q:67 var
-R3203:3203 PXL_Decidability <> r:68 var
+R3149:3152 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Prov:47 ind
+R3155:3158 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Impl constr
+R3161:3164 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Impl constr
+R3166:3166 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> p:66 var
+R3168:3168 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> r:68 var
+R3172:3175 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Impl constr
+R3178:3181 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Impl constr
+R3183:3183 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> q:67 var
+R3185:3185 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> r:68 var
+R3189:3192 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Impl constr
+R3195:3196 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Or constr
+R3198:3198 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> p:66 var
+R3200:3200 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> q:67 var
+R3203:3203 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> r:68 var
 binder 3224:3224 <> p:69
 binder 3226:3226 <> q:70
 R3244:3247 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R3229:3232 PXL_Decidability <> Prov:47 ind
-R3235:3238 PXL_Decidability <> Impl constr
-R3240:3240 PXL_Decidability <> p:69 var
-R3242:3242 PXL_Decidability <> q:70 var
+R3229:3232 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Prov:47 ind
+R3235:3238 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Impl constr
+R3240:3240 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> p:69 var
+R3242:3242 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> q:70 var
 R3254:3257 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R3248:3251 PXL_Decidability <> Prov:47 ind
-R3253:3253 PXL_Decidability <> p:69 var
-R3258:3261 PXL_Decidability <> Prov:47 ind
-R3263:3263 PXL_Decidability <> q:70 var
+R3248:3251 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Prov:47 ind
+R3253:3253 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> p:69 var
+R3258:3261 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Prov:47 ind
+R3263:3263 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> q:70 var
 scheme 2618:2621 <> Prov_ind
 scheme 2618:2621 <> Prov_sind
 prf 3304:3309 <> imp_id
 binder 3320:3320 <> p:71
-R3323:3326 PXL_Decidability <> Prov ind
-R3329:3332 PXL_Decidability <> Impl constr
-R3334:3334 PXL_Decidability <> p:71 var
-R3336:3336 PXL_Decidability <> p:71 var
-R3386:3387 PXL_Decidability <> MP constr
-R3386:3387 PXL_Decidability <> MP constr
-R3401:3402 PXL_Decidability <> MP constr
-R3401:3402 PXL_Decidability <> MP constr
-R3418:3418 PXL_Decidability <> S constr
-R3423:3426 PXL_Decidability <> Impl constr
-R3418:3418 PXL_Decidability <> S constr
-R3423:3426 PXL_Decidability <> Impl constr
-R3450:3450 PXL_Decidability <> K constr
-R3455:3458 PXL_Decidability <> Impl constr
-R3450:3450 PXL_Decidability <> K constr
-R3455:3458 PXL_Decidability <> Impl constr
-R3478:3478 PXL_Decidability <> K constr
-R3478:3478 PXL_Decidability <> K constr
+R3323:3326 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Prov ind
+R3329:3332 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Impl constr
+R3334:3334 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> p:71 var
+R3336:3336 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> p:71 var
+R3386:3387 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> MP constr
+R3386:3387 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> MP constr
+R3401:3402 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> MP constr
+R3401:3402 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> MP constr
+R3418:3418 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> S constr
+R3423:3426 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Impl constr
+R3418:3418 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> S constr
+R3423:3426 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Impl constr
+R3450:3450 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> K constr
+R3455:3458 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Impl constr
+R3450:3450 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> K constr
+R3455:3458 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Impl constr
+R3478:3478 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> K constr
+R3478:3478 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> K constr
 prf 3498:3507 <> imp_id_all
 binder 3518:3519 <> φ:72
-R3522:3525 PXL_Decidability <> Prov ind
-R3528:3531 PXL_Decidability <> Impl constr
-R3533:3534 PXL_Decidability <> φ:72 var
-R3536:3537 PXL_Decidability <> φ:72 var
-R3564:3569 PXL_Decidability <> imp_id thm
-R3564:3569 PXL_Decidability <> imp_id thm
+R3522:3525 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Prov ind
+R3528:3531 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Impl constr
+R3533:3534 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> φ:72 var
+R3536:3537 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> φ:72 var
+R3564:3569 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> imp_id thm
+R3564:3569 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> imp_id thm
 def 3675:3680 <> ctx_of
 R3689:3690 Coq.Init.Logic <> ::type_scope:x_'->'_x not
 R3686:3688 Coq.Init.Datatypes <> nat ind
@@ -419,188 +419,188 @@ R3701:3704 Coq.Init.Datatypes <> list ind
 R3706:3708 Coq.Init.Datatypes <> nat ind
 binder 3698:3699 <> xs:74
 R3713:3716 Coq.Init.Datatypes <> list ind
-R3718:3721 PXL_Decidability <> form ind
-R3734:3735 PXL_Decidability <> xs:74 var
+R3718:3721 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> form ind
+R3734:3735 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> xs:74 var
 R3746:3747 Coq.Lists.List ListNotations ::list_scope:'['_']' not
 R3752:3753 Coq.Lists.List ListNotations ::list_scope:'['_']' not
 R3760:3761 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
 R3767:3767 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
 R3803:3807 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
-R3771:3772 PXL_Decidability <> ρ:73 var
-R3792:3794 PXL_Decidability <> Neg constr
-R3797:3799 PXL_Decidability <> Var constr
-R3781:3783 PXL_Decidability <> Var constr
-R3808:3813 PXL_Decidability <> ctx_of:75 def
-R3815:3816 PXL_Decidability <> ρ:73 var
+R3771:3772 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> ρ:73 var
+R3792:3794 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Neg constr
+R3797:3799 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Var constr
+R3781:3783 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Var constr
+R3808:3813 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> ctx_of:75 def
+R3815:3816 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> ρ:73 var
 def 3837:3841 <> chain
 R3847:3850 Coq.Init.Datatypes <> list ind
-R3852:3855 PXL_Decidability <> form ind
+R3852:3855 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> form ind
 binder 3844:3845 <> Γ:77
-R3862:3865 PXL_Decidability <> form ind
+R3862:3865 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> form ind
 binder 3859:3860 <> φ:78
-R3870:3873 PXL_Decidability <> form ind
-R3886:3887 PXL_Decidability <> Γ:77 var
+R3870:3873 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> form ind
+R3886:3887 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Γ:77 var
 R3894:3895 Coq.Lists.List ListNotations ::list_scope:'['_']' not
-R3900:3901 PXL_Decidability <> φ:78 var
+R3900:3901 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> φ:78 var
 R3906:3907 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
-R3913:3916 PXL_Decidability <> Impl constr
-R3921:3925 PXL_Decidability <> chain:79 def
-R3929:3930 PXL_Decidability <> φ:78 var
+R3913:3916 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Impl constr
+R3921:3925 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> chain:79 def
+R3929:3930 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> φ:78 var
 prf 3982:3992 <> prepend_ctx
-R4007:4010 PXL_Decidability <> form ind
+R4007:4010 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> form ind
 binder 4004:4005 <> ψ:81
 binder 4013:4014 <> Γ:82
 binder 4016:4017 <> φ:83
 R4040:4043 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R4022:4025 PXL_Decidability <> Prov ind
-R4028:4032 PXL_Decidability <> chain def
-R4034:4035 PXL_Decidability <> Γ:82 var
-R4037:4038 PXL_Decidability <> φ:83 var
-R4044:4047 PXL_Decidability <> Prov ind
-R4050:4053 PXL_Decidability <> Impl constr
-R4055:4056 PXL_Decidability <> ψ:81 var
-R4059:4063 PXL_Decidability <> chain def
-R4065:4066 PXL_Decidability <> Γ:82 var
-R4068:4069 PXL_Decidability <> φ:83 var
-R4111:4112 PXL_Decidability <> MP constr
-R4111:4112 PXL_Decidability <> MP constr
-R4126:4126 PXL_Decidability <> K constr
-R4129:4133 PXL_Decidability <> chain def
-R4126:4126 PXL_Decidability <> K constr
-R4129:4133 PXL_Decidability <> chain def
+R4022:4025 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Prov ind
+R4028:4032 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> chain def
+R4034:4035 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Γ:82 var
+R4037:4038 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> φ:83 var
+R4044:4047 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Prov ind
+R4050:4053 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Impl constr
+R4055:4056 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> ψ:81 var
+R4059:4063 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> chain def
+R4065:4066 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Γ:82 var
+R4068:4069 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> φ:83 var
+R4111:4112 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> MP constr
+R4111:4112 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> MP constr
+R4126:4126 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> K constr
+R4129:4133 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> chain def
+R4126:4126 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> K constr
+R4129:4133 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> chain def
 prf 4220:4229 <> chain_lift
 binder 4240:4241 <> Γ:84
 binder 4243:4243 <> A:85
 binder 4245:4245 <> B:86
 R4265:4268 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R4250:4253 PXL_Decidability <> Prov ind
-R4256:4259 PXL_Decidability <> Impl constr
-R4261:4261 PXL_Decidability <> A:85 var
-R4263:4263 PXL_Decidability <> B:86 var
-R4269:4272 PXL_Decidability <> Prov ind
-R4275:4278 PXL_Decidability <> Impl constr
-R4281:4285 PXL_Decidability <> chain def
-R4287:4288 PXL_Decidability <> Γ:84 var
-R4290:4290 PXL_Decidability <> A:85 var
-R4294:4298 PXL_Decidability <> chain def
-R4300:4301 PXL_Decidability <> Γ:84 var
-R4303:4303 PXL_Decidability <> B:86 var
-R4432:4433 PXL_Decidability <> MP constr
-R4432:4433 PXL_Decidability <> MP constr
-R4449:4449 PXL_Decidability <> S constr
-R4454:4458 PXL_Decidability <> chain def
-R4468:4472 PXL_Decidability <> chain def
-R4449:4449 PXL_Decidability <> S constr
-R4454:4458 PXL_Decidability <> chain def
-R4468:4472 PXL_Decidability <> chain def
-R4496:4497 PXL_Decidability <> MP constr
-R4496:4497 PXL_Decidability <> MP constr
-R4515:4515 PXL_Decidability <> K constr
-R4518:4521 PXL_Decidability <> Impl constr
-R4524:4528 PXL_Decidability <> chain def
-R4538:4542 PXL_Decidability <> chain def
-R4515:4515 PXL_Decidability <> K constr
-R4518:4521 PXL_Decidability <> Impl constr
-R4524:4528 PXL_Decidability <> chain def
-R4538:4542 PXL_Decidability <> chain def
+R4250:4253 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Prov ind
+R4256:4259 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Impl constr
+R4261:4261 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> A:85 var
+R4263:4263 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> B:86 var
+R4269:4272 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Prov ind
+R4275:4278 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Impl constr
+R4281:4285 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> chain def
+R4287:4288 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Γ:84 var
+R4290:4290 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> A:85 var
+R4294:4298 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> chain def
+R4300:4301 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Γ:84 var
+R4303:4303 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> B:86 var
+R4432:4433 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> MP constr
+R4432:4433 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> MP constr
+R4449:4449 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> S constr
+R4454:4458 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> chain def
+R4468:4472 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> chain def
+R4449:4449 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> S constr
+R4454:4458 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> chain def
+R4468:4472 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> chain def
+R4496:4497 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> MP constr
+R4496:4497 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> MP constr
+R4515:4515 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> K constr
+R4518:4521 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Impl constr
+R4524:4528 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> chain def
+R4538:4542 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> chain def
+R4515:4515 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> K constr
+R4518:4521 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Impl constr
+R4524:4528 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> chain def
+R4538:4542 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> chain def
 prf 4629:4636 <> chain_mp
 binder 4647:4648 <> Γ:87
 binder 4650:4650 <> A:88
 binder 4652:4652 <> B:89
 R4672:4675 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R4657:4660 PXL_Decidability <> Prov ind
-R4663:4666 PXL_Decidability <> Impl constr
-R4668:4668 PXL_Decidability <> A:88 var
-R4670:4670 PXL_Decidability <> B:89 var
+R4657:4660 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Prov ind
+R4663:4666 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Impl constr
+R4668:4668 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> A:88 var
+R4670:4670 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> B:89 var
 R4693:4696 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R4676:4679 PXL_Decidability <> Prov ind
-R4682:4686 PXL_Decidability <> chain def
-R4688:4689 PXL_Decidability <> Γ:87 var
-R4691:4691 PXL_Decidability <> A:88 var
-R4697:4700 PXL_Decidability <> Prov ind
-R4703:4707 PXL_Decidability <> chain def
-R4709:4710 PXL_Decidability <> Γ:87 var
-R4712:4712 PXL_Decidability <> B:89 var
-R4757:4758 PXL_Decidability <> MP constr
-R4769:4778 PXL_Decidability <> chain_lift thm
-R4757:4758 PXL_Decidability <> MP constr
-R4769:4778 PXL_Decidability <> chain_lift thm
+R4676:4679 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Prov ind
+R4682:4686 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> chain def
+R4688:4689 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Γ:87 var
+R4691:4691 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> A:88 var
+R4697:4700 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Prov ind
+R4703:4707 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> chain def
+R4709:4710 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Γ:87 var
+R4712:4712 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> B:89 var
+R4757:4758 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> MP constr
+R4769:4778 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> chain_lift thm
+R4757:4758 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> MP constr
+R4769:4778 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> chain_lift thm
 prf 4863:4878 <> chain_or_intro_l
 binder 4889:4890 <> Γ:90
 binder 4892:4892 <> p:91
 binder 4894:4894 <> q:92
-R4899:4902 PXL_Decidability <> Prov ind
-R4905:4908 PXL_Decidability <> Impl constr
-R4911:4915 PXL_Decidability <> chain def
-R4917:4918 PXL_Decidability <> Γ:90 var
-R4920:4920 PXL_Decidability <> p:91 var
-R4924:4928 PXL_Decidability <> chain def
-R4930:4931 PXL_Decidability <> Γ:90 var
-R4934:4935 PXL_Decidability <> Or constr
-R4937:4937 PXL_Decidability <> p:91 var
-R4939:4939 PXL_Decidability <> q:92 var
-R5015:5018 PXL_Decidability <> OrI1 constr
-R5015:5018 PXL_Decidability <> OrI1 constr
-R5037:5038 PXL_Decidability <> MP constr
-R5037:5038 PXL_Decidability <> MP constr
-R5054:5054 PXL_Decidability <> S constr
-R5059:5063 PXL_Decidability <> chain def
-R5072:5076 PXL_Decidability <> chain def
-R5082:5083 PXL_Decidability <> Or constr
-R5054:5054 PXL_Decidability <> S constr
-R5059:5063 PXL_Decidability <> chain def
-R5072:5076 PXL_Decidability <> chain def
-R5082:5083 PXL_Decidability <> Or constr
-R5106:5107 PXL_Decidability <> MP constr
-R5106:5107 PXL_Decidability <> MP constr
-R5125:5125 PXL_Decidability <> K constr
-R5128:5131 PXL_Decidability <> Impl constr
-R5134:5138 PXL_Decidability <> chain def
-R5147:5151 PXL_Decidability <> chain def
-R5157:5158 PXL_Decidability <> Or constr
-R5125:5125 PXL_Decidability <> K constr
-R5128:5131 PXL_Decidability <> Impl constr
-R5134:5138 PXL_Decidability <> chain def
-R5147:5151 PXL_Decidability <> chain def
-R5157:5158 PXL_Decidability <> Or constr
+R4899:4902 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Prov ind
+R4905:4908 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Impl constr
+R4911:4915 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> chain def
+R4917:4918 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Γ:90 var
+R4920:4920 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> p:91 var
+R4924:4928 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> chain def
+R4930:4931 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Γ:90 var
+R4934:4935 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Or constr
+R4937:4937 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> p:91 var
+R4939:4939 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> q:92 var
+R5015:5018 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> OrI1 constr
+R5015:5018 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> OrI1 constr
+R5037:5038 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> MP constr
+R5037:5038 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> MP constr
+R5054:5054 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> S constr
+R5059:5063 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> chain def
+R5072:5076 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> chain def
+R5082:5083 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Or constr
+R5054:5054 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> S constr
+R5059:5063 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> chain def
+R5072:5076 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> chain def
+R5082:5083 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Or constr
+R5106:5107 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> MP constr
+R5106:5107 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> MP constr
+R5125:5125 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> K constr
+R5128:5131 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Impl constr
+R5134:5138 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> chain def
+R5147:5151 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> chain def
+R5157:5158 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Or constr
+R5125:5125 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> K constr
+R5128:5131 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Impl constr
+R5134:5138 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> chain def
+R5147:5151 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> chain def
+R5157:5158 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Or constr
 prf 5201:5216 <> chain_or_intro_r
 binder 5227:5228 <> Γ:93
 binder 5230:5230 <> p:94
 binder 5232:5232 <> q:95
-R5237:5240 PXL_Decidability <> Prov ind
-R5243:5246 PXL_Decidability <> Impl constr
-R5249:5253 PXL_Decidability <> chain def
-R5255:5256 PXL_Decidability <> Γ:93 var
-R5258:5258 PXL_Decidability <> q:95 var
-R5262:5266 PXL_Decidability <> chain def
-R5268:5269 PXL_Decidability <> Γ:93 var
-R5272:5273 PXL_Decidability <> Or constr
-R5275:5275 PXL_Decidability <> p:94 var
-R5277:5277 PXL_Decidability <> q:95 var
-R5353:5356 PXL_Decidability <> OrI2 constr
-R5353:5356 PXL_Decidability <> OrI2 constr
-R5375:5376 PXL_Decidability <> MP constr
-R5375:5376 PXL_Decidability <> MP constr
-R5392:5392 PXL_Decidability <> S constr
-R5397:5401 PXL_Decidability <> chain def
-R5410:5414 PXL_Decidability <> chain def
-R5420:5421 PXL_Decidability <> Or constr
-R5392:5392 PXL_Decidability <> S constr
-R5397:5401 PXL_Decidability <> chain def
-R5410:5414 PXL_Decidability <> chain def
-R5420:5421 PXL_Decidability <> Or constr
-R5444:5445 PXL_Decidability <> MP constr
-R5444:5445 PXL_Decidability <> MP constr
-R5463:5463 PXL_Decidability <> K constr
-R5466:5469 PXL_Decidability <> Impl constr
-R5472:5476 PXL_Decidability <> chain def
-R5485:5489 PXL_Decidability <> chain def
-R5495:5496 PXL_Decidability <> Or constr
-R5463:5463 PXL_Decidability <> K constr
-R5466:5469 PXL_Decidability <> Impl constr
-R5472:5476 PXL_Decidability <> chain def
-R5485:5489 PXL_Decidability <> chain def
-R5495:5496 PXL_Decidability <> Or constr
+R5237:5240 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Prov ind
+R5243:5246 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Impl constr
+R5249:5253 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> chain def
+R5255:5256 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Γ:93 var
+R5258:5258 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> q:95 var
+R5262:5266 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> chain def
+R5268:5269 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Γ:93 var
+R5272:5273 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Or constr
+R5275:5275 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> p:94 var
+R5277:5277 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> q:95 var
+R5353:5356 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> OrI2 constr
+R5353:5356 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> OrI2 constr
+R5375:5376 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> MP constr
+R5375:5376 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> MP constr
+R5392:5392 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> S constr
+R5397:5401 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> chain def
+R5410:5414 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> chain def
+R5420:5421 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Or constr
+R5392:5392 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> S constr
+R5397:5401 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> chain def
+R5410:5414 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> chain def
+R5420:5421 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Or constr
+R5444:5445 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> MP constr
+R5444:5445 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> MP constr
+R5463:5463 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> K constr
+R5466:5469 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Impl constr
+R5472:5476 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> chain def
+R5485:5489 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> chain def
+R5495:5496 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Or constr
+R5463:5463 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> K constr
+R5466:5469 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Impl constr
+R5472:5476 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> chain def
+R5485:5489 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> chain def
+R5495:5496 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Or constr
 prf 5637:5647 <> close_chain
 binder 5658:5659 <> Γ:96
 binder 5661:5662 <> φ:97
@@ -609,27 +609,120 @@ R5695:5699 Coq.Init.Logic <> ::type_scope:x_'->'_x not
 binder 5675:5675 <> a:98
 R5685:5688 Coq.Init.Logic <> ::type_scope:x_'->'_x not
 R5678:5679 Coq.Lists.List <> In def
-R5683:5684 PXL_Decidability <> Γ:96 var
-R5681:5681 PXL_Decidability <> a:98 var
-R5689:5692 PXL_Decidability <> Prov ind
-R5694:5694 PXL_Decidability <> a:98 var
+R5683:5684 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Γ:96 var
+R5681:5681 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> a:98 var
+R5689:5692 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Prov ind
+R5694:5694 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> a:98 var
 R5718:5721 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R5700:5703 PXL_Decidability <> Prov ind
-R5706:5710 PXL_Decidability <> chain def
-R5712:5713 PXL_Decidability <> Γ:96 var
-R5715:5716 PXL_Decidability <> φ:97 var
-R5722:5725 PXL_Decidability <> Prov ind
-R5727:5728 PXL_Decidability <> φ:97 var
-R5969:5970 PXL_Decidability <> MP constr
-R5969:5970 PXL_Decidability <> MP constr
+R5700:5703 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Prov ind
+R5706:5710 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> chain def
+R5712:5713 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Γ:96 var
+R5715:5716 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> φ:97 var
+R5722:5725 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Prov ind
+R5727:5728 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> φ:97 var
+R5969:5970 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> MP constr
+R5969:5970 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> MP constr
 prf 6147:6161 <> member_to_chain
 binder 6174:6175 <> Γ:99
 binder 6177:6177 <> a:100
 R6187:6190 Coq.Init.Logic <> ::type_scope:x_'->'_x not
 R6180:6181 Coq.Lists.List <> In def
-R6185:6186 PXL_Decidability <> Γ:99 var
-R6183:6183 PXL_Decidability <> a:100 var
-R6191:6194 PXL_Decidability <> Prov ind
-R6197:6201 PXL_Decidability <> chain def
-R6203:6204 PXL_Decidability <> Γ:99 var
-R6206:6206 PXL_Decidability <> a:100 var
+R6185:6186 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Γ:99 var
+R6183:6183 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> a:100 var
+R6191:6194 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Prov ind
+R6197:6201 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> chain def
+R6203:6204 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Γ:99 var
+R6206:6206 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> a:100 var
+prf 6431:6448 <> vars_in_nodup_vars
+R6465:6468 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> form ind
+binder 6462:6463 <> φ:101
+R6474:6476 Coq.Init.Datatypes <> nat ind
+binder 6472:6472 <> v:102
+R6494:6497 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R6480:6481 Coq.Lists.List <> In def
+R6486:6489 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> vars def
+R6491:6492 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> φ:101 var
+R6483:6483 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> v:102 var
+R6498:6499 Coq.Lists.List <> In def
+R6504:6508 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> nodup def
+R6511:6514 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> vars def
+R6516:6517 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> φ:101 var
+R6501:6501 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> v:102 var
+R6552:6566 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> nodup_preserves thm
+R6552:6566 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> nodup_preserves thm
+prf 6592:6605 <> in_ctx_of_true
+binder 6618:6619 <> ρ:103
+binder 6621:6622 <> xs:104
+binder 6624:6624 <> n:105
+R6634:6637 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R6627:6628 Coq.Lists.List <> In def
+R6632:6633 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> xs:104 var
+R6630:6630 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> n:105 var
+R6649:6652 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R6642:6644 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R6638:6639 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> ρ:103 var
+R6641:6641 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> n:105 var
+R6645:6648 Coq.Init.Datatypes <> true constr
+R6653:6654 Coq.Lists.List <> In def
+R6665:6670 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> ctx_of def
+R6672:6673 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> ρ:103 var
+R6675:6676 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> xs:104 var
+R6657:6659 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Var constr
+R6661:6661 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> n:105 var
+R6893:6899 Coq.Lists.List <> in_cons thm
+R6893:6899 Coq.Lists.List <> in_cons thm
+R6893:6899 Coq.Lists.List <> in_cons thm
+prf 6914:6928 <> in_ctx_of_false
+binder 6941:6942 <> ρ:106
+binder 6944:6945 <> xs:107
+binder 6947:6947 <> n:108
+R6957:6960 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R6950:6951 Coq.Lists.List <> In def
+R6955:6956 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> xs:107 var
+R6953:6953 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> n:108 var
+R6973:6976 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R6965:6967 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R6961:6962 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> ρ:106 var
+R6964:6964 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> n:108 var
+R6968:6972 Coq.Init.Datatypes <> false constr
+R6977:6978 Coq.Lists.List <> In def
+R6995:7000 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> ctx_of def
+R7002:7003 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> ρ:106 var
+R7005:7006 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> xs:107 var
+R6981:6983 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Neg constr
+R6986:6988 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Var constr
+R6990:6990 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> n:108 var
+R7223:7229 Coq.Lists.List <> in_cons thm
+R7223:7229 Coq.Lists.List <> in_cons thm
+R7223:7229 Coq.Lists.List <> in_cons thm
+def 7332:7347 <> derive_under_ctx
+R7356:7357 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R7353:7355 Coq.Init.Datatypes <> nat ind
+R7358:7361 Coq.Init.Datatypes <> bool ind
+binder 7350:7351 <> ρ:109
+R7368:7371 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> form ind
+binder 7365:7366 <> φ:110
+R7400:7403 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R7393:7395 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R7378:7386 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> eval_prop def
+R7388:7389 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> ρ:109 var
+R7391:7392 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> φ:110 var
+R7396:7399 Coq.Init.Datatypes <> true constr
+R7404:7407 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Prov ind
+R7410:7414 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> chain def
+R7417:7422 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> ctx_of def
+R7424:7425 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> ρ:109 var
+R7428:7432 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> nodup def
+R7435:7438 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> vars def
+R7440:7441 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> φ:110 var
+R7446:7447 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> φ:110 var
+R7999:8000 Coq.Lists.List <> In def
+R8005:8009 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> nodup def
+R8012:8015 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> vars def
+R8018:8020 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Var constr
+R7999:8000 Coq.Lists.List <> In def
+R8005:8009 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> nodup def
+R8012:8015 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> vars def
+R8018:8020 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> Var constr
+R8074:8088 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> member_to_chain prfax
+R8074:8088 PXLs.Coq.pxl_decidability_proofs_v5.pxl_phase5_decidability.coq.PXL_Decidability <> member_to_chain prfax

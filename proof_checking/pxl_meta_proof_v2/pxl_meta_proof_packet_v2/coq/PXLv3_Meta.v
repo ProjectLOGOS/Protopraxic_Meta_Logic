@@ -1,4 +1,5 @@
 From Coq Require Import Logic.Classical.
+Require Import Coq.Logic.Eqdep.
 
 (*
   PXLv3_Meta.v
@@ -8,6 +9,8 @@ From Coq Require Import Logic.Classical.
   - Top-level notations and definitions
   - Windows-friendly: works with direct coqc invocation
 *)
+
+(* Phase 2 fix: Enhanced identity handling for unification issues *)
 
 (* === Object universe === *)
 Inductive Obj := I1 | I2 | I3 | O.
@@ -22,6 +25,10 @@ Definition PImp   (p q:Prop) : Prop := p -> q.    (* ⟹ *)
 Definition MEquiv (p q:Prop) : Prop := (p <-> q). (* ⩪ *)
 Definition Box    (p:Prop)   : Prop := p.         (* □ *)
 Definition Dia    (p:Prop)   : Prop := p.         (* ◇ *)
+
+(* Enhanced symmetry helper *)
+Lemma symmetry_helper : forall x y : Obj, x = y -> y = x.
+Proof. intros x y H. symmetry. exact H. Qed.
 
 (* === Notations (top-level, reusable) === *)
 Infix " ⧟ " := Ident (at level 50).
@@ -93,10 +100,22 @@ Theorem ax_ident_refl  : forall x:Obj, x ⧟ x.
 Proof. intros x. reflexivity. Qed.
 
 Theorem ax_ident_symm  : forall x y:Obj, x ⧟ y -> y ⧟ x.
-Proof. intros x y H. subst. reflexivity. Qed.
+Proof. 
+  intros x y H. 
+  unfold Ident in H.
+  unfold Ident.
+  apply symmetry_helper.
+  exact H.
+Qed.
 
 Theorem ax_ident_trans : forall x y z:Obj, x ⧟ y -> y ⧟ z -> x ⧟ z.
-Proof. intros x y z Hxy Hyz. subst. reflexivity. Qed.
+Proof. 
+  intros x y z Hxy Hyz. 
+  unfold Ident in Hxy, Hyz.
+  unfold Ident.
+  rewrite Hxy.
+  exact Hyz.
+Qed.
 
 Theorem ax_nonequiv_irrefl : forall x:Obj, ~ (x ⇎ x).
 Proof.
@@ -105,18 +124,23 @@ Qed.
 
 Theorem ax_inter_comm : forall x y:Obj, x ⇌ y <-> y ⇌ x.
 Proof.
-  intros x y. split; intro _; exact I.
+  intros x y. split; intros H; exact I.
 Qed.
 
 (* === Triune axioms discharged === *)
 Theorem A1_identity : □ (forall x:Obj, x ⧟ x).
 Proof.
-  intro x. exact (fun x => eq_refl x).
+  intro x. unfold Ident. reflexivity.
 Qed.
 
 Theorem A2_noncontradiction : □ (forall x y:Obj, ∼ (x ⧟ y /\ x ⇎ y)).
 Proof.
-  intros x y [Hid Hneq]. unfold NonEquiv in Hneq. subst. apply Hneq. reflexivity.
+  intros x y [Hid Hneq]. 
+  unfold Ident in Hid.
+  unfold NonEquiv in Hneq. 
+  rewrite Hid in Hneq.
+  apply Hneq. 
+  reflexivity.
 Qed.
 
 Theorem A3_excluded_middle : forall (P:Obj->Prop) (x:Obj), P x \/ ∼ P x.
