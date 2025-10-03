@@ -1,0 +1,15 @@
+cd "C:\Users\proje\OneDrive\Desktop\LOGOS SYSTEM\ROOT"
+if (Test-Path "Protopraxic_Metalogic") { Remove-Item -Recurse -Force "Protopraxic_Metalogic" }
+New-Item -ItemType Directory -Path "Protopraxic_Metalogic"
+Copy-Item "proof_checking\pxl_foundation_proof_v1\coq\PXLv3.v" "Protopraxic_Metalogic\PXL_Foundations.v"
+Copy-Item "proof_checking\pxl_meta_proof_v2\pxl_meta_proof_packet_v2\coq\PXLv3_Meta.v" "Protopraxic_Metalogic\PXL_Meta.v"
+Copy-Item "proof_checking\pxl_core_meta_validation_v3\pxl_meta_sets_v3\coq\PXL_Deep_Soundness.v" "Protopraxic_Metalogic\PXL_Core.v"
+Copy-Item "proof_checking\pxl_completeness_proofs_v4\pxl_phase4_completeness\coq\PXL_Completeness_Truth_WF.v" "Protopraxic_Metalogic\"
+Copy-Item "proof_checking\pxl_decidability_proofs_v5\pxl_phase5_decidability\coq\PXL_Decidability.v" "Protopraxic_Metalogic\"
+Copy-Item "Protopraxic_Meta_Logic\PXL_Abstract.txt" "Protopraxic_Metalogic\"
+Copy-Item "Protopraxic_Meta_Logic\PXL_Formal_Language_Definition.txt" "Protopraxic_Metalogic\"
+Copy-Item "Protopraxic_Meta_Logic\PXL_Domain_Mapping.txt" "Protopraxic_Metalogic\"
+Copy-Item "Protopraxic_Meta_Logic\PXL_Paradox_Resolution.txt" "Protopraxic_Metalogic\PXL_Paradox_Master.txt"
+if (Test-Path "PXL_Proof_Packet.zip") { Remove-Item "PXL_Proof_Packet.zip" }
+Compress-Archive -Path "Protopraxic_Metalogic\*" -DestinationPath "PXL_Proof_Packet.zip"
+Write-Output "✅ Canonical PXL packet built successfully as PXL_Proof_Packet.zip"

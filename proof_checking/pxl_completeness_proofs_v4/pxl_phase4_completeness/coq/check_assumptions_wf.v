@@ -1,0 +1,3 @@
+Require Import PXLs.PXL_Completeness_Truth_WF.
+Print Assumptions constructive_lindenbaum.
+Print Assumptions truth_lemma.

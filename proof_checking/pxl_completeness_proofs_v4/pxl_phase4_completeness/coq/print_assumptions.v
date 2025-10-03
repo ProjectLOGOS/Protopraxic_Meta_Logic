@@ -1,0 +1,2 @@
+Print Assumptions constructive_lindenbaum.
+Print Assumptions truth_lemma.
