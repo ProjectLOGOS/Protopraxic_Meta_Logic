@@ -329,25 +329,23 @@ Qed.
 
 (* ======== PHASE 4 NEEDED LEMMAS ======== *)
 
-(* Context/MP closure - adapted for fixpoint chain *)
+(* Chain closure under MP *)
 Lemma chain_closed_mp Γ ψ φ :
   Prov (chain Γ ψ) -> Prov (Impl ψ φ) -> Prov (chain Γ φ).
 Proof. intros Hc Himp; eapply chain_mp; eauto. Qed.
 
-(* Context mixing/weakening for fixpoint chain *)
+(* Weakening / context mix *)
 Lemma chain_weaken Γ Δ φ :
   Prov (chain Γ φ) -> Prov (chain (Γ ++ Δ) φ).
 Proof.
-  intros H. induction Γ as [|a Γ' IH]; simpl in *.
-  - (* Base case: chain ([] ++ Δ) φ = chain Δ φ and we have chain [] φ = φ *)
-    admit.
-  - (* Inductive case *) 
-    admit.
-Admitted.
+  intros H. induction Δ as [|a Δ' IH]; simpl.
+  - rewrite app_nil_r. exact H.
+  - apply prepend_ctx. apply IH.
+Qed.
 
 Lemma derive_under_mixed_ctx Γ Δ ψ φ :
   Prov (chain Γ ψ) -> Prov (Impl ψ φ) -> Prov (chain (Γ ++ Δ) φ).
-Proof. intros Hc Himp; apply chain_weaken; eapply chain_mp; eauto. Qed.
+Proof. intros; apply chain_weaken; eapply chain_mp; eauto. Qed.
 
 (* Minimal close-chain interface used by Lindenbaum/MCT *)
 Definition Cl_step (Γ:list form) (φ:form) : Prop :=

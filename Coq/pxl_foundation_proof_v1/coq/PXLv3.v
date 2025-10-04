@@ -1,4 +1,3 @@
-
 (**
  PXLv3 Coq Skeleton
  Purpose: scaffold for machine-checked validity and soundness proofs.
@@ -66,7 +65,7 @@ Lemma imp_respects_truth (p q:Prop) : (p ⟹ q) -> (p -> q).
 Proof. intro H. apply ax_imp_elim in H. exact H. Qed.
 
 Lemma mequiv_reflexive (p:Prop) : p ⩪ p.
-Proof. apply ax_mequiv_intro. split; tauto. Qed.
+Proof. apply ax_mequiv_intro with (p:=p) (q:=p). split; tauto. Qed.
 
 Lemma K_sound (p q:Prop) : (□ (p -> q)) -> (□ p -> □ q).
 Proof. intros H Hp. apply (ax_K p q H Hp). Qed.
@@ -367,3 +366,14 @@ Axiom axiom_spec :
      P = A5_form \/ P = A6_form \/ P = A7_form).
 
 End PXL.
+
+(* Formula syntax *)
+Inductive form : Type :=
+  Bot : form
+| Var : nat -> form
+| Impl : form -> form -> form
+| And : form -> form -> form
+| Or : form -> form -> form
+| Neg : form -> form
+| Box : form -> form
+| Dia : form -> form.

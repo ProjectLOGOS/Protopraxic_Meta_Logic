@@ -1,82 +1,157 @@
-(* PXL_Completeness_Truth_WF.v — restored scaffold (kernel constructive) *)
+(* PXL_Completeness_Truth_WF.v — restored scaffold (kernel constructive) *)(* PXL_Completeness_Truth_WF.v — restored scaffold (kernel constructive) *)(* PXL_Completeness_Truth_WF.v — restored scaffold (kernel constructive) *)
+
+
 
 From Coq Require Import Program.Wf Arith List Lia.
-(* From PXLd Require Import PXL_Decidability. *)  (* Phase-5 path issues - use direct lemma imports for now *)
 
-(* Axioms bridging Phase 5 decidability lemmas into Phase 4 - these correspond to 
-   lemmas proved constructively in PXL_Decidability.v *)
+From PXLd Require Import PXL_Decidability.
 
-(* Context chaining fixpoint for implication chains Γ ⟹ φ as nested implications *)
-Axiom chain : list form -> form -> form.
-Axiom chain_nil : forall φ, chain [] φ = φ.
-Axiom chain_cons : forall ψ Γ φ, chain (ψ::Γ) φ = Impl ψ (chain Γ φ).
+Import ListNotations.From Coq Require Import Program.Wf Arith List Lia.From Coq Require Import Program.Wf Arith List Lia.
 
-(* Chain modus ponens for context resolution *)
-Axiom chain_closed_mp : forall Γ φ ψ, 
-  Prov (chain Γ φ) -> Prov (Impl φ ψ) -> Prov (chain Γ ψ).
+Set Implicit Arguments.
 
-(* Context weakening for chain operations *)
-Axiom chain_weaken : forall Γ Δ φ,
-  Prov (chain Γ φ) -> Prov (chain (Γ ++ Δ) φ).
-
-(* Mixed context derivation using chain operations *)
-Axiom derive_under_mixed_ctx : forall Γ Δ ψ φ,
-  Prov (chain Γ ψ) -> Prov (Impl ψ φ) -> Prov (chain (Γ ++ Δ) φ).
-
-(* Minimal close-chain interface used by Lindenbaum/MCT *)
-Axiom Cl_step : list form -> form -> Prop.
-Axiom close_chain_step : forall Γ φ,
-  Cl_step Γ φ -> Prov (chain Γ φ).
-
-(* Box introduction by necessitation for modal logic *)
-Axiom box_intro_by_nec : forall Γ φ,
-  Prov (chain Γ φ) -> Prov (chain Γ (Box φ)).
-Import ListNotations.
+From PXLd Require Import PXL_Decidability.From PXLd Require Import PXL_Decidability.
 
 (* Basic syntax *)
-Inductive form : Type := Bot | Var : nat -> form | Impl : form -> form -> form | And : form -> form -> form | Or : form -> form -> form | Neg : form -> form | Box : form -> form | Dia : form -> form.
-Scheme Equality for form      + intros Hf.
-        destruct (mct_total Hm a) as [Ha | Hna].
-        * assert (forces w a) by (apply (proj2 (IH a)); exact Ha).
-          specialize (Hf H0). 
-          apply (proj1 (IH b)) in Hf.
-          pose proof (mct_thm Hm _ (prov_imp_weaken a b)) as Hb_imp.
-          exact (mct_mp Hm _ _ Hb_imp Hf).
-        * pose proof (mct_thm Hm _ (prov_neg_is_impl a)) as Hneg.
-          pose proof (mct_thm Hm _ (prov_exfalso b)) as Hb_imp.
-          exact (mct_mp Hm _ _ Hb_imp (mct_mp Hm _ _ Hneg Hna)).
-      + intros Hab.vability *)
+
+Inductive form : Type := Bot | Var : nat -> form | Impl : form -> form -> form | And : form -> form -> form | Or : form -> form -> form | Neg : form -> form | Box : form -> form | Dia : form -> form.Import ListNotations.Import ListNotations.
+
+
+
+(* Hilbert-style provability predicate *)Set Implicit Arguments.Set Implicit Arguments.
+
 Inductive Prov : form -> Prop :=
-  | ax_K  : forall p q, Prov (Impl (Box (Impl p q)) (Impl (Box p) (Box q)))
-  | ax_T  : forall p,   Prov (Impl (Box p) p)
-  | ax_4  : forall p,   Prov (Impl (Box p) (Box (Box p)))
-  | ax_5  : forall p,   Prov (Impl (Dia p) (Box (Dia p)))
-  | ax_PL_imp : forall p q r, Prov (Impl (Impl p q) (Impl (Impl q r) (Impl p r)))
-  | ax_PL_and1 : forall p q, Prov (Impl (And p q) p)
-  | ax_PL_and2 : forall p q, Prov (Impl (And p q) q)
-  | ax_PL_and : forall p q, Prov (Impl p (Impl q (And p q)))
-  | ax_PL_or1 : forall p q, Prov (Impl p (Or p q))
-  | ax_PL_or2 : forall p q, Prov (Impl q (Or p q))
-  | ax_PL_em  : forall p, Prov (Or p (Neg p))
-  | ax_PL_neg1 : forall p, Prov (Impl (Impl p Bot) (Neg p))
-  | ax_PL_neg2 : forall p, Prov (Impl (Neg p) (Impl p Bot))
-  | ax_PL_neg_impl1 : forall φ ψ, Prov (Impl (Neg (Impl φ ψ)) (And φ (Neg ψ)))
-  | ax_PL_neg_impl2 : forall φ ψ, Prov (Impl (And φ (Neg ψ)) (Neg (Impl φ ψ)))
-  | mp    : forall p q, Prov (Impl p q) -> Prov p -> Prov q
-  | nec   : forall p, Prov p -> Prov (Box p).
 
-Axiom ax_PL_or : forall p q r, Prov (Impl p r) -> Prov (Impl q r) -> Prov (Impl (Or p q) r).
+| ax_K  : forall p q, Prov (Impl (Box (Impl p q)) (Impl (Box p) (Box q)))Import ListNotations.
 
-(* Sets of formulas *)
+| ax_T  : forall p,   Prov (Impl (Box p) p)
+
+| ax_4  : forall p,   Prov (Impl (Box p) (Box (Box p)))(* Basic syntax *)
+
+| ax_5  : forall p,   Prov (Impl (Dia p) (Box (Dia p)))
+
+| ax_PL_imp : forall p q r, Prov (Impl (Impl p q) (Impl (Impl q r) (Impl p r)))Inductive form : Type := Bot | Var : nat -> form | Impl : form -> form -> form | And : form -> form -> form | Or : form -> form -> form | Neg : form -> form | Box : form -> form | Dia : form -> form.(* Basic syntax *)
+
+| ax_PL_and1 : forall p q, Prov (Impl (And p q) p)
+
+| ax_PL_and2 : forall p q, Prov (Impl (And p q) q)Inductive form : Type := Bot | Var : nat -> form | Impl : form -> form -> form | And : form -> form -> form | Or : form -> form -> form | Neg : form -> form | Box : form -> form | Dia : form -> form.
+
+| ax_PL_or  : forall p q r, Prov (Impl p r) -> Prov (Impl q r) -> Prov (Impl (Or p q) r)
+
+| ax_PL_em  : forall p, Prov (Or p (Neg p))(* Hilbert-style provability predicate *)Scheme Equality for form      + intros Hf.
+
+| mp    : forall p q, Prov (Impl p q) -> Prov p -> Prov q
+
+| nec   : forall p, Prov p -> Prov (Box p).Inductive Prov : form -> Prop :=        destruct (mct_total Hm a) as [Ha | Hna].
+
+
+
+(* Sets of formulas *)| ax_K  : forall p q, Prov (Impl (Box (Impl p q)) (Impl (Box p) (Box q)))        * assert (forces w a) by (apply (proj2 (IH a)); exact Ha).
+
 Definition set := form -> Prop.
-Definition In_set (G:set) (p:form) : Prop := G p.
 
-(* Consistency *)
+Definition In_set (G:set) (p:form) : Prop := G p.| ax_T  : forall p,   Prov (Impl (Box p) p)          specialize (Hf H0). 
+
+
+
+(* Consistency *)| ax_4  : forall p,   Prov (Impl (Box p) (Box (Box p)))          apply (proj1 (IH b)) in Hf.
+
 Definition consistent (G:set) : Prop := ~ (exists p, G p /\ G (Neg p)).
 
+| ax_5  : forall p,   Prov (Impl (Dia p) (Box (Dia p)))          pose proof (mct_thm Hm _ (prov_imp_weaken a b)) as Hb_imp.
+
 (* Maximal consistent theories with closure *)
-Record mct (G : set) : Prop := {
+
+Record mct (G : set) : Prop := {| ax_PL_imp : forall p q r, Prov (Impl (Impl p q) (Impl (Impl q r) (Impl p r)))          exact (mct_mp Hm _ _ Hb_imp Hf).
+
   mct_cons : consistent G;
+
+  mct_closed : forall φ ψ, Prov (Impl φ ψ) -> G φ -> G ψ;| ax_PL_and1 : forall p q, Prov (Impl (And p q) p)        * pose proof (mct_thm Hm _ (prov_neg_is_impl a)) as Hneg.
+
+  mct_max : forall φ, G φ \/ G (Neg φ)
+
+}.| ax_PL_and2 : forall p q, Prov (Impl (And p q) q)          pose proof (mct_thm Hm _ (prov_exfalso b)) as Hb_imp.
+
+
+
+(* Base axioms for maximal theory closure *)| ax_PL_or  : forall p q r, Prov (Impl p r) -> Prov (Impl q r) -> Prov (Impl (Or p q) r)          exact (mct_mp Hm _ _ Hb_imp (mct_mp Hm _ _ Hneg Hna)).
+
+Axiom maximal_contains_theorems : forall G, mct G -> forall φ, Prov φ -> In_set G φ.
+
+Axiom maximal_MP_closed : forall G, mct G -> forall φ ψ, In_set G (Impl φ ψ) -> In_set G φ -> In_set G ψ.| ax_PL_em  : forall p, Prov (Or p (Neg p))      + intros Hab.vability *)
+
+
+
+(* Euclidean helper axiom derived from ax_5 *)| mp    : forall p q, Prov (Impl p q) -> Prov p -> Prov qInductive Prov : form -> Prop :=
+
+Axiom ax_Euclid : forall p, Prov (Impl (Box p) (Box (Box p))).
+
+| nec   : forall p, Prov p -> Prov (Box p).  | ax_K  : forall p q, Prov (Impl (Box (Impl p q)) (Impl (Box p) (Box q)))
+
+(* Small wrappers *)
+
+Definition maximal (G:set) : Prop := mct G.  | ax_T  : forall p,   Prov (Impl (Box p) p)
+
+Definition extends (G H:set) : Prop := forall p, G p -> H p.
+
+(* Sets of formulas *)  | ax_4  : forall p,   Prov (Impl (Box p) (Box (Box p)))
+
+(* Placeholder for the rest of the file - to be completed *)
+
+Lemma placeholder : True.Definition set := form -> Prop.  | ax_5  : forall p,   Prov (Impl (Dia p) (Box (Dia p)))
+
+Proof. trivial. Qed.
+Definition In_set (G:set) (p:form) : Prop := G p.  | ax_PL_imp : forall p q r, Prov (Impl (Impl p q) (Impl (Impl q r) (Impl p r)))
+
+  | ax_PL_and1 : forall p q, Prov (Impl (And p q) p)
+
+(* Consistency *)  | ax_PL_and2 : forall p q, Prov (Impl (And p q) q)
+
+Definition consistent (G:set) : Prop := ~ (exists p, G p /\ G (Neg p)).  | ax_PL_and : forall p q, Prov (Impl p (Impl q (And p q)))
+
+  | ax_PL_or1 : forall p q, Prov (Impl p (Or p q))
+
+(* Maximal consistent theories with closure *)  | ax_PL_or2 : forall p q, Prov (Impl q (Or p q))
+
+Record mct (G : set) : Prop := {  | ax_PL_em  : forall p, Prov (Or p (Neg p))
+
+  mct_cons : consistent G;  | ax_PL_neg1 : forall p, Prov (Impl (Impl p Bot) (Neg p))
+
+  mct_closed : forall φ ψ, Prov (Impl φ ψ) -> G φ -> G ψ;  | ax_PL_neg2 : forall p, Prov (Impl (Neg p) (Impl p Bot))
+
+  mct_max : forall φ, G φ \/ G (Neg φ)  | ax_PL_neg_impl1 : forall φ ψ, Prov (Impl (Neg (Impl φ ψ)) (And φ (Neg ψ)))
+
+}.  | ax_PL_neg_impl2 : forall φ ψ, Prov (Impl (And φ (Neg ψ)) (Neg (Impl φ ψ)))
+
+  | mp    : forall p q, Prov (Impl p q) -> Prov p -> Prov q
+
+(* Base axioms for maximal theory closure *)  | nec   : forall p, Prov p -> Prov (Box p).
+
+Axiom maximal_contains_theorems : forall G, mct G -> forall φ, Prov φ -> In_set G φ.
+
+Axiom maximal_MP_closed : forall G, mct G -> forall φ ψ, In_set G (Impl φ ψ) -> In_set G φ -> In_set G ψ.Axiom ax_PL_or : forall p q r, Prov (Impl p r) -> Prov (Impl q r) -> Prov (Impl (Or p q) r).
+
+
+
+(* Euclidean helper axiom derived from ax_5 *)(* Sets of formulas *)
+
+Axiom ax_Euclid : forall p, Prov (Impl (Box p) (Box (Box p))).Definition set := form -> Prop.
+
+Definition In_set (G:set) (p:form) : Prop := G p.
+
+(* Small wrappers *)
+
+Definition maximal (G:set) : Prop := mct G.(* Consistency *)
+
+Definition extends (G H:set) : Prop := forall p, G p -> H p.Definition consistent (G:set) : Prop := ~ (exists p, G p /\ G (Neg p)).
+
+
+
+(* Placeholder for the rest of the file - to be completed *)(* Maximal consistent theories with closure *)
+
+Lemma placeholder : True.Record mct (G : set) : Prop := {
+
+Proof. trivial. Qed.  mct_cons : consistent G;
   mct_total : forall φ, In_set G φ \/ In_set G (Neg φ);
   mct_thm : forall φ, Prov φ -> In_set G φ;
   mct_mp : forall φ ψ, In_set G (Impl φ ψ) -> In_set G φ -> In_set G ψ

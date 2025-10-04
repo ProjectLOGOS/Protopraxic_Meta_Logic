@@ -1,0 +1,11 @@
+﻿{
+    "coq_version":  "8.20.1",
+    "name":  "PXL Total Packet",
+    "paths":  {
+                  "coq":  "coq",
+                  "prelude":  "C:\\Coq-Platform~8.20~2025.01\\lib\\coq\\theories"
+              },
+    "created_utc":  "2025-10-04T17:23:28.9100455Z",
+    "logical_root":  "PXLs",
+    "notes":  "Core constructive; overlays removable; Phase-4 canonical lemmas scoped."
+}

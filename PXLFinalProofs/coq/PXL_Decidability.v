@@ -3,8 +3,8 @@ Require Import Arith.
 Require Import Coq.Arith.PeanoNat.
 Import ListNotations. Set Implicit Arguments.
 Import List.
-Require Import PXLs.proof_checking.pxl_foundation_proof_v1.coq.PXLv3.
-Require Import PXLs.proof_checking.pxl_core_meta_validation_v3.pxl_meta_sets_v3.coq.S5_Kripke.
+Require Import PXLs.PXLv3.
+Require Import PXLs.S5_Kripke.
 
 Scheme Equality for form.
 
