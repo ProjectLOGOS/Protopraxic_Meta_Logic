@@ -50,8 +50,9 @@ Remove `PXL_TriuneTheory.v`, `PXL_Completeness_Interface.v`, `PXL_Completeness_I
 - Build: Coq 8.20.1, OCaml 4.14.2.
 
 ## Build & Verify
-1. Open PowerShell in this folder.
-2. Run: .\verify.ps1
+1. Clone: `git clone https://github.com/ProjectLOGOS/pxl-minimal-kernel.git`
+2. Open PowerShell in this folder.
+3. Run: .\verify.ps1
    - Compiles with coqc (Prelude via -R "C:\Coq-Platform~8.20~2025.01\lib\coq\theories" Coq and logical path -Q coq PXLs)
    - Runs coqchk
    - Runs hygiene scan (Axiom|Admitted|Parameter) and saves hygiene.txt

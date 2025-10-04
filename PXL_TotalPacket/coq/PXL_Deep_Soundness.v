@@ -130,22 +130,4 @@ Fixpoint soundness (F:frame) (φ:form) (H:Prov φ) : valid_on F φ :=
   | nec p H1 => fun v w => sound_nec F p (soundness F p H1) v w
   end.
 
-(* Assumes classical-free semantics for ¬ and ∀, and the existing ◇/□ clauses *)
-Lemma eval_Dia_to_notBoxNot (F:frame) (v:valuation F) (w:W F) (φ:form) :
-  eval F v w (Dia φ) -> eval F v w (Neg (Box (Neg φ))).
-Proof.
-  intros [u [HR Hu]] Hbox. (* Hbox: eval w □¬φ => ∀u, R w u -> eval u ¬φ *)
-  specialize (Hbox u HR). exact (Hbox Hu).
-Qed.
-
-(* This direction needs a witness when ¬(∀u, Rw u -> ¬φ u). Use your quarantined assumption. *)
-Require Import Assumptions.  (* NotAll_to_ExNot_R *)
-
-Lemma eval_notBoxNot_to_Dia (F:frame) (v:valuation F) (w:W F) (φ:form) :
-  eval F v w (Neg (Box (Neg φ))) -> eval F v w (Dia φ).
-Proof.
-  intros H. destruct (NotAll_to_ExNot_R F w φ) as [u [HR Hu]]; [exact H|].
-  now exists u; split.
-Qed.
-
 End Deep.

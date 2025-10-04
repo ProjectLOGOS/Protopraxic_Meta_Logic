@@ -33,11 +33,8 @@ Inductive Prov : form -> Prop :=
 | ax_modal_dual_dia_box2 : forall φ, Prov (Impl (Box (Neg φ)) (Neg (Dia φ)))
 | ax_modal_dual_box_dia1 : forall φ, Prov (Impl (Neg (Box φ)) (Dia (Neg φ)))
 | ax_modal_dual_box_dia2 : forall φ, Prov (Impl (Dia (Neg φ)) (Neg (Box φ)))
-| ax_dual_dia_box : forall φ, Prov (Impl (Dia φ) (Neg (Box (Neg φ))))
-| ax_dual_box_dia : forall φ, Prov (Impl (Neg (Box φ)) (Dia (Neg φ)))
 | mp      : forall p q, Prov (Impl p q) -> Prov p -> Prov q
-| nec     : forall p, Prov p -> Prov (Box p)
-| id_prop : forall φ, Prov (Impl φ φ).
+| nec     : forall p, Prov p -> Prov (Box p).
 
 Lemma mp2 p q r : Prov (Impl p (Impl q r)) -> Prov p -> Prov q -> Prov r.
 Proof. intros H1 H2 H3. eapply mp; [eapply mp; eauto|eauto]. Qed.
